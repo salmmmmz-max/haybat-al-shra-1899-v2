@@ -1,0 +1,797 @@
+{
+ "models": {
+  "dhari": {
+   "url": "models/dhari.glb",
+   "kind": "humanoid",
+   "stamp": "{\"src\":\"hf_20261115_060020_5880da95-c2aa-4bc9-a365-e3a1d67669c1.glb\",\"kind\":\"humanoid\",\"texFilter\":{\"median\":3,\"kernel\":\"mitchell\"},\"height\":1.75,\"baseClip\":\"walk\",\"texSize\":1024,\"clips\":{\"idle\":\"hf_20261115_061108_711dddc9-a0cb-43fc-8ae0-59f6bce8a9cf.glb\",\"run\":\"hf_20261115_061110_0fe0659f-001c-4c2d-b3f7-9c0c2079c5ad.glb\",\"sit\":\"hf_20261115_062035_146ae3ab-cf36-41e3-8c0e-5b51917a6ee8.glb\",\"kneel\":\"hf_20261115_062036_7b0de4c9-a491-4933-800b-5abff9a5f72e.glb\",\"drink\":\"hf_20261115_062036_5d0ae025-db3c-49c2-9aa1-aeb3f2dd756d.glb\",\"torch\":\"hf_20261115_062037_48beb452-492e-41a0-a6aa-4957251b86d8.glb\",\"swing\":\"hf_20261115_062038_80d7d5bd-74a1-44e6-94fc-838fffc14594.glb\",\"call\":\"hf_20261115_062038_5a0d8eb4-fe2c-414e-aa12-f9af5966cb96.glb\",\"steady\":\"hf_20261115_062039_3231fd6a-5383-45ca-a6a3-ff851eba8628.glb\",\"pull\":\"hf_20261115_063830_56f2bbf2-5f93-4299-896a-7d5bfe1f5095.glb\"}}",
+   "height": 1.75,
+   "measured": [
+    0.009,
+    0.018,
+    0.005
+   ],
+   "clips": [
+    "walk",
+    "idle",
+    "run",
+    "sit",
+    "kneel",
+    "drink",
+    "torch",
+    "swing",
+    "call",
+    "steady",
+    "pull"
+   ],
+   "bones": [
+    "Hips",
+    "Spine02",
+    "Spine01",
+    "Spine",
+    "neck",
+    "Head",
+    "head_end",
+    "headfront",
+    "LeftShoulder",
+    "LeftArm",
+    "LeftForeArm",
+    "LeftHand",
+    "RightShoulder",
+    "RightArm",
+    "RightForeArm",
+    "RightHand",
+    "LeftUpLeg",
+    "LeftLeg",
+    "LeftFoot",
+    "LeftToeBase",
+    "RightUpLeg",
+    "RightLeg",
+    "RightFoot",
+    "RightToeBase"
+   ],
+   "bytes": 1043028,
+   "tris": 22657,
+   "lod1": {
+    "url": "models/dhari.lod1.bin",
+    "tris": 14547,
+    "u16": true,
+    "bytes": 87282
+   },
+   "lod2": {
+    "url": "models/dhari.lod2.bin",
+    "tris": 3393,
+    "u16": true,
+    "bytes": 20358
+   }
+  },
+  "camel": {
+   "url": "models/camel.glb",
+   "kind": "quadruped",
+   "stamp": "{\"src\":\"hf_20261115_060022_15f3d2dc-634c-47bc-b48d-48a178a38715.glb\",\"kind\":\"quadruped\",\"spec\":\"camel\",\"fit\":{\"axis\":\"y\",\"meters\":2.55},\"yaw\":0,\"texSize\":1024}",
+   "scale": 2.55,
+   "yaw": 0,
+   "offset": [
+    0,
+    1.275,
+    0
+   ],
+   "size": [
+    0.989,
+    2.55,
+    2.542
+   ],
+   "spec": "camel",
+   "bytes": 235060,
+   "tris": 11422,
+   "lod1": {
+    "url": "models/camel.lod1.bin",
+    "tris": 2792,
+    "u16": true,
+    "bytes": 16752
+   }
+  },
+  "wolf": {
+   "url": "models/wolf.glb",
+   "kind": "quadruped",
+   "stamp": "{\"src\":\"hf_20261115_060117_74ddf2f8-e613-4ac5-9e4b-89724af2a493.glb\",\"kind\":\"quadruped\",\"spec\":\"wolf\",\"fit\":{\"axis\":\"x\",\"meters\":1.2},\"yaw\":-1.5707963,\"texSize\":512}",
+   "scale": 1.2,
+   "yaw": -1.5707963,
+   "offset": [
+    0,
+    0.505,
+    0
+   ],
+   "size": [
+    1.2,
+    1.011,
+    0.264
+   ],
+   "spec": "wolf",
+   "bytes": 119996,
+   "tris": 8536,
+   "lod1": {
+    "url": "models/wolf.lod1.bin",
+    "tris": 1706,
+    "u16": true,
+    "bytes": 10236
+   }
+  },
+  "camelsit": {
+   "url": "models/camelsit.glb",
+   "kind": "prop",
+   "stamp": "{\"src\":\"hf_20261115_060116_a4193113-879a-48a2-8778-0983052efb39.glb\",\"kind\":\"prop\",\"fit\":{\"axis\":\"z\",\"meters\":2.6},\"yaw\":3.14159265,\"texSize\":1024}",
+   "scale": 2.6,
+   "yaw": 3.14159265,
+   "offset": [
+    0,
+    1.022,
+    0
+   ],
+   "size": [
+    1.62,
+    2.043,
+    2.6
+   ],
+   "bytes": 240592,
+   "tris": 8848,
+   "lod1": {
+    "url": "models/camelsit.lod1.bin",
+    "tris": 2506,
+    "u16": true,
+    "bytes": 15036
+   }
+  },
+  "tent": {
+   "url": "models/tent.glb",
+   "kind": "prop",
+   "stamp": "{\"src\":\"hf_20261115_055653_f7835e59-c2f7-49ce-bbbd-95af1cb589cc.glb\",\"kind\":\"prop\",\"fit\":{\"axis\":\"z\",\"meters\":6.5},\"yaw\":-1.5707963,\"texSize\":1024}",
+   "scale": 6.5,
+   "yaw": -1.5707963,
+   "offset": [
+    0,
+    1.199,
+    0
+   ],
+   "size": [
+    2.407,
+    2.398,
+    6.5
+   ],
+   "bytes": 187104,
+   "tris": 8432,
+   "lod1": {
+    "url": "models/tent.lod1.bin",
+    "tris": 2530,
+    "u16": true,
+    "bytes": 15180
+   }
+  },
+  "well": {
+   "url": "models/well.glb",
+   "kind": "prop",
+   "stamp": "{\"src\":\"hf_20261115_060118_7df796df-57e1-411c-b464-7c9f6514fda9.glb\",\"kind\":\"prop\",\"fit\":{\"axis\":\"x\",\"meters\":3},\"yaw\":0,\"texSize\":1024}",
+   "scale": 3,
+   "yaw": 0,
+   "offset": [
+    0,
+    1.289,
+    0
+   ],
+   "size": [
+    3,
+    2.578,
+    2.882
+   ],
+   "bytes": 231160,
+   "tris": 6728,
+   "lod1": {
+    "url": "models/well.lod1.bin",
+    "tris": 1317,
+    "u16": true,
+    "bytes": 7902
+   }
+  },
+  "campfire": {
+   "url": "models/campfire.glb",
+   "kind": "prop",
+   "stamp": "{\"src\":\"hf_20261115_060120_30e9b80a-7a49-42e5-8190-e43e6f432d40.glb\",\"kind\":\"prop\",\"fit\":{\"axis\":\"x\",\"meters\":1.9},\"yaw\":0,\"sink\":-0.03,\"texSize\":512}",
+   "scale": 1.9,
+   "yaw": 0,
+   "offset": [
+    0,
+    0.417,
+    0
+   ],
+   "size": [
+    1.9,
+    0.894,
+    1.868
+   ],
+   "bytes": 114760,
+   "tris": 5742,
+   "lod1": {
+    "url": "models/campfire.lod1.bin",
+    "tris": 1662,
+    "u16": true,
+    "bytes": 9972
+   }
+  },
+  "acacia": {
+   "url": "models/acacia.glb",
+   "kind": "prop",
+   "stamp": "{\"src\":\"hf_20261115_060121_5b304f8d-405e-4b89-bc4c-960240047b93.glb\",\"kind\":\"prop\",\"fit\":{\"axis\":\"y\",\"meters\":5.2},\"yaw\":0,\"sink\":-0.08,\"texSize\":512}",
+   "scale": 6.561,
+   "yaw": 0,
+   "offset": [
+    0,
+    2.52,
+    0
+   ],
+   "size": [
+    4.494,
+    5.2,
+    6.561
+   ],
+   "bytes": 114736,
+   "tris": 6742,
+   "lod1": {
+    "url": "models/acacia.lod1.bin",
+    "tris": 1346,
+    "u16": true,
+    "bytes": 8076
+   }
+  },
+  "waterskins": {
+   "url": "models/waterskins.glb",
+   "kind": "prop",
+   "stamp": "{\"src\":\"hf_20261115_060123_b294b47c-0914-4d91-94ac-818c7effded1.glb\",\"kind\":\"prop\",\"fit\":{\"axis\":\"y\",\"meters\":1.7},\"yaw\":0,\"texSize\":512}",
+   "scale": 1.7,
+   "yaw": 0,
+   "offset": [
+    0,
+    0.85,
+    0
+   ],
+   "size": [
+    1.244,
+    1.7,
+    1.486
+   ],
+   "bytes": 88860,
+   "tris": 3388,
+   "lod1": {
+    "url": "models/waterskins.lod1.bin",
+    "tris": 1043,
+    "u16": true,
+    "bytes": 6258
+   }
+  },
+  "moudi": {
+   "url": "models/moudi.glb",
+   "kind": "humanoid",
+   "stamp": "{\"src\":\"hf_20261115_060812_e153edd4-10cc-4813-98e8-734e007abba4.glb\",\"kind\":\"humanoid\",\"texFilter\":{\"median\":3,\"kernel\":\"mitchell\"},\"height\":1.62,\"baseClip\":\"walk\",\"texSize\":512,\"clips\":{\"idle\":\"hf_20261115_062114_ce73438f-c093-430e-9a73-4935d6b8ee5b.glb\"}}",
+   "height": 1.62,
+   "measured": [
+    0.009,
+    0.016,
+    0.006
+   ],
+   "clips": [
+    "walk",
+    "idle"
+   ],
+   "bones": [
+    "Hips",
+    "Spine02",
+    "Spine01",
+    "Spine",
+    "neck",
+    "Head",
+    "head_end",
+    "headfront",
+    "LeftShoulder",
+    "LeftArm",
+    "LeftForeArm",
+    "LeftHand",
+    "RightShoulder",
+    "RightArm",
+    "RightForeArm",
+    "RightHand",
+    "LeftUpLeg",
+    "LeftLeg",
+    "LeftFoot",
+    "LeftToeBase",
+    "RightUpLeg",
+    "RightLeg",
+    "RightFoot",
+    "RightToeBase"
+   ],
+   "bytes": 558660,
+   "tris": 14259,
+   "lod1": {
+    "url": "models/moudi.lod1.bin",
+    "tris": 10339,
+    "u16": true,
+    "bytes": 62034
+   },
+   "lod2": {
+    "url": "models/moudi.lod2.bin",
+    "tris": 2130,
+    "u16": true,
+    "bytes": 12780
+   }
+  },
+  "fuhaid": {
+   "url": "models/fuhaid.glb",
+   "kind": "humanoid",
+   "stamp": "{\"src\":\"hf_20261115_060813_37915115-2e40-4d45-9e61-92574bec8660.glb\",\"kind\":\"humanoid\",\"texFilter\":{\"median\":3,\"kernel\":\"mitchell\"},\"height\":1.25,\"baseClip\":\"walk\",\"texSize\":512,\"clips\":{\"idle\":\"hf_20261115_062115_48fff620-755d-40a5-9702-44e5e734203f.glb\",\"run\":\"hf_20261115_062115_81d73240-4d99-4010-9d7d-013de8d32e25.glb\",\"sit\":\"hf_20261115_062116_bcc806bf-05b9-4274-b5ef-f78b70034eb5.glb\",\"wave\":\"hf_20261115_062118_c3c6b064-b7d3-49a9-98c6-4e6e491b9792.glb\"}}",
+   "height": 1.25,
+   "measured": [
+    0.007,
+    0.013,
+    0.003
+   ],
+   "clips": [
+    "walk",
+    "idle",
+    "run",
+    "sit",
+    "wave"
+   ],
+   "bones": [
+    "Hips",
+    "Spine02",
+    "Spine01",
+    "Spine",
+    "neck",
+    "Head",
+    "head_end",
+    "headfront",
+    "LeftShoulder",
+    "LeftArm",
+    "LeftForeArm",
+    "LeftHand",
+    "RightShoulder",
+    "RightArm",
+    "RightForeArm",
+    "RightHand",
+    "LeftUpLeg",
+    "LeftLeg",
+    "LeftFoot",
+    "LeftToeBase",
+    "RightUpLeg",
+    "RightLeg",
+    "RightFoot",
+    "RightToeBase"
+   ],
+   "bytes": 584304,
+   "tris": 12408,
+   "lod1": {
+    "url": "models/fuhaid.lod1.bin",
+    "tris": 9388,
+    "u16": true,
+    "bytes": 56328
+   },
+   "lod2": {
+    "url": "models/fuhaid.lod2.bin",
+    "tris": 1858,
+    "u16": true,
+    "bytes": 11148
+   }
+  },
+  "mani": {
+   "url": "models/mani.glb",
+   "kind": "humanoid",
+   "stamp": "{\"src\":\"hf_20261115_060020_03f48046-d181-4d97-904b-62f29dcd546c.glb\",\"kind\":\"humanoid\",\"texFilter\":{\"median\":3,\"kernel\":\"mitchell\"},\"height\":1.78,\"baseClip\":\"walk\",\"texSize\":1024,\"clips\":{\"idle\":\"hf_20261115_062111_08787b65-522b-4fe3-8817-0bc8224fd702.glb\",\"talk\":\"hf_20261115_062111_42e62bce-43b5-41c9-b677-3dd3b59d2da3.glb\",\"sit\":\"hf_20261115_062112_c5a546f6-2c4a-4f43-8a0f-ade1c6c90f82.glb\",\"lie\":\"hf_20261115_062113_f84f7d0b-bc22-4a7e-9f02-b3950593a909.glb\",\"drink\":\"hf_20261115_062113_342b02f6-ab89-4f6f-bbe1-ebbee638f42d.glb\"}}",
+   "height": 1.78,
+   "measured": [
+    0.01,
+    0.018,
+    0.006
+   ],
+   "clips": [
+    "walk",
+    "idle",
+    "talk",
+    "sit",
+    "lie",
+    "drink"
+   ],
+   "bones": [
+    "Hips",
+    "Spine02",
+    "Spine01",
+    "Spine",
+    "neck",
+    "Head",
+    "head_end",
+    "headfront",
+    "LeftShoulder",
+    "LeftArm",
+    "LeftForeArm",
+    "LeftHand",
+    "RightShoulder",
+    "RightArm",
+    "RightForeArm",
+    "RightHand",
+    "LeftUpLeg",
+    "LeftLeg",
+    "LeftFoot",
+    "LeftToeBase",
+    "RightUpLeg",
+    "RightLeg",
+    "RightFoot",
+    "RightToeBase"
+   ],
+   "bytes": 948428,
+   "tris": 20274,
+   "lod1": {
+    "url": "models/mani.lod1.bin",
+    "tris": 15064,
+    "u16": true,
+    "bytes": 90384
+   },
+   "lod2": {
+    "url": "models/mani.lod2.bin",
+    "tris": 3040,
+    "u16": true,
+    "bytes": 18240
+   }
+  },
+  "misfer": {
+   "url": "models/misfer.glb",
+   "kind": "humanoid",
+   "stamp": "{\"src\":\"hf_20261115_060810_605cae2a-f4c7-45e2-84cc-461ad5604d59.glb\",\"kind\":\"humanoid\",\"texFilter\":{\"median\":3,\"kernel\":\"mitchell\"},\"height\":1.72,\"baseClip\":\"walk\",\"texSize\":512,\"clips\":{\"idle\":\"hf_20261115_063527_1e802468-73d4-45cb-8482-95f779f620ab.glb\",\"talk\":\"hf_20261115_063527_9eecbb4c-3cf6-42a7-9377-ee9909975935.glb\",\"run\":\"hf_20261115_063528_6d004abb-0272-4195-acb3-5dd70d42c7af.glb\"}}",
+   "height": 1.72,
+   "measured": [
+    0.01,
+    0.017,
+    0.005
+   ],
+   "clips": [
+    "walk",
+    "idle",
+    "talk",
+    "run"
+   ],
+   "bones": [
+    "Hips",
+    "Spine02",
+    "Spine01",
+    "Spine",
+    "neck",
+    "Head",
+    "head_end",
+    "headfront",
+    "LeftShoulder",
+    "LeftArm",
+    "LeftForeArm",
+    "LeftHand",
+    "RightShoulder",
+    "RightArm",
+    "RightForeArm",
+    "RightHand",
+    "LeftUpLeg",
+    "LeftLeg",
+    "LeftFoot",
+    "LeftToeBase",
+    "RightUpLeg",
+    "RightLeg",
+    "RightFoot",
+    "RightToeBase"
+   ],
+   "bytes": 734276,
+   "tris": 16464,
+   "lod1": {
+    "url": "models/misfer.lod1.bin",
+    "tris": 12896,
+    "u16": true,
+    "bytes": 77376
+   },
+   "lod2": {
+    "url": "models/misfer.lod2.bin",
+    "tris": 2432,
+    "u16": true,
+    "bytes": 14592
+   }
+  },
+  "jaber": {
+   "url": "models/jaber.glb",
+   "kind": "humanoid",
+   "stamp": "{\"src\":\"hf_20261115_060811_75795bbd-5ccf-45fa-bed7-4ee0b5a53801.glb\",\"kind\":\"humanoid\",\"texFilter\":{\"median\":3,\"kernel\":\"mitchell\"},\"height\":1.8,\"baseClip\":\"walk\",\"texSize\":512,\"clips\":{\"idle\":\"hf_20261115_063529_f65d0abb-5e98-463c-9f41-65885451c7f8.glb\",\"talk\":\"hf_20261115_063530_49a64852-b91d-4154-ba17-707b1a4faf00.glb\",\"aim\":\"hf_20261115_063531_ea767ba4-300a-49f9-bb69-f1e2d46a37a7.glb\",\"lie\":\"hf_20261115_063532_ddf2ec12-0932-4779-9ae8-05b8797c629d.glb\",\"sit\":\"hf_20261115_063532_e46397be-1844-4119-98b6-bc6397d66c24.glb\"}}",
+   "height": 1.8,
+   "measured": [
+    0.011,
+    0.018,
+    0.003
+   ],
+   "clips": [
+    "walk",
+    "idle",
+    "talk",
+    "aim",
+    "lie",
+    "sit"
+   ],
+   "bones": [
+    "Hips",
+    "Spine02",
+    "Spine01",
+    "Spine",
+    "neck",
+    "Head",
+    "head_end",
+    "headfront",
+    "LeftShoulder",
+    "LeftArm",
+    "LeftForeArm",
+    "LeftHand",
+    "RightShoulder",
+    "RightArm",
+    "RightForeArm",
+    "RightHand",
+    "LeftUpLeg",
+    "LeftLeg",
+    "LeftFoot",
+    "LeftToeBase",
+    "RightUpLeg",
+    "RightLeg",
+    "RightFoot",
+    "RightToeBase"
+   ],
+   "bytes": 741868,
+   "tris": 16489,
+   "lod1": {
+    "url": "models/jaber.lod1.bin",
+    "tris": 11869,
+    "u16": true,
+    "bytes": 71214
+   },
+   "lod2": {
+    "url": "models/jaber.lod2.bin",
+    "tris": 2472,
+    "u16": true,
+    "bytes": 14832
+   }
+  }
+ },
+ "textures": {},
+ "audio": {
+  "music_march": {
+   "url": "audio/music_march.mp3",
+   "type": "music",
+   "loop": true,
+   "stamp": "{\"src\":\"hf_20261115_063856_3508015c-1d29-4d50-be79-a45ba18f10a4.m4a\",\"type\":\"music\",\"loop\":true}",
+   "bytes": 641744
+  },
+  "music_night": {
+   "url": "audio/music_night.mp3",
+   "type": "music",
+   "loop": true,
+   "stamp": "{\"src\":\"hf_20261115_063856_da597c72-86f3-46e2-ad24-73bcb2b2d887.m4a\",\"type\":\"music\",\"loop\":true}",
+   "bytes": 641744
+  },
+  "music_haya": {
+   "url": "audio/music_haya.mp3",
+   "type": "music",
+   "loop": true,
+   "stamp": "{\"src\":\"hf_20261115_063857_106c11e0-9077-4e85-a8cf-a11a13b9543b.m4a\",\"type\":\"music\",\"loop\":true}",
+   "bytes": 641744
+  },
+  "sfx_camel": {
+   "url": "audio/sfx_camel.mp3",
+   "type": "sfx",
+   "loop": false,
+   "stamp": "{\"src\":\"hf_20261115_063856_b376d5ec-6e44-41f9-83d1-cb1d936dcec2.mp3\",\"type\":\"sfx\",\"mono\":true}",
+   "bytes": 37034
+  },
+  "sfx_snarl": {
+   "url": "audio/sfx_snarl.mp3",
+   "type": "sfx",
+   "loop": false,
+   "stamp": "{\"src\":\"hf_20261115_063856_cad14df3-d337-4d6d-af19-c6779cfb79b6.mp3\",\"type\":\"sfx\",\"mono\":true}",
+   "bytes": 25122
+  },
+  "sfx_shot": {
+   "url": "audio/sfx_shot.mp3",
+   "type": "sfx",
+   "loop": false,
+   "stamp": "{\"src\":\"hf_20261115_063856_c4c0cbfb-97a1-40e4-92fa-7733f540fed3.mp3\",\"type\":\"sfx\",\"mono\":true}",
+   "bytes": 37034
+  },
+  "sfx_torch": {
+   "url": "audio/sfx_torch.mp3",
+   "type": "sfx",
+   "loop": false,
+   "stamp": "{\"src\":\"hf_20261115_063856_8891806f-0fab-4c72-b8d0-1f0f2507304a.mp3\",\"type\":\"sfx\",\"mono\":true}",
+   "bytes": 25122
+  },
+  "sfx_qata": {
+   "url": "audio/sfx_qata.mp3",
+   "type": "sfx",
+   "loop": false,
+   "stamp": "{\"src\":\"hf_20261115_063856_ce74e8e2-2f33-48c5-bf2e-c6701e33ce92.mp3\",\"type\":\"sfx\"}",
+   "bytes": 48946
+  },
+  "sfx_thunder": {
+   "url": "audio/sfx_thunder.mp3",
+   "type": "sfx",
+   "loop": false,
+   "stamp": "{\"src\":\"hf_20261115_063856_a9e58987-fba0-4960-af91-367d074b403f.mp3\",\"type\":\"sfx\"}",
+   "bytes": 60858
+  },
+  "sfx_pulley": {
+   "url": "audio/sfx_pulley.mp3",
+   "type": "sfx",
+   "loop": false,
+   "stamp": "{\"src\":\"hf_20261115_063856_9b70a64b-1eb8-4717-8846-866a23a86d99.mp3\",\"type\":\"sfx\",\"mono\":true}",
+   "bytes": 37034
+  },
+  "sfx_howl": {
+   "url": "audio/sfx_howl.mp3",
+   "type": "sfx",
+   "loop": false,
+   "stamp": "{\"src\":\"hf_20261115_085720_f539c0fe-0684-4e8b-adc4-f4d435694455.mp3\",\"type\":\"sfx\",\"mono\":true}",
+   "bytes": 60858
+  },
+  "sfx_water": {
+   "url": "audio/sfx_water.mp3",
+   "type": "sfx",
+   "loop": false,
+   "stamp": "{\"src\":\"hf_20261115_085720_e9bea3d1-a96c-47f3-b6b8-0e12620b0969.mp3\",\"type\":\"sfx\",\"mono\":true}",
+   "bytes": 37034
+  },
+  "sfx_calf": {
+   "url": "audio/sfx_calf.mp3",
+   "type": "sfx",
+   "loop": false,
+   "stamp": "{\"src\":\"hf_20261115_085720_62fee302-98b3-4993-9bdf-03f4fb4b47de.mp3\",\"type\":\"sfx\",\"mono\":true}",
+   "bytes": 25122
+  },
+  "sfx_drum": {
+   "url": "audio/sfx_drum.mp3",
+   "type": "sfx",
+   "loop": false,
+   "stamp": "{\"src\":\"hf_20261115_085720_5c9fdc22-e5f2-457e-b6ea-411e14eed548.mp3\",\"type\":\"sfx\",\"mono\":true}",
+   "bytes": 25122
+  },
+  "sfx_gust": {
+   "url": "audio/sfx_gust.mp3",
+   "type": "sfx",
+   "loop": false,
+   "stamp": "{\"src\":\"hf_20261115_085720_6edbd57b-fda7-440f-865c-bb2b38d5a40d.mp3\",\"type\":\"sfx\",\"mono\":true,\"loop\":false}",
+   "bytes": 48946
+  },
+  "sfx_rain": {
+   "url": "audio/sfx_rain.mp3",
+   "type": "sfx",
+   "loop": true,
+   "stamp": "{\"src\":\"hf_20261115_085720_8e434054-f363-4e00-b0c3-d87fbdb79958.mp3\",\"type\":\"sfx\",\"mono\":true,\"loop\":true}",
+   "bytes": 96907
+  }
+ },
+ "images": {},
+ "groups": {
+  "boot": {
+   "models": [],
+   "textures": [],
+   "audio": []
+  },
+  "common": {
+   "models": [
+    "dhari"
+   ],
+   "textures": [],
+   "audio": [
+    "sfx_camel",
+    "sfx_calf",
+    "sfx_howl",
+    "sfx_snarl",
+    "sfx_shot",
+    "sfx_water",
+    "sfx_torch",
+    "sfx_qata",
+    "sfx_thunder",
+    "sfx_pulley",
+    "sfx_drum",
+    "sfx_gust",
+    "sfx_rain"
+   ]
+  },
+  "ch1": {
+   "models": [
+    "mani",
+    "misfer",
+    "fuhaid",
+    "moudi",
+    "camel",
+    "tent",
+    "well",
+    "campfire",
+    "acacia",
+    "waterskins",
+    "camelsit"
+   ],
+   "textures": [],
+   "audio": [
+    "music_march"
+   ]
+  },
+  "ch2": {
+   "models": [
+    "mani",
+    "misfer",
+    "fuhaid",
+    "moudi",
+    "camel",
+    "acacia",
+    "waterskins",
+    "camelsit",
+    "campfire"
+   ],
+   "textures": [],
+   "audio": [
+    "music_march"
+   ]
+  },
+  "ch3": {
+   "models": [
+    "mani",
+    "misfer",
+    "fuhaid",
+    "moudi",
+    "camel",
+    "wolf",
+    "acacia",
+    "waterskins",
+    "camelsit",
+    "campfire"
+   ],
+   "textures": [],
+   "audio": [
+    "music_night"
+   ]
+  },
+  "ch4": {
+   "models": [
+    "mani",
+    "misfer",
+    "fuhaid",
+    "moudi",
+    "jaber",
+    "camel",
+    "acacia",
+    "well",
+    "tent",
+    "camelsit",
+    "campfire"
+   ],
+   "textures": [],
+   "audio": [
+    "music_march",
+    "music_night"
+   ]
+  },
+  "ch5": {
+   "models": [
+    "mani",
+    "misfer",
+    "fuhaid",
+    "moudi",
+    "jaber",
+    "camel",
+    "acacia",
+    "well",
+    "tent",
+    "camelsit",
+    "campfire"
+   ],
+   "textures": [],
+   "audio": [
+    "music_night",
+    "music_haya"
+   ]
+  }
+ },
+ "generated": 1
+}

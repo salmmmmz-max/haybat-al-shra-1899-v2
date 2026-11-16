@@ -1,0 +1,384 @@
+{
+ "_comment": "Raw generated assets (Higgsfield result CDN). tools/assets.mjs downloads + optimizes them into ../app/public/assets. The same script runs locally and in the remote sandbox, so outputs are reproducible in both. yaw = radians added so the model faces +Z. fit = real-world size of one bbox axis in meters.",
+ "version": 1,
+ "cdn": "https://d8j0ntlcm91z4.cloudfront.net/user_3Ky375jjSHvERKsiNPrFj3jEWq2/",
+ "models": {
+  "dhari": {
+   "src": "hf_20261115_060020_5880da95-c2aa-4bc9-a365-e3a1d67669c1.glb",
+   "kind": "humanoid",
+   "texFilter": { "median": 3, "kernel": "mitchell" },
+   "height": 1.75,
+   "baseClip": "walk",
+   "texSize": 1024,
+   "clips": {
+    "idle": "hf_20261115_061108_711dddc9-a0cb-43fc-8ae0-59f6bce8a9cf.glb",
+    "run": "hf_20261115_061110_0fe0659f-001c-4c2d-b3f7-9c0c2079c5ad.glb",
+    "sit": "hf_20261115_062035_146ae3ab-cf36-41e3-8c0e-5b51917a6ee8.glb",
+    "kneel": "hf_20261115_062036_7b0de4c9-a491-4933-800b-5abff9a5f72e.glb",
+    "drink": "hf_20261115_062036_5d0ae025-db3c-49c2-9aa1-aeb3f2dd756d.glb",
+    "torch": "hf_20261115_062037_48beb452-492e-41a0-a6aa-4957251b86d8.glb",
+    "swing": "hf_20261115_062038_80d7d5bd-74a1-44e6-94fc-838fffc14594.glb",
+    "call": "hf_20261115_062038_5a0d8eb4-fe2c-414e-aa12-f9af5966cb96.glb",
+    "steady": "hf_20261115_062039_3231fd6a-5383-45ca-a6a3-ff851eba8628.glb",
+    "pull": "hf_20261115_063830_56f2bbf2-5f93-4299-896a-7d5bfe1f5095.glb"
+   }
+  },
+  "camel": {
+   "src": "hf_20261115_060022_15f3d2dc-634c-47bc-b48d-48a178a38715.glb",
+   "kind": "quadruped",
+   "spec": "camel",
+   "fit": {
+    "axis": "y",
+    "meters": 2.55
+   },
+   "yaw": 0,
+   "texSize": 1024
+  },
+  "wolf": {
+   "src": "hf_20261115_060117_74ddf2f8-e613-4ac5-9e4b-89724af2a493.glb",
+   "kind": "quadruped",
+   "spec": "wolf",
+   "fit": {
+    "axis": "x",
+    "meters": 1.2
+   },
+   "yaw": -1.5707963,
+   "texSize": 512
+  },
+  "camelsit": {
+   "src": "hf_20261115_060116_a4193113-879a-48a2-8778-0983052efb39.glb",
+   "kind": "prop",
+   "fit": {
+    "axis": "z",
+    "meters": 2.6
+   },
+   "yaw": 3.14159265,
+   "texSize": 1024
+  },
+  "tent": {
+   "src": "hf_20261115_055653_f7835e59-c2f7-49ce-bbbd-95af1cb589cc.glb",
+   "kind": "prop",
+   "fit": {
+    "axis": "z",
+    "meters": 6.5
+   },
+   "yaw": -1.5707963,
+   "texSize": 1024
+  },
+  "well": {
+   "src": "hf_20261115_060118_7df796df-57e1-411c-b464-7c9f6514fda9.glb",
+   "kind": "prop",
+   "fit": {
+    "axis": "x",
+    "meters": 3
+   },
+   "yaw": 0,
+   "texSize": 1024
+  },
+  "campfire": {
+   "src": "hf_20261115_060120_30e9b80a-7a49-42e5-8190-e43e6f432d40.glb",
+   "kind": "prop",
+   "fit": {
+    "axis": "x",
+    "meters": 1.9
+   },
+   "yaw": 0,
+   "sink": -0.03,
+   "texSize": 512
+  },
+  "acacia": {
+   "src": "hf_20261115_060121_5b304f8d-405e-4b89-bc4c-960240047b93.glb",
+   "kind": "prop",
+   "fit": {
+    "axis": "y",
+    "meters": 5.2
+   },
+   "yaw": 0,
+   "sink": -0.08,
+   "texSize": 512
+  },
+  "waterskins": {
+   "src": "hf_20261115_060123_b294b47c-0914-4d91-94ac-818c7effded1.glb",
+   "kind": "prop",
+   "fit": {
+    "axis": "y",
+    "meters": 1.7
+   },
+   "yaw": 0,
+   "texSize": 512
+  },
+  "moudi": {
+   "src": "hf_20261115_060812_e153edd4-10cc-4813-98e8-734e007abba4.glb",
+   "kind": "humanoid",
+   "texFilter": { "median": 3, "kernel": "mitchell" },
+   "height": 1.62,
+   "baseClip": "walk",
+   "texSize": 512,
+   "clips": {
+    "idle": "hf_20261115_062114_ce73438f-c093-430e-9a73-4935d6b8ee5b.glb"
+   }
+  },
+  "fuhaid": {
+   "src": "hf_20261115_060813_37915115-2e40-4d45-9e61-92574bec8660.glb",
+   "kind": "humanoid",
+   "texFilter": { "median": 3, "kernel": "mitchell" },
+   "height": 1.25,
+   "baseClip": "walk",
+   "texSize": 512,
+   "clips": {
+    "idle": "hf_20261115_062115_48fff620-755d-40a5-9702-44e5e734203f.glb",
+    "run": "hf_20261115_062115_81d73240-4d99-4010-9d7d-013de8d32e25.glb",
+    "sit": "hf_20261115_062116_bcc806bf-05b9-4274-b5ef-f78b70034eb5.glb",
+    "wave": "hf_20261115_062118_c3c6b064-b7d3-49a9-98c6-4e6e491b9792.glb"
+   }
+  },
+  "mani": {
+   "src": "hf_20261115_060020_03f48046-d181-4d97-904b-62f29dcd546c.glb",
+   "kind": "humanoid",
+   "texFilter": { "median": 3, "kernel": "mitchell" },
+   "height": 1.78,
+   "baseClip": "walk",
+   "texSize": 1024,
+   "clips": {
+    "idle": "hf_20261115_062111_08787b65-522b-4fe3-8817-0bc8224fd702.glb",
+    "talk": "hf_20261115_062111_42e62bce-43b5-41c9-b677-3dd3b59d2da3.glb",
+    "sit": "hf_20261115_062112_c5a546f6-2c4a-4f43-8a0f-ade1c6c90f82.glb",
+    "lie": "hf_20261115_062113_f84f7d0b-bc22-4a7e-9f02-b3950593a909.glb",
+    "drink": "hf_20261115_062113_342b02f6-ab89-4f6f-bbe1-ebbee638f42d.glb"
+   }
+  },
+  "misfer": {
+   "src": "hf_20261115_060810_605cae2a-f4c7-45e2-84cc-461ad5604d59.glb",
+   "kind": "humanoid",
+   "texFilter": { "median": 3, "kernel": "mitchell" },
+   "height": 1.72,
+   "baseClip": "walk",
+   "texSize": 512,
+   "clips": {
+    "idle": "hf_20261115_063527_1e802468-73d4-45cb-8482-95f779f620ab.glb",
+    "talk": "hf_20261115_063527_9eecbb4c-3cf6-42a7-9377-ee9909975935.glb",
+    "run": "hf_20261115_063528_6d004abb-0272-4195-acb3-5dd70d42c7af.glb"
+   }
+  },
+  "jaber": {
+   "src": "hf_20261115_060811_75795bbd-5ccf-45fa-bed7-4ee0b5a53801.glb",
+   "kind": "humanoid",
+   "texFilter": { "median": 3, "kernel": "mitchell" },
+   "height": 1.8,
+   "baseClip": "walk",
+   "texSize": 512,
+   "clips": {
+    "idle": "hf_20261115_063529_f65d0abb-5e98-463c-9f41-65885451c7f8.glb",
+    "talk": "hf_20261115_063530_49a64852-b91d-4154-ba17-707b1a4faf00.glb",
+    "aim": "hf_20261115_063531_ea767ba4-300a-49f9-bb69-f1e2d46a37a7.glb",
+    "lie": "hf_20261115_063532_ddf2ec12-0932-4779-9ae8-05b8797c629d.glb",
+    "sit": "hf_20261115_063532_e46397be-1844-4119-98b6-bc6397d66c24.glb"
+   }
+  }
+ },
+ "textures": {},
+ "audio": {
+  "music_march": {
+   "src": "hf_20261115_063856_3508015c-1d29-4d50-be79-a45ba18f10a4.m4a",
+   "type": "music",
+   "loop": true
+  },
+  "music_night": {
+   "src": "hf_20261115_063856_da597c72-86f3-46e2-ad24-73bcb2b2d887.m4a",
+   "type": "music",
+   "loop": true
+  },
+  "music_haya": {
+   "src": "hf_20261115_063857_106c11e0-9077-4e85-a8cf-a11a13b9543b.m4a",
+   "type": "music",
+   "loop": true
+  },
+  "sfx_camel": {
+   "src": "hf_20261115_063856_b376d5ec-6e44-41f9-83d1-cb1d936dcec2.mp3",
+   "type": "sfx",
+   "mono": true
+  },
+  "sfx_snarl": {
+   "src": "hf_20261115_063856_cad14df3-d337-4d6d-af19-c6779cfb79b6.mp3",
+   "type": "sfx",
+   "mono": true
+  },
+  "sfx_shot": {
+   "src": "hf_20261115_063856_c4c0cbfb-97a1-40e4-92fa-7733f540fed3.mp3",
+   "type": "sfx",
+   "mono": true
+  },
+  "sfx_torch": {
+   "src": "hf_20261115_063856_8891806f-0fab-4c72-b8d0-1f0f2507304a.mp3",
+   "type": "sfx",
+   "mono": true
+  },
+  "sfx_qata": {
+   "src": "hf_20261115_063856_ce74e8e2-2f33-48c5-bf2e-c6701e33ce92.mp3",
+   "type": "sfx"
+  },
+  "sfx_thunder": {
+   "src": "hf_20261115_063856_a9e58987-fba0-4960-af91-367d074b403f.mp3",
+   "type": "sfx"
+  },
+  "sfx_pulley": {
+   "src": "hf_20261115_063856_9b70a64b-1eb8-4717-8846-866a23a86d99.mp3",
+   "type": "sfx",
+   "mono": true
+  },
+  "sfx_howl": {
+   "src": "hf_20261115_085720_f539c0fe-0684-4e8b-adc4-f4d435694455.mp3",
+   "type": "sfx",
+   "mono": true
+  },
+  "sfx_water": {
+   "src": "hf_20261115_085720_e9bea3d1-a96c-47f3-b6b8-0e12620b0969.mp3",
+   "type": "sfx",
+   "mono": true
+  },
+  "sfx_calf": {
+   "src": "hf_20261115_085720_62fee302-98b3-4993-9bdf-03f4fb4b47de.mp3",
+   "type": "sfx",
+   "mono": true
+  },
+  "sfx_drum": {
+   "src": "hf_20261115_085720_5c9fdc22-e5f2-457e-b6ea-411e14eed548.mp3",
+   "type": "sfx",
+   "mono": true
+  },
+  "sfx_gust": {
+   "src": "hf_20261115_085720_6edbd57b-fda7-440f-865c-bb2b38d5a40d.mp3",
+   "type": "sfx",
+   "mono": true,
+   "loop": false
+  },
+  "sfx_rain": {
+   "src": "hf_20261115_085720_8e434054-f363-4e00-b0c3-d87fbdb79958.mp3",
+   "type": "sfx",
+   "mono": true,
+   "loop": true
+  }
+ },
+ "groups": {
+  "boot": {
+   "models": [],
+   "textures": [],
+   "audio": []
+  },
+  "common": {
+   "models": [
+    "dhari"
+   ],
+   "textures": [],
+   "audio": [
+    "sfx_camel",
+    "sfx_calf",
+    "sfx_howl",
+    "sfx_snarl",
+    "sfx_shot",
+    "sfx_water",
+    "sfx_torch",
+    "sfx_qata",
+    "sfx_thunder",
+    "sfx_pulley",
+    "sfx_drum",
+    "sfx_gust",
+    "sfx_rain"
+   ]
+  },
+  "ch1": {
+   "models": [
+    "mani",
+    "misfer",
+    "fuhaid",
+    "moudi",
+    "camel",
+    "tent",
+    "well",
+    "campfire",
+    "acacia",
+    "waterskins",
+    "camelsit"
+   ],
+   "textures": [],
+   "audio": [
+    "music_march"
+   ]
+  },
+  "ch2": {
+   "models": [
+    "mani",
+    "misfer",
+    "fuhaid",
+    "moudi",
+    "camel",
+    "acacia",
+    "waterskins",
+    "camelsit",
+    "campfire"
+   ],
+   "textures": [],
+   "audio": [
+    "music_march"
+   ]
+  },
+  "ch3": {
+   "models": [
+    "mani",
+    "misfer",
+    "fuhaid",
+    "moudi",
+    "camel",
+    "wolf",
+    "acacia",
+    "waterskins",
+    "camelsit",
+    "campfire"
+   ],
+   "textures": [],
+   "audio": [
+    "music_night"
+   ]
+  },
+  "ch4": {
+   "models": [
+    "mani",
+    "misfer",
+    "fuhaid",
+    "moudi",
+    "jaber",
+    "camel",
+    "acacia",
+    "well",
+    "tent",
+    "camelsit",
+    "campfire"
+   ],
+   "textures": [],
+   "audio": [
+    "music_march",
+    "music_night"
+   ]
+  },
+  "ch5": {
+   "models": [
+    "mani",
+    "misfer",
+    "fuhaid",
+    "moudi",
+    "jaber",
+    "camel",
+    "acacia",
+    "well",
+    "tent",
+    "camelsit",
+    "campfire"
+   ],
+   "textures": [],
+   "audio": [
+    "music_night",
+    "music_haya"
+   ]
+  }
+ }
+}

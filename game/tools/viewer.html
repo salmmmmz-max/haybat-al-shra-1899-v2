@@ -1,0 +1,94 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<style>html,body{margin:0;background:#8fa3b8}canvas{display:block}</style>
+<script type="importmap">{"imports":{"three":"/game/node_modules/three/build/three.module.js","three/addons/":"/game/node_modules/three/examples/jsm/"}}</script>
+</head>
+<body>
+<script type="module">
+// Dev tool: renders a GLB from 4 angles (or N phases of an animation clip) and exposes stats on window.__stats.
+// Query: f=<url path> w h [clip=<name|index> phases=<n> az=<deg>] [t=<sec>] [bones=1]
+import * as THREE from 'three';
+import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
+import { MeshoptDecoder } from 'three/addons/libs/meshopt_decoder.module.js';
+
+const q = new URLSearchParams(location.search);
+const W = +(q.get('w') || 1024), H = +(q.get('h') || 1024);
+const renderer = new THREE.WebGLRenderer({ antialias: true, preserveDrawingBuffer: true });
+renderer.setSize(W, H); renderer.setPixelRatio(1); renderer.autoClear = false;
+renderer.outputColorSpace = THREE.SRGBColorSpace;
+document.body.appendChild(renderer.domElement);
+const scene = new THREE.Scene();
+scene.background = new THREE.Color(0x8fa3b8);
+scene.add(new THREE.HemisphereLight(0xffffff, 0x99886a, 1.6));
+const dl = new THREE.DirectionalLight(0xffffff, 1.4); dl.position.set(2, 4, 3); scene.add(dl);
+const loader = new GLTFLoader(); loader.setMeshoptDecoder(MeshoptDecoder);
+try {
+  const gltf = await loader.loadAsync(q.get('f'));
+  const root = gltf.scene; scene.add(root);
+  let tris = 0, verts = 0, meshes = 0, skinned = 0; const mats = new Set(), texs = []; const bones = [];
+  root.traverse(o => {
+    if (o.isMesh) {
+      meshes++; if (o.isSkinnedMesh) skinned++;
+      const g = o.geometry; verts += g.attributes.position.count;
+      tris += (g.index ? g.index.count : g.attributes.position.count) / 3;
+      (Array.isArray(o.material) ? o.material : [o.material]).forEach(m => {
+        mats.add(m.name || m.uuid);
+        if (m.map && m.map.image) texs.push((m.map.image.width || 0) + 'x' + (m.map.image.height || 0));
+        m.side = THREE.DoubleSide;
+      });
+      o.frustumCulled = false;
+    }
+    if (o.isBone) bones.push(o.name);
+  });
+  root.updateMatrixWorld(true);
+  const mixer = new THREE.AnimationMixer(root);
+  const clips = gltf.animations || [];
+  const clipSel = q.get('clip'); let action = null, clip = null;
+  if (clipSel !== null && clips.length) {
+    clip = clips.find(c => c.name === clipSel) || clips[+clipSel || 0];
+    action = mixer.clipAction(clip); action.play();
+  }
+  const box = new THREE.Box3();
+  root.traverse(o => {
+    if (o.isMesh) {
+      if (o.isSkinnedMesh) { o.computeBoundingBox(); box.union(o.boundingBox.clone().applyMatrix4(o.matrixWorld)); }
+      else { o.geometry.computeBoundingBox(); box.union(o.geometry.boundingBox.clone().applyMatrix4(o.matrixWorld)); }
+    }
+  });
+  const size = box.getSize(new THREE.Vector3()), center = box.getCenter(new THREE.Vector3());
+  if (q.get('bones')) { const sh = new THREE.SkeletonHelper(root); sh.material.depthTest = false; scene.add(sh); }
+  const R = Math.max(size.x, size.y, size.z) * 0.5;
+  const cam = new THREE.PerspectiveCamera(30, 1, 0.01, 1000);
+  const dist = R / Math.tan(15 * Math.PI / 180) * 1.15;
+  const phases = +(q.get('phases') || 0);
+  const shots = [];
+  if (phases && clip) {
+    const fr = [0.0, 0.23, 0.41, 0.68, 0.87, 0.12, 0.55, 0.95];
+    for (let i = 0; i < phases; i++) shots.push({ az: +(q.get('az') || 35), el: 10, t: fr[i % 8] * clip.duration });
+  } else {
+    [[0, 8], [40, 14], [90, 8], [180, 8]].forEach(([az, el]) => shots.push({ az, el, t: +(q.get('t') || 0) }));
+  }
+  const cols = phases ? Math.min(shots.length, 4) : 2, rows = Math.ceil(shots.length / cols);
+  renderer.setScissorTest(true); renderer.clear();
+  shots.forEach((s, i) => {
+    if (action) { mixer.setTime(s.t); root.updateMatrixWorld(true); }
+    const cw = W / cols, ch = H / rows; const x = (i % cols) * cw, y = H - ch - Math.floor(i / cols) * ch;
+    renderer.setViewport(x, y, cw, ch); renderer.setScissor(x, y, cw, ch);
+    cam.aspect = cw / ch; cam.updateProjectionMatrix();
+    const a = s.az * Math.PI / 180, e = s.el * Math.PI / 180;
+    cam.position.set(center.x + dist * Math.sin(a) * Math.cos(e), center.y + dist * Math.sin(e), center.z + dist * Math.cos(a) * Math.cos(e));
+    cam.lookAt(center); renderer.render(scene, cam);
+  });
+  window.__stats = {
+    ok: true, meshes, skinned, tris: Math.round(tris), verts, materials: mats.size, textures: texs,
+    bones: bones.length, boneNames: bones.slice(0, 60),
+    clips: clips.map(c => ({ name: c.name, dur: +c.duration.toFixed(2), tracks: c.tracks.length })),
+    size: [+size.x.toFixed(3), +size.y.toFixed(3), +size.z.toFixed(3)],
+    min: [+box.min.x.toFixed(3), +box.min.y.toFixed(3), +box.min.z.toFixed(3)],
+  };
+} catch (e) { window.__stats = { ok: false, error: String(e && e.stack || e) }; }
+</script>
+</body>
+</html>
