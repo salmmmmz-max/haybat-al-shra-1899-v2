@@ -21,6 +21,7 @@ import * as THREE from 'three';
 import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
 import { MeshoptDecoder } from 'three/addons/libs/meshopt_decoder.module.js';
 import * as SkeletonUtils from 'three/addons/utils/SkeletonUtils.js';
+import { createMaterialQuality } from './asset-materials.js';
 
 const BASE = 'assets/';
 
@@ -46,23 +47,8 @@ export function createAssets(G) {
     return manifest;
   }
 
-  /** GLB materials → cheap matte Lambert sharing the base-colour map (painterly look, mobile friendly). */
-  function simplifyMaterials(root) {
-    const cache = new Map();
-    root.traverse(o => {
-      if (!o.isMesh) return;
-      const src = o.material;
-      let m = cache.get(src);
-      if (!m) {
-        m = new THREE.MeshLambertMaterial({ map: src.map || null, color: src.color ? src.color.clone() : 0xffffff, side: src.side });
-        if (m.map) { m.map.colorSpace = THREE.SRGBColorSpace; m.map.anisotropy = Math.min(4, G.renderer.capabilities.getMaxAnisotropy()); }
-        m.name = src.name; G.shade.patch(m); cache.set(src, m);
-        if (src.dispose) src.dispose();
-      }
-      o.material = m;
-      o.castShadow = false; o.receiveShadow = false;
-    });
-  }
+  const materialQuality = createMaterialQuality(G, () => Array.from(models.values(),m=>m?.scene).filter(Boolean));
+  const simplifyMaterials = root => materialQuality.convert(root);
 
   /** run `work()` once per item; a rejection is remembered (not cached) so a later call retries it */
   function once(kind, id, store, force, work) {

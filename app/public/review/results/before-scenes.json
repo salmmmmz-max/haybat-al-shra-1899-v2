@@ -1,0 +1,5200 @@
+{
+  "method": "Chromium headless + SwiftShader; 844x390 CSS px DPR1 touch emulation. Developer API scene entry and fixed simulation steps. CDP touch events for sticks/look/holds. No physical mobile hardware; no Safari certification.",
+  "mode": "scenes",
+  "root": "/home/user/haybat-v2-baseline",
+  "shots": [
+    {
+      "file": "c1_wake_start.jpg",
+      "state": {
+        "mode": "play",
+        "chapter": 1,
+        "beat": "c1_wake",
+        "flags": {
+          "ration": "self",
+          "gaveWater": false,
+          "sawWolfPrint": false,
+          "leftRifle": false,
+          "haybah": 0
+        },
+        "time": 9.67,
+        "player": {
+          "x": -13,
+          "y": 1.48,
+          "z": 5,
+          "yaw": 1.57,
+          "mode": "foot",
+          "speed": 0
+        },
+        "objective": "c1_wake.obj",
+        "interact": null,
+        "thirst": 100,
+        "sips": 0,
+        "render": {
+          "calls": 36,
+          "tris": 129164,
+          "textures": 15,
+          "geometries": 45
+        },
+        "errors": 0
+      },
+      "text": "اذهب إلى جدّك عند البئر\nش\nق\nج\nغ\nش\nق\nج\nغ\nش\nق\nج\nغ\nالمس يسار الشاشة واسحب لتمشي",
+      "choice": false,
+      "typing": false,
+      "verb": null,
+      "camera": {
+        "yaw": 1.6790669176553528,
+        "pitch": 0.258486016123293,
+        "pos": [
+          -17.03669174211079,
+          4.001560283626518,
+          5.438770841533782
+        ]
+      },
+      "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+      "errors": []
+    },
+    {
+      "file": "c1_wake_walk.jpg",
+      "state": {
+        "mode": "play",
+        "chapter": 1,
+        "beat": "c1_wake",
+        "flags": {
+          "ration": "self",
+          "gaveWater": false,
+          "sawWolfPrint": false,
+          "leftRifle": false,
+          "haybah": 0
+        },
+        "time": 12.78,
+        "player": {
+          "x": -8.4,
+          "y": 1.48,
+          "z": 4.5,
+          "yaw": 1.68,
+          "mode": "foot",
+          "speed": 0
+        },
+        "objective": "c1_wake.obj",
+        "interact": null,
+        "thirst": 100,
+        "sips": 0,
+        "render": {
+          "calls": 35,
+          "tris": 120316,
+          "textures": 15,
+          "geometries": 45
+        },
+        "errors": 0
+      },
+      "text": "اذهب إلى جدّك عند البئر\nش\nق\nج\nغ\nش\nق\nج\nغ\nش\nق\nج\nغ\nموضيصبّحك الله بالخير يا وليدي… جدّك عند البير.\nاسحب على يمين الشاشة لتلتفت حولك",
+      "choice": false,
+      "typing": false,
+      "verb": null,
+      "camera": {
+        "yaw": 1.6790669176553528,
+        "pitch": 0.258486016123293,
+        "pos": [
+          -12.435333816013056,
+          4.001560283626518,
+          4.938623240870982
+        ]
+      },
+      "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+      "errors": []
+    },
+    {
+      "file": "c1_wake_turn.jpg",
+      "state": {
+        "mode": "play",
+        "chapter": 1,
+        "beat": "c1_wake",
+        "flags": {
+          "ration": "self",
+          "gaveWater": false,
+          "sawWolfPrint": false,
+          "leftRifle": false,
+          "haybah": 0
+        },
+        "time": 13.9,
+        "player": {
+          "x": -8.4,
+          "y": 1.48,
+          "z": 4.5,
+          "yaw": 1.68,
+          "mode": "foot",
+          "speed": 0
+        },
+        "objective": "c1_wake.obj",
+        "interact": null,
+        "thirst": 100,
+        "sips": 0,
+        "render": {
+          "calls": 34,
+          "tris": 109744,
+          "textures": 15,
+          "geometries": 45
+        },
+        "errors": 0
+      },
+      "text": "اذهب إلى جدّك عند البئر\nش\nق\nج\nغ\nش\nق\nج\nغ\nش\nق\nج\nغ\nموضيصبّحك الله بالخير يا وليدي… جدّك عند البير.\nاسحب على يمين الشاشة لتلتفت حولك",
+      "choice": false,
+      "typing": false,
+      "verb": null,
+      "camera": {
+        "yaw": 1.344062961703834,
+        "pitch": 0.14034065137290763,
+        "pos": [
+          -12.450789811073676,
+          3.5154660008574243,
+          3.5649797008441766
+        ]
+      },
+      "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+      "errors": []
+    },
+    {
+      "file": "c1_well_start.jpg",
+      "state": {
+        "mode": "play",
+        "chapter": 1,
+        "beat": "c1_well",
+        "flags": {
+          "ration": "self",
+          "gaveWater": false,
+          "sawWolfPrint": false,
+          "leftRifle": false,
+          "haybah": 0
+        },
+        "time": 8.57,
+        "player": {
+          "x": 3.4,
+          "y": 1.48,
+          "z": 3,
+          "yaw": 1.57,
+          "mode": "foot",
+          "speed": 0
+        },
+        "objective": "c1_well.obj",
+        "interact": null,
+        "thirst": 100,
+        "sips": 0,
+        "render": {
+          "calls": 29,
+          "tris": 111802,
+          "textures": 13,
+          "geometries": 40
+        },
+        "errors": 0
+      },
+      "text": "اسحب الدلو من البئر\nش\nق\nج\nغ\nش\nق\nج\nغ\nش\nق\nج\nغ\nاضغط مطوّلًا حتى يمتلئ الطوق",
+      "choice": false,
+      "typing": false,
+      "verb": null,
+      "camera": {
+        "yaw": 0.9928943898326512,
+        "pitch": 0.20637753496890535,
+        "pos": [
+          -0.043312015103287305,
+          3.788613975663026,
+          0.7543617292804661
+        ]
+      },
+      "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+      "errors": []
+    },
+    {
+      "file": "c1_well_inreach.jpg",
+      "state": {
+        "mode": "play",
+        "chapter": 1,
+        "beat": "c1_well",
+        "flags": {
+          "ration": "self",
+          "gaveWater": false,
+          "sawWolfPrint": false,
+          "leftRifle": false,
+          "haybah": 0
+        },
+        "time": 10.07,
+        "player": {
+          "x": 5.09,
+          "y": 1.48,
+          "z": 4.1,
+          "yaw": 0.99,
+          "mode": "foot",
+          "speed": 0.05
+        },
+        "objective": "c1_well.obj",
+        "interact": "well",
+        "thirst": 100,
+        "sips": 0,
+        "render": {
+          "calls": 28,
+          "tris": 102414,
+          "textures": 13,
+          "geometries": 40
+        },
+        "errors": 0
+      },
+      "text": "اسحب الدلو\nاسحب الدلو من البئر\nش\nق\nج\nغ\nش\nق\nج\nغ\nش\nق\nج\nغ\nاضغط مطوّلًا حتى يمتلئ الطوق",
+      "choice": false,
+      "typing": false,
+      "verb": "c1_well.label.pull",
+      "camera": {
+        "yaw": 0.9928173377783461,
+        "pitch": 0.20637753496890535,
+        "pos": [
+          1.6391515546241258,
+          3.788613975663026,
+          1.8478383538160705
+        ]
+      },
+      "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+      "errors": []
+    },
+    {
+      "file": "c1_well_hold0.jpg",
+      "state": {
+        "mode": "play",
+        "chapter": 1,
+        "beat": "c1_well",
+        "flags": {
+          "ration": "self",
+          "gaveWater": false,
+          "sawWolfPrint": false,
+          "leftRifle": false,
+          "haybah": 0
+        },
+        "time": 10.37,
+        "player": {
+          "x": 5.09,
+          "y": 1.48,
+          "z": 4.1,
+          "yaw": 0.99,
+          "mode": "foot",
+          "speed": 0
+        },
+        "objective": "c1_well.obj",
+        "interact": "well",
+        "thirst": 100,
+        "sips": 0,
+        "render": {
+          "calls": 28,
+          "tris": 102414,
+          "textures": 13,
+          "geometries": 40
+        },
+        "errors": 0
+      },
+      "text": "اسحب الدلو\nاسحب الدلو من البئر\nش\nق\nج\nغ\nش\nق\nج\nغ\nش\nق\nج\nغ\nاضغط مطوّلًا حتى يمتلئ الطوق",
+      "choice": false,
+      "typing": false,
+      "verb": "c1_well.label.pull",
+      "camera": {
+        "yaw": 0.9928173377783461,
+        "pitch": 0.20637753496890535,
+        "pos": [
+          1.6462993553101701,
+          3.788613975663026,
+          1.8525085573813036
+        ]
+      },
+      "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+      "errors": []
+    },
+    {
+      "file": "c1_well_hold1.jpg",
+      "state": {
+        "mode": "play",
+        "chapter": 1,
+        "beat": "c1_well",
+        "flags": {
+          "ration": "self",
+          "gaveWater": false,
+          "sawWolfPrint": false,
+          "leftRifle": false,
+          "haybah": 0
+        },
+        "time": 10.67,
+        "player": {
+          "x": 5.09,
+          "y": 1.48,
+          "z": 4.1,
+          "yaw": 0.99,
+          "mode": "foot",
+          "speed": 0
+        },
+        "objective": "c1_well.obj",
+        "interact": "well",
+        "thirst": 100,
+        "sips": 0,
+        "render": {
+          "calls": 28,
+          "tris": 102414,
+          "textures": 13,
+          "geometries": 40
+        },
+        "errors": 0
+      },
+      "text": "اسحب الدلو\nاسحب الدلو من البئر\nش\nق\nج\nغ\nش\nق\nج\nغ\nش\nق\nج\nغ\nاضغط مطوّلًا حتى يمتلئ الطوق",
+      "choice": false,
+      "typing": false,
+      "verb": "c1_well.label.pull",
+      "camera": {
+        "yaw": 0.9928173377783461,
+        "pitch": 0.20637753496890535,
+        "pos": [
+          1.646333629547644,
+          3.788613975663026,
+          1.8525309513584927
+        ]
+      },
+      "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+      "errors": []
+    },
+    {
+      "file": "c1_well_hold2.jpg",
+      "state": {
+        "mode": "play",
+        "chapter": 1,
+        "beat": "c1_well",
+        "flags": {
+          "ration": "self",
+          "gaveWater": false,
+          "sawWolfPrint": false,
+          "leftRifle": false,
+          "haybah": 0
+        },
+        "time": 10.97,
+        "player": {
+          "x": 5.09,
+          "y": 1.48,
+          "z": 4.1,
+          "yaw": 0.99,
+          "mode": "foot",
+          "speed": 0
+        },
+        "objective": "c1_well.obj",
+        "interact": "well",
+        "thirst": 100,
+        "sips": 0,
+        "render": {
+          "calls": 28,
+          "tris": 102414,
+          "textures": 13,
+          "geometries": 40
+        },
+        "errors": 0
+      },
+      "text": "اسحب الدلو\nاسحب الدلو من البئر\nش\nق\nج\nغ\nش\nق\nج\nغ\nش\nق\nج\nغ\nاضغط مطوّلًا حتى يمتلئ الطوق",
+      "choice": false,
+      "typing": false,
+      "verb": "c1_well.label.pull",
+      "camera": {
+        "yaw": 0.9928173377783461,
+        "pitch": 0.20637753496890535,
+        "pos": [
+          1.6463337843500123,
+          3.788613975663026,
+          1.852531052502704
+        ]
+      },
+      "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+      "errors": []
+    },
+    {
+      "file": "c1_well_hold3.jpg",
+      "state": {
+        "mode": "play",
+        "chapter": 1,
+        "beat": "c1_well",
+        "flags": {
+          "ration": "self",
+          "gaveWater": false,
+          "sawWolfPrint": false,
+          "leftRifle": false,
+          "haybah": 0
+        },
+        "time": 11.27,
+        "player": {
+          "x": 5.09,
+          "y": 1.48,
+          "z": 4.1,
+          "yaw": 0.99,
+          "mode": "foot",
+          "speed": 0
+        },
+        "objective": "c1_well.obj",
+        "interact": "well",
+        "thirst": 100,
+        "sips": 0,
+        "render": {
+          "calls": 28,
+          "tris": 102414,
+          "textures": 13,
+          "geometries": 40
+        },
+        "errors": 0
+      },
+      "text": "اسحب الدلو\nاسحب الدلو من البئر\nش\nق\nج\nغ\nش\nق\nج\nغ\nش\nق\nج\nغ\nاضغط مطوّلًا حتى يمتلئ الطوق",
+      "choice": false,
+      "typing": false,
+      "verb": "c1_well.label.pull",
+      "camera": {
+        "yaw": 0.9928173377783461,
+        "pitch": 0.20637753496890535,
+        "pos": [
+          1.64633378504919,
+          3.788613975663026,
+          1.8525310529595296
+        ]
+      },
+      "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+      "errors": []
+    },
+    {
+      "file": "c1_well_hold4.jpg",
+      "state": {
+        "mode": "play",
+        "chapter": 1,
+        "beat": "c1_well",
+        "flags": {
+          "ration": "self",
+          "gaveWater": false,
+          "sawWolfPrint": false,
+          "leftRifle": false,
+          "haybah": 0
+        },
+        "time": 11.57,
+        "player": {
+          "x": 5.09,
+          "y": 1.48,
+          "z": 4.1,
+          "yaw": 0.99,
+          "mode": "foot",
+          "speed": 0
+        },
+        "objective": "c1_well.obj",
+        "interact": "well",
+        "thirst": 100,
+        "sips": 0,
+        "render": {
+          "calls": 28,
+          "tris": 102414,
+          "textures": 13,
+          "geometries": 40
+        },
+        "errors": 0
+      },
+      "text": "اسحب الدلو\nاسحب الدلو من البئر\nش\nق\nج\nغ\nش\nق\nج\nغ\nش\nق\nج\nغ\nاضغط مطوّلًا حتى يمتلئ الطوق",
+      "choice": false,
+      "typing": false,
+      "verb": "c1_well.label.pull",
+      "camera": {
+        "yaw": 0.9928173377783461,
+        "pitch": 0.20637753496890535,
+        "pos": [
+          1.6463337850523474,
+          3.788613975663026,
+          1.8525310529615937
+        ]
+      },
+      "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+      "errors": []
+    },
+    {
+      "file": "c1_well_hold5.jpg",
+      "state": {
+        "mode": "play",
+        "chapter": 1,
+        "beat": "c1_well",
+        "flags": {
+          "ration": "self",
+          "gaveWater": false,
+          "sawWolfPrint": false,
+          "leftRifle": false,
+          "haybah": 0
+        },
+        "time": 11.87,
+        "player": {
+          "x": 5.09,
+          "y": 1.48,
+          "z": 4.1,
+          "yaw": 0.99,
+          "mode": "scripted",
+          "speed": 0
+        },
+        "objective": null,
+        "interact": null,
+        "thirst": 100,
+        "sips": 0,
+        "render": {
+          "calls": 28,
+          "tris": 102414,
+          "textures": 13,
+          "geometries": 40
+        },
+        "errors": 0
+      },
+      "text": "ش\nق\nج\nغ\nش\nق\nج\nغ\nش\nق\nج\nغ\nاضغط مطوّلًا حتى يمتلئ الطوق",
+      "choice": false,
+      "typing": false,
+      "verb": null,
+      "camera": {
+        "yaw": 0.9928173377783461,
+        "pitch": 0.20637753496890535,
+        "pos": [
+          1.6463337850523607,
+          3.788613975663026,
+          1.8525310529616017
+        ]
+      },
+      "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+      "errors": []
+    },
+    {
+      "file": "c1_well_hold6.jpg",
+      "state": {
+        "mode": "play",
+        "chapter": 1,
+        "beat": "c1_well",
+        "flags": {
+          "ration": "self",
+          "gaveWater": false,
+          "sawWolfPrint": false,
+          "leftRifle": false,
+          "haybah": 0
+        },
+        "time": 12.17,
+        "player": {
+          "x": 5.09,
+          "y": 1.48,
+          "z": 4.1,
+          "yaw": 0.99,
+          "mode": "scripted",
+          "speed": 0
+        },
+        "objective": null,
+        "interact": null,
+        "thirst": 100,
+        "sips": 0,
+        "render": {
+          "calls": 28,
+          "tris": 102414,
+          "textures": 13,
+          "geometries": 40
+        },
+        "errors": 0
+      },
+      "text": "ش\nق\nج\nغ\nش\nق\nج\nغ\nش\nق\nج\nغ\nاضغط مطوّلًا حتى يمتلئ الطوق",
+      "choice": false,
+      "typing": false,
+      "verb": null,
+      "camera": {
+        "yaw": 0.9928173377783461,
+        "pitch": 0.20637753496890535,
+        "pos": [
+          1.6463337850523607,
+          3.788613975663026,
+          1.8525310529616017
+        ]
+      },
+      "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+      "errors": []
+    },
+    {
+      "file": "c1_well_after_hold.jpg",
+      "state": {
+        "mode": "dialogue",
+        "chapter": 1,
+        "beat": "c1_well",
+        "flags": {
+          "ration": "self",
+          "gaveWater": false,
+          "sawWolfPrint": false,
+          "leftRifle": false,
+          "haybah": 0
+        },
+        "time": 14.67,
+        "player": {
+          "x": 5.09,
+          "y": 1.48,
+          "z": 4.1,
+          "yaw": 0.99,
+          "mode": "foot",
+          "speed": 0
+        },
+        "objective": null,
+        "interact": null,
+        "thirst": 100,
+        "sips": 0,
+        "render": {
+          "calls": 28,
+          "tris": 102414,
+          "textures": 13,
+          "geometries": 40
+        },
+        "errors": 0
+      },
+      "text": "ش\nق\nج\nغ\nش\nق\nج\nغ\nش\nق\nج\nغ\nاضغط مطوّلًا حتى يمتلئ الطوق\nضاري\nطين يا جدّي… طين أسود. ما به ولا جُغمة.",
+      "choice": false,
+      "typing": false,
+      "verb": null,
+      "camera": {
+        "yaw": 0.9928173377783461,
+        "pitch": 0.20637753496890535,
+        "pos": [
+          1.6463337850523607,
+          3.788613975663026,
+          1.8525310529616017
+        ]
+      },
+      "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+      "errors": []
+    },
+    {
+      "file": "c1_ride_start.jpg",
+      "state": {
+        "mode": "play",
+        "chapter": 1,
+        "beat": "c1_ride",
+        "flags": {
+          "ration": "self",
+          "gaveWater": false,
+          "sawWolfPrint": false,
+          "leftRifle": false,
+          "haybah": 0
+        },
+        "time": 8.42,
+        "player": {
+          "x": 96,
+          "y": -2.91,
+          "z": 176,
+          "yaw": -2.71,
+          "mode": "mounted",
+          "speed": 0
+        },
+        "objective": "c1_ride.obj",
+        "interact": null,
+        "thirst": 100,
+        "sips": 0,
+        "render": {
+          "calls": 44,
+          "tris": 161053,
+          "textures": 17,
+          "geometries": 49
+        },
+        "errors": 0
+      },
+      "text": "عُد بالوضحا إلى المخيّم\nش\nق\nج\nغ\nش\nق\nج\nغ\nش\nق\nج\nغ\nوجّه الوضحا بإبهامك الأيسر… والنظر يتبع وجهتها",
+      "choice": false,
+      "typing": false,
+      "verb": null,
+      "camera": {
+        "yaw": -2.711266040467234,
+        "pitch": 0.06981317007977317,
+        "pos": [
+          99.1211346075358,
+          0.21262297103971456,
+          182.79961468070303
+        ]
+      },
+      "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+      "errors": []
+    },
+    {
+      "file": "c1_ride_walk.jpg",
+      "state": {
+        "mode": "play",
+        "chapter": 1,
+        "beat": "c1_ride",
+        "flags": {
+          "ration": "self",
+          "gaveWater": false,
+          "sawWolfPrint": false,
+          "leftRifle": false,
+          "haybah": 0
+        },
+        "time": 11.53,
+        "player": {
+          "x": 93.63,
+          "y": -2.79,
+          "z": 170.83,
+          "yaw": -2.71,
+          "mode": "mounted",
+          "speed": 0.32
+        },
+        "objective": "c1_ride.obj",
+        "interact": null,
+        "thirst": 100,
+        "sips": 0,
+        "render": {
+          "calls": 44,
+          "tris": 161053,
+          "textures": 17,
+          "geometries": 49
+        },
+        "errors": 0
+      },
+      "text": "عُد بالوضحا إلى المخيّم\nش\nق\nج\nغ\nش\nق\nج\nغ\nش\nق\nج\nغ\nاسحب إبهامك إلى أقصى الدائرة لتخبّ الوضحا",
+      "choice": false,
+      "typing": false,
+      "verb": null,
+      "camera": {
+        "yaw": -2.711266040467234,
+        "pitch": 0.06981317007977317,
+        "pos": [
+          96.75812621084458,
+          0.33686212905592805,
+          177.65163210219714
+        ]
+      },
+      "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+      "errors": []
+    },
+    {
+      "file": "c1_ride_turn.jpg",
+      "state": {
+        "mode": "play",
+        "chapter": 1,
+        "beat": "c1_ride",
+        "flags": {
+          "ration": "self",
+          "gaveWater": false,
+          "sawWolfPrint": false,
+          "leftRifle": false,
+          "haybah": 0
+        },
+        "time": 12.65,
+        "player": {
+          "x": 93.6,
+          "y": -2.79,
+          "z": 170.76,
+          "yaw": -2.71,
+          "mode": "mounted",
+          "speed": 0
+        },
+        "objective": "c1_ride.obj",
+        "interact": null,
+        "thirst": 100,
+        "sips": 0,
+        "render": {
+          "calls": 44,
+          "tris": 161053,
+          "textures": 17,
+          "geometries": 49
+        },
+        "errors": 0
+      },
+      "text": "عُد بالوضحا إلى المخيّم\nش\nق\nج\nغ\nش\nق\nج\nغ\nش\nق\nج\nغ\nاسحب إبهامك إلى أقصى الدائرة لتخبّ الوضحا",
+      "choice": false,
+      "typing": false,
+      "verb": null,
+      "camera": {
+        "yaw": -3.0462699964187516,
+        "pitch": -0.048332194670612214,
+        "pos": [
+          94.30983299036606,
+          -0.5480632630086157,
+          178.22175320755537
+        ]
+      },
+      "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+      "errors": []
+    },
+    {
+      "file": "c2_storm_start.jpg",
+      "state": {
+        "mode": "play",
+        "chapter": 2,
+        "beat": "c2_storm",
+        "flags": {
+          "ration": "self",
+          "gaveWater": false,
+          "sawWolfPrint": false,
+          "leftRifle": false,
+          "haybah": 0
+        },
+        "time": 8.32,
+        "player": {
+          "x": 8,
+          "y": 4.4,
+          "z": -14,
+          "yaw": 1.57,
+          "mode": "foot",
+          "speed": 0
+        },
+        "objective": "c2_storm.obj",
+        "interact": null,
+        "thirst": 55,
+        "sips": 0,
+        "render": {
+          "calls": 28,
+          "tris": 99025,
+          "textures": 7,
+          "geometries": 37
+        },
+        "errors": 0
+      },
+      "text": "اقتفِ أثر فهيد في العجاج\nش\nق\nج\nغ\nش\nق\nج\nغ\nش\nق\nج\nغ\nفهيد! صوّت لي يا فهيد!",
+      "choice": false,
+      "typing": false,
+      "verb": null,
+      "camera": {
+        "yaw": 1.6456561745056635,
+        "pitch": 0.1280078192828618,
+        "pos": [
+          3.8460302983042656,
+          6.3851816715001,
+          -13.68845227237282
+        ]
+      },
+      "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+      "errors": []
+    },
+    {
+      "file": "c2_storm_walk.jpg",
+      "state": {
+        "mode": "play",
+        "chapter": 2,
+        "beat": "c2_storm",
+        "flags": {
+          "ration": "self",
+          "gaveWater": false,
+          "sawWolfPrint": false,
+          "leftRifle": false,
+          "haybah": 0
+        },
+        "time": 11.43,
+        "player": {
+          "x": 12.62,
+          "y": 4.4,
+          "z": -14.35,
+          "yaw": 1.65,
+          "mode": "foot",
+          "speed": 0
+        },
+        "objective": "c2_storm.obj",
+        "interact": null,
+        "thirst": 55,
+        "sips": 0,
+        "render": {
+          "calls": 28,
+          "tris": 99025,
+          "textures": 7,
+          "geometries": 37
+        },
+        "errors": 0
+      },
+      "text": "اقتفِ أثر فهيد في العجاج\nش\nق\nج\nغ\nش\nق\nج\nغ\nش\nق\nج\nغ\nفهيد! صوّت لي يا فهيد!",
+      "choice": false,
+      "typing": false,
+      "verb": null,
+      "camera": {
+        "yaw": 1.6456561745056635,
+        "pitch": 0.1280078192828618,
+        "pos": [
+          8.461527460846797,
+          6.3851816715001,
+          -14.034614559563504
+        ]
+      },
+      "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+      "errors": []
+    },
+    {
+      "file": "c2_storm_turn.jpg",
+      "state": {
+        "mode": "play",
+        "chapter": 2,
+        "beat": "c2_storm",
+        "flags": {
+          "ration": "self",
+          "gaveWater": false,
+          "sawWolfPrint": false,
+          "leftRifle": false,
+          "haybah": 0
+        },
+        "time": 12.55,
+        "player": {
+          "x": 12.62,
+          "y": 4.4,
+          "z": -14.35,
+          "yaw": 1.65,
+          "mode": "foot",
+          "speed": 0
+        },
+        "objective": "c2_storm.obj",
+        "interact": null,
+        "thirst": 55,
+        "sips": 0,
+        "render": {
+          "calls": 28,
+          "tris": 99025,
+          "textures": 7,
+          "geometries": 37
+        },
+        "errors": 0
+      },
+      "text": "اقتفِ أثر فهيد في العجاج\nش\nق\nج\nغ\nش\nق\nج\nغ\nش\nق\nج\nغ\nفهيد! صوّت لي يا فهيد!",
+      "choice": false,
+      "typing": false,
+      "verb": null,
+      "camera": {
+        "yaw": 1.3106522185541447,
+        "pitch": 0.009862454532476438,
+        "pos": [
+          8.557133917811406,
+          5.890437541001643,
+          -15.426442088425498
+        ]
+      },
+      "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+      "errors": []
+    },
+    {
+      "file": "c3_fire_start.jpg",
+      "state": {
+        "mode": "play",
+        "chapter": 3,
+        "beat": "c3_fire",
+        "flags": {
+          "ration": "self",
+          "gaveWater": false,
+          "sawWolfPrint": false,
+          "leftRifle": false,
+          "haybah": 0
+        },
+        "time": 8.47,
+        "player": {
+          "x": -2.9,
+          "y": 4.4,
+          "z": -8.6,
+          "yaw": 2.98,
+          "mode": "foot",
+          "speed": 0
+        },
+        "objective": "c3_fire.obj",
+        "interact": null,
+        "thirst": 100,
+        "sips": 0,
+        "render": {
+          "calls": 35,
+          "tris": 137154,
+          "textures": 11,
+          "geometries": 44
+        },
+        "errors": 0
+      },
+      "text": "اجلس عند النار بجوار جدّك\nش\nق\nج\nغ\nش\nق\nج\nغ\nش\nق\nج\nغ",
+      "choice": false,
+      "typing": false,
+      "verb": null,
+      "camera": {
+        "yaw": 2.9793938201264107,
+        "pitch": 0.20943951023931956,
+        "pos": [
+          -3.563430552861706,
+          6.7222450049074896,
+          -4.545702176956242
+        ]
+      },
+      "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+      "errors": []
+    },
+    {
+      "file": "c3_fire_inreach.jpg",
+      "state": {
+        "mode": "play",
+        "chapter": 3,
+        "beat": "c3_fire",
+        "flags": {
+          "ration": "self",
+          "gaveWater": false,
+          "sawWolfPrint": false,
+          "leftRifle": false,
+          "haybah": 0
+        },
+        "time": 10.62,
+        "player": {
+          "x": -2.4,
+          "y": 4.4,
+          "z": -11.66,
+          "yaw": 2.98,
+          "mode": "foot",
+          "speed": 0.05
+        },
+        "objective": "c3_fire.obj",
+        "interact": "sit",
+        "thirst": 100,
+        "sips": 0,
+        "render": {
+          "calls": 34,
+          "tris": 156424,
+          "textures": 11,
+          "geometries": 45
+        },
+        "errors": 0
+      },
+      "text": "اجلس عند النار\nاجلس عند النار بجوار جدّك\nش\nق\nج\nغ\nش\nق\nج\nغ\nش\nق\nج\nغ",
+      "choice": false,
+      "typing": false,
+      "verb": "c3_fire.label.sit",
+      "camera": {
+        "yaw": 2.9793938201264107,
+        "pitch": 0.20943951023931956,
+        "pos": [
+          -3.0643409072447616,
+          6.7222450049074896,
+          -7.595694455726457
+        ]
+      },
+      "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+      "errors": []
+    },
+    {
+      "file": "c3_fire_hold0.jpg",
+      "state": {
+        "mode": "play",
+        "chapter": 3,
+        "beat": "c3_fire",
+        "flags": {
+          "ration": "self",
+          "gaveWater": false,
+          "sawWolfPrint": false,
+          "leftRifle": false,
+          "haybah": 0
+        },
+        "time": 10.92,
+        "player": {
+          "x": -2.35,
+          "y": 4.4,
+          "z": -11.97,
+          "yaw": 2.98,
+          "mode": "scripted",
+          "speed": 1.57
+        },
+        "objective": null,
+        "interact": null,
+        "thirst": 100,
+        "sips": 0,
+        "render": {
+          "calls": 34,
+          "tris": 159992,
+          "textures": 11,
+          "geometries": 46
+        },
+        "errors": 0
+      },
+      "text": "ش\nق\nج\nغ\nش\nق\nج\nغ\nش\nق\nج\nغ",
+      "choice": false,
+      "typing": false,
+      "verb": null,
+      "camera": {
+        "yaw": 2.9793938201264107,
+        "pitch": 0.20943951023931956,
+        "pos": [
+          -3.0226414612708856,
+          6.7222450049074896,
+          -7.850524403344588
+        ]
+      },
+      "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+      "errors": []
+    },
+    {
+      "file": "c3_fire_hold1.jpg",
+      "state": {
+        "mode": "play",
+        "chapter": 3,
+        "beat": "c3_fire",
+        "flags": {
+          "ration": "self",
+          "gaveWater": false,
+          "sawWolfPrint": false,
+          "leftRifle": false,
+          "haybah": 0
+        },
+        "time": 11.22,
+        "player": {
+          "x": -2.27,
+          "y": 4.4,
+          "z": -12.46,
+          "yaw": 2.98,
+          "mode": "scripted",
+          "speed": 1.69
+        },
+        "objective": null,
+        "interact": null,
+        "thirst": 100,
+        "sips": 0,
+        "render": {
+          "calls": 34,
+          "tris": 159992,
+          "textures": 11,
+          "geometries": 46
+        },
+        "errors": 0
+      },
+      "text": "ش\nق\nج\nغ\nش\nق\nج\nغ\nش\nق\nج\nغ",
+      "choice": false,
+      "typing": false,
+      "verb": null,
+      "camera": {
+        "yaw": 2.9793938201264107,
+        "pitch": 0.20943951023931956,
+        "pos": [
+          -2.9440400473666615,
+          6.7222450049074896,
+          -8.33086637720373
+        ]
+      },
+      "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+      "errors": []
+    },
+    {
+      "file": "c3_fire_hold2.jpg",
+      "state": {
+        "mode": "play",
+        "chapter": 3,
+        "beat": "c3_fire",
+        "flags": {
+          "ration": "self",
+          "gaveWater": false,
+          "sawWolfPrint": false,
+          "leftRifle": false,
+          "haybah": 0
+        },
+        "time": 11.52,
+        "player": {
+          "x": -2.19,
+          "y": 4.4,
+          "z": -12.97,
+          "yaw": 2.98,
+          "mode": "scripted",
+          "speed": 1.7
+        },
+        "objective": null,
+        "interact": null,
+        "thirst": 100,
+        "sips": 0,
+        "render": {
+          "calls": 34,
+          "tris": 159992,
+          "textures": 11,
+          "geometries": 46
+        },
+        "errors": 0
+      },
+      "text": "ش\nق\nج\nغ\nش\nق\nج\nغ\nش\nق\nج\nغ",
+      "choice": false,
+      "typing": false,
+      "verb": null,
+      "camera": {
+        "yaw": 2.9793938201264107,
+        "pitch": 0.20943951023931956,
+        "pos": [
+          -2.8619380499286096,
+          6.7222450049074896,
+          -8.832600805991829
+        ]
+      },
+      "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+      "errors": []
+    },
+    {
+      "file": "c3_fire_hold3.jpg",
+      "state": {
+        "mode": "play",
+        "chapter": 3,
+        "beat": "c3_fire",
+        "flags": {
+          "ration": "self",
+          "gaveWater": false,
+          "sawWolfPrint": false,
+          "leftRifle": false,
+          "haybah": 0
+        },
+        "time": 11.82,
+        "player": {
+          "x": -2.1,
+          "y": 4.4,
+          "z": -13.47,
+          "yaw": 2.98,
+          "mode": "scripted",
+          "speed": 1.7
+        },
+        "objective": null,
+        "interact": null,
+        "thirst": 100,
+        "sips": 0,
+        "render": {
+          "calls": 34,
+          "tris": 159992,
+          "textures": 11,
+          "geometries": 46
+        },
+        "errors": 0
+      },
+      "text": "ش\nق\nج\nغ\nش\nق\nج\nغ\nش\nق\nج\nغ",
+      "choice": false,
+      "typing": false,
+      "verb": null,
+      "camera": {
+        "yaw": 2.9793938201264107,
+        "pitch": 0.20943951023931956,
+        "pos": [
+          -2.7795961845019406,
+          6.7222450049074896,
+          -9.335801094710366
+        ]
+      },
+      "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+      "errors": []
+    },
+    {
+      "file": "c3_fire_hold4.jpg",
+      "state": {
+        "mode": "play",
+        "chapter": 3,
+        "beat": "c3_fire",
+        "flags": {
+          "ration": "self",
+          "gaveWater": false,
+          "sawWolfPrint": false,
+          "leftRifle": false,
+          "haybah": 0
+        },
+        "time": 12.12,
+        "player": {
+          "x": -2,
+          "y": 4.4,
+          "z": -14.1,
+          "yaw": 2.33,
+          "mode": "scripted",
+          "speed": 0
+        },
+        "objective": null,
+        "interact": null,
+        "thirst": 100,
+        "sips": 0,
+        "render": {
+          "calls": 33,
+          "tris": 156792,
+          "textures": 11,
+          "geometries": 46
+        },
+        "errors": 0
+      },
+      "text": "ش\nق\nج\nغ\nش\nق\nج\nغ\nش\nق\nج\nغ",
+      "choice": false,
+      "typing": false,
+      "verb": null,
+      "camera": {
+        "yaw": 2.9793938201264107,
+        "pitch": 0.20943951023931956,
+        "pos": [
+          -2.6940947859046327,
+          6.7222450049074896,
+          -9.858309641693914
+        ]
+      },
+      "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+      "errors": []
+    },
+    {
+      "file": "c3_fire_hold5.jpg",
+      "state": {
+        "mode": "play",
+        "chapter": 3,
+        "beat": "c3_fire",
+        "flags": {
+          "ration": "self",
+          "gaveWater": false,
+          "sawWolfPrint": false,
+          "leftRifle": false,
+          "haybah": 0
+        },
+        "time": 12.42,
+        "player": {
+          "x": -2,
+          "y": 4.4,
+          "z": -14.1,
+          "yaw": 2.33,
+          "mode": "scripted",
+          "speed": 0
+        },
+        "objective": null,
+        "interact": null,
+        "thirst": 100,
+        "sips": 0,
+        "render": {
+          "calls": 33,
+          "tris": 156792,
+          "textures": 11,
+          "geometries": 46
+        },
+        "errors": 0
+      },
+      "text": "ش\nق\nج\nغ\nش\nق\nج\nغ\nش\nق\nج\nغ",
+      "choice": false,
+      "typing": false,
+      "verb": null,
+      "camera": {
+        "yaw": 2.9793938201264107,
+        "pitch": 0.20943951023931956,
+        "pos": [
+          -2.6635690503522875,
+          6.7222450049074896,
+          -10.04485580340269
+        ]
+      },
+      "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+      "errors": []
+    },
+    {
+      "file": "c3_fire_hold6.jpg",
+      "state": {
+        "mode": "play",
+        "chapter": 3,
+        "beat": "c3_fire",
+        "flags": {
+          "ration": "self",
+          "gaveWater": false,
+          "sawWolfPrint": false,
+          "leftRifle": false,
+          "haybah": 0
+        },
+        "time": 12.72,
+        "player": {
+          "x": -2,
+          "y": 4.4,
+          "z": -14.1,
+          "yaw": 2.33,
+          "mode": "scripted",
+          "speed": 0
+        },
+        "objective": null,
+        "interact": null,
+        "thirst": 100,
+        "sips": 0,
+        "render": {
+          "calls": 33,
+          "tris": 156792,
+          "textures": 11,
+          "geometries": 46
+        },
+        "errors": 0
+      },
+      "text": "ش\nق\nج\nغ\nش\nق\nج\nغ\nش\nق\nج\nغ",
+      "choice": false,
+      "typing": false,
+      "verb": null,
+      "camera": {
+        "yaw": 2.9793938201264107,
+        "pitch": 0.20943951023931956,
+        "pos": [
+          -2.6634311783968325,
+          6.7222450049074896,
+          -10.04569835424158
+        ]
+      },
+      "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+      "errors": []
+    },
+    {
+      "file": "c3_fire_after_hold.jpg",
+      "state": {
+        "mode": "dialogue",
+        "chapter": 3,
+        "beat": "c3_fire",
+        "flags": {
+          "ration": "self",
+          "gaveWater": false,
+          "sawWolfPrint": false,
+          "leftRifle": false,
+          "haybah": 0
+        },
+        "time": 15.22,
+        "player": {
+          "x": -2,
+          "y": 4.4,
+          "z": -14.1,
+          "yaw": 2.33,
+          "mode": "scripted",
+          "speed": 0
+        },
+        "objective": null,
+        "interact": null,
+        "thirst": 100,
+        "sips": 0,
+        "render": {
+          "calls": 33,
+          "tris": 156792,
+          "textures": 11,
+          "geometries": 46
+        },
+        "errors": 0
+      },
+      "text": "ش\nق\nج\nغ\nش\nق\nج\nغ\nش\nق\nج\nغ\nفهيد\nضاري… الحوار ما يبي ينام. يطالع الظلما ويرجف.",
+      "choice": false,
+      "typing": false,
+      "verb": null,
+      "camera": {
+        "yaw": 2.9793938201264107,
+        "pitch": 0.20943951023931956,
+        "pos": [
+          -2.6634305528617066,
+          6.7222450049074896,
+          -10.04570217695624
+        ]
+      },
+      "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+      "errors": []
+    },
+    {
+      "file": "c3_fire_dialogue00.jpg",
+      "state": {
+        "mode": "dialogue",
+        "chapter": 3,
+        "beat": "c3_fire",
+        "flags": {
+          "ration": "self",
+          "gaveWater": false,
+          "sawWolfPrint": false,
+          "leftRifle": false,
+          "haybah": 0
+        },
+        "time": 19.22,
+        "player": {
+          "x": -2,
+          "y": 4.4,
+          "z": -14.1,
+          "yaw": 2.33,
+          "mode": "scripted",
+          "speed": 0
+        },
+        "objective": null,
+        "interact": null,
+        "thirst": 100,
+        "sips": 0,
+        "render": {
+          "calls": 33,
+          "tris": 156792,
+          "textures": 11,
+          "geometries": 46
+        },
+        "errors": 0
+      },
+      "text": "ش\nق\nج\nغ\nش\nق\nج\nغ\nش\nق\nج\nغ\nفهيد\nضاري… الحوار ما يبي ينام. يطالع الظلما ويرجف.",
+      "choice": false,
+      "typing": false,
+      "verb": null,
+      "camera": {
+        "yaw": 2.9793938201264107,
+        "pitch": 0.20943951023931956,
+        "pos": [
+          -2.6634305528617066,
+          6.7222450049074896,
+          -10.04570217695624
+        ]
+      },
+      "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+      "errors": []
+    },
+    {
+      "file": "c3_fire_dialogue01.jpg",
+      "state": {
+        "mode": "dialogue",
+        "chapter": 3,
+        "beat": "c3_fire",
+        "flags": {
+          "ration": "self",
+          "gaveWater": false,
+          "sawWolfPrint": false,
+          "leftRifle": false,
+          "haybah": 0
+        },
+        "time": 23.27,
+        "player": {
+          "x": -2,
+          "y": 4.4,
+          "z": -14.1,
+          "yaw": 2.33,
+          "mode": "scripted",
+          "speed": 0
+        },
+        "objective": null,
+        "interact": null,
+        "thirst": 100,
+        "sips": 0,
+        "render": {
+          "calls": 33,
+          "tris": 156792,
+          "textures": 11,
+          "geometries": 46
+        },
+        "errors": 0
+      },
+      "text": "ش\nق\nج\nغ\nش\nق\nج\nغ\nش\nق\nج\nغ\nضاري\nقرّبه من الضو… الضو أمان.",
+      "choice": false,
+      "typing": false,
+      "verb": null,
+      "camera": {
+        "yaw": 2.9793938201264107,
+        "pitch": 0.20943951023931956,
+        "pos": [
+          -2.6634305528617066,
+          6.7222450049074896,
+          -10.04570217695624
+        ]
+      },
+      "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+      "errors": []
+    },
+    {
+      "file": "c3_fire_dialogue02.jpg",
+      "state": {
+        "mode": "dialogue",
+        "chapter": 3,
+        "beat": "c3_fire",
+        "flags": {
+          "ration": "self",
+          "gaveWater": false,
+          "sawWolfPrint": false,
+          "leftRifle": false,
+          "haybah": 0
+        },
+        "time": 27.32,
+        "player": {
+          "x": -2,
+          "y": 4.4,
+          "z": -14.1,
+          "yaw": 2.33,
+          "mode": "scripted",
+          "speed": 0
+        },
+        "objective": null,
+        "interact": null,
+        "thirst": 100,
+        "sips": 0,
+        "render": {
+          "calls": 33,
+          "tris": 156792,
+          "textures": 11,
+          "geometries": 46
+        },
+        "errors": 0
+      },
+      "text": "ش\nق\nج\nغ\nش\nق\nج\nغ\nش\nق\nج\nغ\nمسفر\nليلة ظلما… آخر الشهر. والله ما ودّي بها.",
+      "choice": false,
+      "typing": false,
+      "verb": null,
+      "camera": {
+        "yaw": 2.9793938201264107,
+        "pitch": 0.20943951023931956,
+        "pos": [
+          -2.6634305528617066,
+          6.7222450049074896,
+          -10.04570217695624
+        ]
+      },
+      "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+      "errors": []
+    },
+    {
+      "file": "c3_fire_dialogue03.jpg",
+      "state": {
+        "mode": "dialogue",
+        "chapter": 3,
+        "beat": "c3_fire",
+        "flags": {
+          "ration": "self",
+          "gaveWater": false,
+          "sawWolfPrint": false,
+          "leftRifle": false,
+          "haybah": 0
+        },
+        "time": 31.37,
+        "player": {
+          "x": -2,
+          "y": 4.4,
+          "z": -14.1,
+          "yaw": 2.33,
+          "mode": "scripted",
+          "speed": 0
+        },
+        "objective": null,
+        "interact": null,
+        "thirst": 100,
+        "sips": 0,
+        "render": {
+          "calls": 36,
+          "tris": 155908,
+          "textures": 11,
+          "geometries": 46
+        },
+        "errors": 0
+      },
+      "text": "ش\nق\nج\nغ\nش\nق\nج\nغ\nش\nق\nج\nغ\nالشيخ مانع\nتعال اقعد ي",
+      "choice": false,
+      "typing": true,
+      "verb": null,
+      "camera": {
+        "yaw": 2.9793938201264107,
+        "pitch": 0.20943951023931956,
+        "pos": [
+          1.4997284205693298,
+          5.948957707880614,
+          -20.999592630853993
+        ]
+      },
+      "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+      "errors": []
+    },
+    {
+      "file": "c3_fire_dialogue04.jpg",
+      "state": {
+        "mode": "dialogue",
+        "chapter": 3,
+        "beat": "c3_fire",
+        "flags": {
+          "ration": "self",
+          "gaveWater": false,
+          "sawWolfPrint": false,
+          "leftRifle": false,
+          "haybah": 0
+        },
+        "time": 35.42,
+        "player": {
+          "x": -2,
+          "y": 4.4,
+          "z": -14.1,
+          "yaw": 2.33,
+          "mode": "scripted",
+          "speed": 0
+        },
+        "objective": null,
+        "interact": null,
+        "thirst": 100,
+        "sips": 0,
+        "render": {
+          "calls": 36,
+          "tris": 155908,
+          "textures": 11,
+          "geometries": 46
+        },
+        "errors": 0
+      },
+      "text": "ش\nق\nج\nغ\nش\nق\nج\nغ\nش\nق\nج\nغ\nالشيخ مانع\nتعال اقعد يمّي يا ضاري… وخلّ العرب ينامون.",
+      "choice": false,
+      "typing": false,
+      "verb": null,
+      "camera": {
+        "yaw": 2.9793938201264107,
+        "pitch": 0.20943951023931956,
+        "pos": [
+          1.394685032139578,
+          5.926448410359953,
+          -20.842027548209366
+        ]
+      },
+      "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+      "errors": []
+    },
+    {
+      "file": "c3_fire_dialogue05.jpg",
+      "state": {
+        "mode": "dialogue",
+        "chapter": 3,
+        "beat": "c3_fire",
+        "flags": {
+          "ration": "self",
+          "gaveWater": false,
+          "sawWolfPrint": false,
+          "leftRifle": false,
+          "haybah": 0
+        },
+        "time": 39.47,
+        "player": {
+          "x": -2,
+          "y": 4.4,
+          "z": -14.1,
+          "yaw": 2.33,
+          "mode": "scripted",
+          "speed": 0
+        },
+        "objective": null,
+        "interact": null,
+        "thirst": 100,
+        "sips": 0,
+        "render": {
+          "calls": 35,
+          "tris": 139444,
+          "textures": 11,
+          "geometries": 46
+        },
+        "errors": 0
+      },
+      "text": "ش\nق\nج\nغ\nش\nق\nج\nغ\nش\nق\nج\nغ\nالشيخ مانع\nارفع راسك وعلّمني… وش تشوف بالسما الليلة؟",
+      "choice": false,
+      "typing": false,
+      "verb": null,
+      "camera": {
+        "yaw": 2.9793938201264107,
+        "pitch": 0.20943951023931956,
+        "pos": [
+          1.364007839702684,
+          5.921362065948872,
+          -20.80382029288736
+        ]
+      },
+      "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+      "errors": []
+    },
+    {
+      "file": "c3_fire_dialogue06.jpg",
+      "state": {
+        "mode": "dialogue",
+        "chapter": 3,
+        "beat": "c3_fire",
+        "flags": {
+          "ration": "self",
+          "gaveWater": false,
+          "sawWolfPrint": false,
+          "leftRifle": false,
+          "haybah": 0
+        },
+        "time": 43.52,
+        "player": {
+          "x": -2,
+          "y": 4.4,
+          "z": -14.1,
+          "yaw": 2.33,
+          "mode": "scripted",
+          "speed": 0
+        },
+        "objective": null,
+        "interact": null,
+        "thirst": 100,
+        "sips": 0,
+        "render": {
+          "calls": 34,
+          "tris": 139438,
+          "textures": 11,
+          "geometries": 46
+        },
+        "errors": 0
+      },
+      "text": "ش\nق\nج\nغ\nش\nق\nج\nغ\nش\nق\nج\nغ\nضاري\nنجوم يا جدّي… السما مليانة.",
+      "choice": false,
+      "typing": false,
+      "verb": null,
+      "camera": {
+        "yaw": 2.9793938201264107,
+        "pitch": 0.20943951023931956,
+        "pos": [
+          -0.9,
+          5.549015903472901,
+          -18
+        ]
+      },
+      "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+      "errors": []
+    },
+    {
+      "file": "c3_fire_dialogue07.jpg",
+      "state": {
+        "mode": "dialogue",
+        "chapter": 3,
+        "beat": "c3_fire",
+        "flags": {
+          "ration": "self",
+          "gaveWater": false,
+          "sawWolfPrint": false,
+          "leftRifle": false,
+          "haybah": 0
+        },
+        "time": 47.57,
+        "player": {
+          "x": -2,
+          "y": 4.4,
+          "z": -14.1,
+          "yaw": 2.33,
+          "mode": "scripted",
+          "speed": 0
+        },
+        "objective": null,
+        "interact": null,
+        "thirst": 100,
+        "sips": 0,
+        "render": {
+          "calls": 34,
+          "tris": 139438,
+          "textures": 11,
+          "geometries": 46
+        },
+        "errors": 0
+      },
+      "text": "ش\nق\nج\nغ\nش\nق\nج\nغ\nش\nق\nج\nغ\nالشيخ مانع\nسمّها لي… وين بنات نعش؟ وين الجدي؟",
+      "choice": false,
+      "typing": false,
+      "verb": null,
+      "camera": {
+        "yaw": 2.9793938201264107,
+        "pitch": 0.20943951023931956,
+        "pos": [
+          -0.9,
+          5.549015903472901,
+          -18
+        ]
+      },
+      "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+      "errors": []
+    },
+    {
+      "file": "c3_fire_dialogue08.jpg",
+      "state": {
+        "mode": "dialogue",
+        "chapter": 3,
+        "beat": "c3_fire",
+        "flags": {
+          "ration": "self",
+          "gaveWater": false,
+          "sawWolfPrint": false,
+          "leftRifle": false,
+          "haybah": 0
+        },
+        "time": 51.62,
+        "player": {
+          "x": -2,
+          "y": 4.4,
+          "z": -14.1,
+          "yaw": 2.33,
+          "mode": "scripted",
+          "speed": 0
+        },
+        "objective": null,
+        "interact": null,
+        "thirst": 100,
+        "sips": 0,
+        "render": {
+          "calls": 34,
+          "tris": 139438,
+          "textures": 11,
+          "geometries": 46
+        },
+        "errors": 0
+      },
+      "text": "ش\nق\nج\nغ\nش\nق\nج\nغ\nش\nق\nج\nغ\nضاري\nطال عمرك… أنت اللي علّمت العرب النجوم. ليه تنشدني أنا؟",
+      "choice": false,
+      "typing": false,
+      "verb": null,
+      "camera": {
+        "yaw": 2.9793938201264107,
+        "pitch": 0.20943951023931956,
+        "pos": [
+          -0.9,
+          5.549015903472901,
+          -18
+        ]
+      },
+      "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+      "errors": []
+    },
+    {
+      "file": "c3_fire_dialogue09.jpg",
+      "state": {
+        "mode": "dialogue",
+        "chapter": 3,
+        "beat": "c3_fire",
+        "flags": {
+          "ration": "self",
+          "gaveWater": false,
+          "sawWolfPrint": false,
+          "leftRifle": false,
+          "haybah": 0
+        },
+        "time": 55.67,
+        "player": {
+          "x": -2,
+          "y": 4.4,
+          "z": -14.1,
+          "yaw": 2.33,
+          "mode": "scripted",
+          "speed": 0
+        },
+        "objective": null,
+        "interact": null,
+        "thirst": 100,
+        "sips": 0,
+        "render": {
+          "calls": 34,
+          "tris": 139438,
+          "textures": 11,
+          "geometries": 46
+        },
+        "errors": 0
+      },
+      "text": "ش\nق\nج\nغ\nش\nق\nج\nغ\nش\nق\nج\nغ\nسكت الشيخ… ووجهه إلى السماء، وعيناه لا تطرفان.",
+      "choice": false,
+      "typing": false,
+      "verb": null,
+      "camera": {
+        "yaw": 2.9793938201264107,
+        "pitch": 0.20943951023931956,
+        "pos": [
+          -0.9,
+          5.549015903472901,
+          -18
+        ]
+      },
+      "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+      "errors": []
+    },
+    {
+      "file": "c3_fire_dialogue10.jpg",
+      "state": {
+        "mode": "dialogue",
+        "chapter": 3,
+        "beat": "c3_fire",
+        "flags": {
+          "ration": "self",
+          "gaveWater": false,
+          "sawWolfPrint": false,
+          "leftRifle": false,
+          "haybah": 0
+        },
+        "time": 59.72,
+        "player": {
+          "x": -2,
+          "y": 4.4,
+          "z": -14.1,
+          "yaw": 2.33,
+          "mode": "scripted",
+          "speed": 0
+        },
+        "objective": null,
+        "interact": null,
+        "thirst": 100,
+        "sips": 0,
+        "render": {
+          "calls": 34,
+          "tris": 139438,
+          "textures": 11,
+          "geometries": 46
+        },
+        "errors": 0
+      },
+      "text": "ش\nق\nج\nغ\nش\nق\nج\nغ\nش\nق\nج\nغ\nالشيخ مانع\nلأني يا وليدي… أرفع راسي وما ألقى إلا سواد.",
+      "choice": false,
+      "typing": false,
+      "verb": null,
+      "camera": {
+        "yaw": 2.9793938201264107,
+        "pitch": 0.20943951023931956,
+        "pos": [
+          -0.9,
+          5.549015903472901,
+          -18
+        ]
+      },
+      "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+      "errors": []
+    },
+    {
+      "file": "c3_fire_dialogue11.jpg",
+      "state": {
+        "mode": "dialogue",
+        "chapter": 3,
+        "beat": "c3_fire",
+        "flags": {
+          "ration": "self",
+          "gaveWater": false,
+          "sawWolfPrint": false,
+          "leftRifle": false,
+          "haybah": 0
+        },
+        "time": 63.77,
+        "player": {
+          "x": -2,
+          "y": 4.4,
+          "z": -14.1,
+          "yaw": 2.33,
+          "mode": "scripted",
+          "speed": 0
+        },
+        "objective": null,
+        "interact": null,
+        "thirst": 100,
+        "sips": 0,
+        "render": {
+          "calls": 34,
+          "tris": 139438,
+          "textures": 11,
+          "geometries": 46
+        },
+        "errors": 0
+      },
+      "text": "ش\nق\nج\nغ\nش\nق\nج\nغ\nش\nق\nج\nغ\nالشيخ مانع\nمن شتاين والنجوم تطفي بعيني، نجمٍ ورا نجم… أول ما راح السها، وآخر ما راح الجدي.",
+      "choice": false,
+      "typing": false,
+      "verb": null,
+      "camera": {
+        "yaw": 2.9793938201264107,
+        "pitch": 0.20943951023931956,
+        "pos": [
+          -0.9,
+          5.549015903472901,
+          -18
+        ]
+      },
+      "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+      "errors": []
+    },
+    {
+      "file": "c3_fire_dialogue12.jpg",
+      "state": {
+        "mode": "dialogue",
+        "chapter": 3,
+        "beat": "c3_fire",
+        "flags": {
+          "ration": "self",
+          "gaveWater": false,
+          "sawWolfPrint": false,
+          "leftRifle": false,
+          "haybah": 0
+        },
+        "time": 67.82,
+        "player": {
+          "x": -2,
+          "y": 4.4,
+          "z": -14.1,
+          "yaw": 2.33,
+          "mode": "scripted",
+          "speed": 0
+        },
+        "objective": null,
+        "interact": null,
+        "thirst": 100,
+        "sips": 0,
+        "render": {
+          "calls": 34,
+          "tris": 139438,
+          "textures": 11,
+          "geometries": 46
+        },
+        "errors": 0
+      },
+      "text": "ش\nق\nج\nغ\nش\nق\nج\nغ\nش\nق\nج\nغ\nالشيخ مانع\nوالنهار صار غبشة… أشوف الرجّال ظل، وأعرفه من حِسّه ومن مشيته.",
+      "choice": false,
+      "typing": false,
+      "verb": null,
+      "camera": {
+        "yaw": 2.9793938201264107,
+        "pitch": 0.20943951023931956,
+        "pos": [
+          -0.9,
+          5.549015903472901,
+          -18
+        ]
+      },
+      "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+      "errors": []
+    },
+    {
+      "file": "c3_fire_dialogue13.jpg",
+      "state": {
+        "mode": "dialogue",
+        "chapter": 3,
+        "beat": "c3_fire",
+        "flags": {
+          "ration": "self",
+          "gaveWater": false,
+          "sawWolfPrint": false,
+          "leftRifle": false,
+          "haybah": 0
+        },
+        "time": 71.87,
+        "player": {
+          "x": -2,
+          "y": 4.4,
+          "z": -14.1,
+          "yaw": 2.33,
+          "mode": "scripted",
+          "speed": 0
+        },
+        "objective": null,
+        "interact": null,
+        "thirst": 100,
+        "sips": 0,
+        "render": {
+          "calls": 34,
+          "tris": 139438,
+          "textures": 11,
+          "geometries": 46
+        },
+        "errors": 0
+      },
+      "text": "ش\nق\nج\nغ\nش\nق\nج\nغ\nش\nق\nج\nغ\nضاري\nيا جدّي…",
+      "choice": false,
+      "typing": false,
+      "verb": null,
+      "camera": {
+        "yaw": 2.9793938201264107,
+        "pitch": 0.20943951023931956,
+        "pos": [
+          -0.9,
+          5.549015903472901,
+          -18
+        ]
+      },
+      "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+      "errors": []
+    },
+    {
+      "file": "c3_fire_dialogue14.jpg",
+      "state": {
+        "mode": "dialogue",
+        "chapter": 3,
+        "beat": "c3_fire",
+        "flags": {
+          "ration": "self",
+          "gaveWater": false,
+          "sawWolfPrint": false,
+          "leftRifle": false,
+          "haybah": 0
+        },
+        "time": 75.92,
+        "player": {
+          "x": -2,
+          "y": 4.4,
+          "z": -14.1,
+          "yaw": 2.33,
+          "mode": "scripted",
+          "speed": 0
+        },
+        "objective": null,
+        "interact": null,
+        "thirst": 100,
+        "sips": 0,
+        "render": {
+          "calls": 34,
+          "tris": 139438,
+          "textures": 11,
+          "geometries": 46
+        },
+        "errors": 0
+      },
+      "text": "ش\nق\nج\nغ\nش\nق\nج\nغ\nش\nق\nج\nغ\nضاري\nوالدرب يا جدّي؟ من يوم شدّينا والظعن يمشي وراك.",
+      "choice": false,
+      "typing": false,
+      "verb": null,
+      "camera": {
+        "yaw": 2.9793938201264107,
+        "pitch": 0.20943951023931956,
+        "pos": [
+          -0.9,
+          5.549015903472901,
+          -18
+        ]
+      },
+      "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+      "errors": []
+    },
+    {
+      "file": "c3_fire_dialogue15.jpg",
+      "state": {
+        "mode": "dialogue",
+        "chapter": 3,
+        "beat": "c3_fire",
+        "flags": {
+          "ration": "self",
+          "gaveWater": false,
+          "sawWolfPrint": false,
+          "leftRifle": false,
+          "haybah": 0
+        },
+        "time": 79.97,
+        "player": {
+          "x": -2,
+          "y": 4.4,
+          "z": -14.1,
+          "yaw": 2.33,
+          "mode": "scripted",
+          "speed": 0
+        },
+        "objective": null,
+        "interact": null,
+        "thirst": 100,
+        "sips": 0,
+        "render": {
+          "calls": 34,
+          "tris": 139438,
+          "textures": 11,
+          "geometries": 46
+        },
+        "errors": 0
+      },
+      "text": "ش\nق\nج\nغ\nش\nق\nج\nغ\nش\nق\nج\nغ\nالشيخ مانع\nالدرب بصدري… مشيته قبل ينولد أبوك. بس الصدر ما يشوف الدَّهَس ولا العجاج.",
+      "choice": false,
+      "typing": false,
+      "verb": null,
+      "camera": {
+        "yaw": 2.9793938201264107,
+        "pitch": 0.20943951023931956,
+        "pos": [
+          -0.9,
+          5.549015903472901,
+          -18
+        ]
+      },
+      "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+      "errors": []
+    },
+    {
+      "file": "c3_fire_dialogue16.jpg",
+      "state": {
+        "mode": "dialogue",
+        "chapter": 3,
+        "beat": "c3_fire",
+        "flags": {
+          "ration": "self",
+          "gaveWater": false,
+          "sawWolfPrint": false,
+          "leftRifle": false,
+          "haybah": 0
+        },
+        "time": 84.02,
+        "player": {
+          "x": -2,
+          "y": 4.4,
+          "z": -14.1,
+          "yaw": 2.33,
+          "mode": "scripted",
+          "speed": 0
+        },
+        "objective": null,
+        "interact": null,
+        "thirst": 100,
+        "sips": 0,
+        "render": {
+          "calls": 34,
+          "tris": 139438,
+          "textures": 11,
+          "geometries": 46
+        },
+        "errors": 0
+      },
+      "text": "ش\nق\nج\nغ\nش\nق\nج\nغ\nش\nق\nج\nغ\nالشيخ مانع\n«وش تشوف يا ضاري؟»… كل ما نشدتك، كنت أمشي بعيونك.",
+      "choice": false,
+      "typing": false,
+      "verb": null,
+      "camera": {
+        "yaw": 2.9793938201264107,
+        "pitch": 0.20943951023931956,
+        "pos": [
+          -0.9,
+          5.549015903472901,
+          -18
+        ]
+      },
+      "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+      "errors": []
+    },
+    {
+      "file": "c3_fire_dialogue17.jpg",
+      "state": {
+        "mode": "dialogue",
+        "chapter": 3,
+        "beat": "c3_fire",
+        "flags": {
+          "ration": "self",
+          "gaveWater": false,
+          "sawWolfPrint": false,
+          "leftRifle": false,
+          "haybah": 0
+        },
+        "time": 88.07,
+        "player": {
+          "x": -2,
+          "y": 4.4,
+          "z": -14.1,
+          "yaw": 2.33,
+          "mode": "scripted",
+          "speed": 0
+        },
+        "objective": null,
+        "interact": null,
+        "thirst": 100,
+        "sips": 0,
+        "render": {
+          "calls": 34,
+          "tris": 139438,
+          "textures": 11,
+          "geometries": 46
+        },
+        "errors": 0
+      },
+      "text": "ش\nق\nج\nغ\nش\nق\nج\nغ\nش\nق\nج\nغ\nضاري\nوليه ما علّمت أحد؟ مسفر… أمي…",
+      "choice": false,
+      "typing": false,
+      "verb": null,
+      "camera": {
+        "yaw": 2.9793938201264107,
+        "pitch": 0.20943951023931956,
+        "pos": [
+          -0.9,
+          5.549015903472901,
+          -18
+        ]
+      },
+      "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+      "errors": []
+    },
+    {
+      "file": "c3_fire_dialogue18.jpg",
+      "state": {
+        "mode": "dialogue",
+        "chapter": 3,
+        "beat": "c3_fire",
+        "flags": {
+          "ration": "self",
+          "gaveWater": false,
+          "sawWolfPrint": false,
+          "leftRifle": false,
+          "haybah": 0
+        },
+        "time": 92.12,
+        "player": {
+          "x": -2,
+          "y": 4.4,
+          "z": -14.1,
+          "yaw": 2.33,
+          "mode": "scripted",
+          "speed": 0
+        },
+        "objective": null,
+        "interact": null,
+        "thirst": 100,
+        "sips": 0,
+        "render": {
+          "calls": 34,
+          "tris": 139438,
+          "textures": 11,
+          "geometries": 46
+        },
+        "errors": 0
+      },
+      "text": "ش\nق\nج\nغ\nش\nق\nج\nغ\nش\nق\nج\nغ\nالشيخ مانع\nالظعن يمشي ورا دليلته ما دام يحسبه يشوف… ليا درى إنه ما عاد يشوف، وقف بمكانه ومات عطش.",
+      "choice": false,
+      "typing": false,
+      "verb": null,
+      "camera": {
+        "yaw": 2.9793938201264107,
+        "pitch": 0.20943951023931956,
+        "pos": [
+          -0.9,
+          5.549015903472901,
+          -18
+        ]
+      },
+      "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+      "errors": []
+    },
+    {
+      "file": "c3_fire_dialogue19.jpg",
+      "state": {
+        "mode": "dialogue",
+        "chapter": 3,
+        "beat": "c3_fire",
+        "flags": {
+          "ration": "self",
+          "gaveWater": false,
+          "sawWolfPrint": false,
+          "leftRifle": false,
+          "haybah": 0
+        },
+        "time": 96.17,
+        "player": {
+          "x": -2,
+          "y": 4.4,
+          "z": -14.1,
+          "yaw": 2.33,
+          "mode": "scripted",
+          "speed": 0
+        },
+        "objective": null,
+        "interact": null,
+        "thirst": 100,
+        "sips": 0,
+        "render": {
+          "calls": 34,
+          "tris": 139438,
+          "textures": 11,
+          "geometries": 46
+        },
+        "errors": 0
+      },
+      "text": "ش\nق\nج\nغ\nش\nق\nج\nغ\nش\nق\nج\nغ\nالشيخ مانع\nالرايد ما يكذب أهله، وأنا ما كذبت… قلت الما بالجنوب، والما بالجنوب.",
+      "choice": false,
+      "typing": false,
+      "verb": null,
+      "camera": {
+        "yaw": 2.9793938201264107,
+        "pitch": 0.20943951023931956,
+        "pos": [
+          -0.9,
+          5.549015903472901,
+          -18
+        ]
+      },
+      "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+      "errors": []
+    },
+    {
+      "file": "c3_fire_dialogue20.jpg",
+      "state": {
+        "mode": "dialogue",
+        "chapter": 3,
+        "beat": "c3_fire",
+        "flags": {
+          "ration": "self",
+          "gaveWater": false,
+          "sawWolfPrint": false,
+          "leftRifle": false,
+          "haybah": 0
+        },
+        "time": 100.22,
+        "player": {
+          "x": -2,
+          "y": 4.4,
+          "z": -14.1,
+          "yaw": 2.33,
+          "mode": "scripted",
+          "speed": 0
+        },
+        "objective": null,
+        "interact": null,
+        "thirst": 100,
+        "sips": 0,
+        "render": {
+          "calls": 34,
+          "tris": 139438,
+          "textures": 11,
+          "geometries": 46
+        },
+        "errors": 0
+      },
+      "text": "ش\nق\nج\nغ\nش\nق\nج\nغ\nش\nق\nج\nغ\nالشيخ مانع\nبس الأمل مثل الما يا وليدي… ليا انكبّ ما ينلمّ.",
+      "choice": false,
+      "typing": false,
+      "verb": null,
+      "camera": {
+        "yaw": 2.9793938201264107,
+        "pitch": 0.20943951023931956,
+        "pos": [
+          -0.9,
+          5.549015903472901,
+          -18
+        ]
+      },
+      "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+      "errors": []
+    },
+    {
+      "file": "c3_fire_dialogue21.jpg",
+      "state": {
+        "mode": "dialogue",
+        "chapter": 3,
+        "beat": "c3_fire",
+        "flags": {
+          "ration": "self",
+          "gaveWater": false,
+          "sawWolfPrint": false,
+          "leftRifle": false,
+          "haybah": 0
+        },
+        "time": 104.27,
+        "player": {
+          "x": -2,
+          "y": 4.4,
+          "z": -14.1,
+          "yaw": 2.33,
+          "mode": "scripted",
+          "speed": 0
+        },
+        "objective": null,
+        "interact": null,
+        "thirst": 100,
+        "sips": 0,
+        "render": {
+          "calls": 34,
+          "tris": 139438,
+          "textures": 11,
+          "geometries": 46
+        },
+        "errors": 0
+      },
+      "text": "ش\nق\nج\nغ\nش\nق\nج\nغ\nش\nق\nج\nغ\nضاري\nوش تبي مني يا جدّي؟ آمر.",
+      "choice": false,
+      "typing": false,
+      "verb": null,
+      "camera": {
+        "yaw": 2.9793938201264107,
+        "pitch": 0.20943951023931956,
+        "pos": [
+          -0.9,
+          5.549015903472901,
+          -18
+        ]
+      },
+      "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+      "errors": []
+    },
+    {
+      "file": "c3_fire_dialogue22.jpg",
+      "state": {
+        "mode": "dialogue",
+        "chapter": 3,
+        "beat": "c3_fire",
+        "flags": {
+          "ration": "self",
+          "gaveWater": false,
+          "sawWolfPrint": false,
+          "leftRifle": false,
+          "haybah": 0
+        },
+        "time": 108.32,
+        "player": {
+          "x": -2,
+          "y": 4.4,
+          "z": -14.1,
+          "yaw": 2.33,
+          "mode": "scripted",
+          "speed": 0
+        },
+        "objective": null,
+        "interact": null,
+        "thirst": 100,
+        "sips": 0,
+        "render": {
+          "calls": 34,
+          "tris": 139438,
+          "textures": 11,
+          "geometries": 46
+        },
+        "errors": 0
+      },
+      "text": "ش\nق\nج\nغ\nش\nق\nج\nغ\nش\nق\nج\nغ\nالشيخ مانع\nأنت عيوني يا ضاري… لين نرد أم الحيا. تشوف أنت، وأفهم أنا.",
+      "choice": false,
+      "typing": false,
+      "verb": null,
+      "camera": {
+        "yaw": 2.9793938201264107,
+        "pitch": 0.20943951023931956,
+        "pos": [
+          -0.9,
+          5.549015903472901,
+          -18
+        ]
+      },
+      "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+      "errors": []
+    },
+    {
+      "file": "c3_fire_dialogue23.jpg",
+      "state": {
+        "mode": "dialogue",
+        "chapter": 3,
+        "beat": "c3_fire",
+        "flags": {
+          "ration": "self",
+          "gaveWater": false,
+          "sawWolfPrint": false,
+          "leftRifle": false,
+          "haybah": 0
+        },
+        "time": 112.37,
+        "player": {
+          "x": -2,
+          "y": 4.4,
+          "z": -14.1,
+          "yaw": 2.33,
+          "mode": "scripted",
+          "speed": 0
+        },
+        "objective": null,
+        "interact": null,
+        "thirst": 100,
+        "sips": 0,
+        "render": {
+          "calls": 34,
+          "tris": 139438,
+          "textures": 11,
+          "geometries": 46
+        },
+        "errors": 0
+      },
+      "text": "ش\nق\nج\nغ\nش\nق\nج\nغ\nش\nق\nج\nغ\nضاري\nأبشر… عيوني عيونك، والسرّ بصدري.",
+      "choice": false,
+      "typing": false,
+      "verb": null,
+      "camera": {
+        "yaw": 2.9793938201264107,
+        "pitch": 0.20943951023931956,
+        "pos": [
+          -0.9,
+          5.549015903472901,
+          -18
+        ]
+      },
+      "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+      "errors": []
+    },
+    {
+      "file": "c3_fire_dialogue24.jpg",
+      "state": {
+        "mode": "dialogue",
+        "chapter": 3,
+        "beat": "c3_fire",
+        "flags": {
+          "ration": "self",
+          "gaveWater": false,
+          "sawWolfPrint": false,
+          "leftRifle": false,
+          "haybah": 0
+        },
+        "time": 116.42,
+        "player": {
+          "x": -2,
+          "y": 4.4,
+          "z": -14.1,
+          "yaw": 2.33,
+          "mode": "scripted",
+          "speed": 0
+        },
+        "objective": null,
+        "interact": null,
+        "thirst": 100,
+        "sips": 0,
+        "render": {
+          "calls": 34,
+          "tris": 139438,
+          "textures": 11,
+          "geometries": 46
+        },
+        "errors": 0
+      },
+      "text": "ش\nق\nج\nغ\nش\nق\nج\nغ\nش\nق\nج\nغ\nالشيخ مانع\nعفيه. يالله… نبدا من السما. دوّر لي بنات نعش.",
+      "choice": false,
+      "typing": false,
+      "verb": null,
+      "camera": {
+        "yaw": 2.9793938201264107,
+        "pitch": 0.20943951023931956,
+        "pos": [
+          -0.9,
+          5.549015903472901,
+          -18
+        ]
+      },
+      "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+      "errors": []
+    },
+    {
+      "file": "c3_polaris_start.jpg",
+      "state": {
+        "mode": "play",
+        "chapter": 3,
+        "beat": "c3_polaris",
+        "flags": {
+          "ration": "self",
+          "gaveWater": false,
+          "sawWolfPrint": false,
+          "leftRifle": false,
+          "haybah": 0
+        },
+        "time": 8.37,
+        "player": {
+          "x": -2,
+          "y": 4.4,
+          "z": -14.1,
+          "yaw": 3.14,
+          "mode": "foot",
+          "speed": 0
+        },
+        "objective": "c3_polaris.obj",
+        "interact": null,
+        "thirst": 100,
+        "sips": 0,
+        "render": {
+          "calls": 32,
+          "tris": 120871,
+          "textures": 9,
+          "geometries": 43
+        },
+        "errors": 0
+      },
+      "text": "ابحث عن بنات نعش\nش\nق\nج\nغ\nش\nق\nج\nغ\nش\nق\nج\nغ\nاضغط مطوّلًا على زرّ الفراسة وارفع نظرك إلى السماء",
+      "choice": false,
+      "typing": false,
+      "verb": null,
+      "camera": {
+        "yaw": 3.141592653589793,
+        "pitch": 0.17453292519943295,
+        "pos": [
+          -2,
+          6.099015903472901,
+          -12.5
+        ]
+      },
+      "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+      "errors": []
+    },
+    {
+      "file": "c3_polaris_sky.jpg",
+      "state": {
+        "mode": "play",
+        "chapter": 3,
+        "beat": "c3_polaris",
+        "flags": {
+          "ration": "self",
+          "gaveWater": false,
+          "sawWolfPrint": false,
+          "leftRifle": false,
+          "haybah": 0
+        },
+        "time": 10.48,
+        "player": {
+          "x": -2,
+          "y": 4.4,
+          "z": -14.1,
+          "yaw": 3.14,
+          "mode": "foot",
+          "speed": 0
+        },
+        "objective": "c3_polaris.obj",
+        "interact": null,
+        "thirst": 100,
+        "sips": 0,
+        "render": {
+          "calls": 31,
+          "tris": 108463,
+          "textures": 9,
+          "geometries": 43
+        },
+        "errors": 0
+      },
+      "text": "ابحث عن بنات نعش\nش\nق\nج\nغ\nش\nق\nج\nغ\nش\nق\nج\nغ\nاضغط مطوّلًا على زرّ الفراسة وارفع نظرك إلى السماء",
+      "choice": false,
+      "typing": false,
+      "verb": null,
+      "camera": {
+        "yaw": 3.141592653589793,
+        "pitch": -0.21212463216546465,
+        "pos": [
+          -2,
+          6.099015903472901,
+          -12.5
+        ]
+      },
+      "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+      "errors": []
+    },
+    {
+      "file": "c3_wolves_start.jpg",
+      "state": {
+        "mode": "dialogue",
+        "chapter": 3,
+        "beat": "c3_wolves",
+        "flags": {
+          "ration": "self",
+          "gaveWater": false,
+          "sawWolfPrint": false,
+          "leftRifle": false,
+          "haybah": 0
+        },
+        "time": 8.42,
+        "player": {
+          "x": 1.6,
+          "y": 4.4,
+          "z": -13.8,
+          "yaw": 3.14,
+          "mode": "foot",
+          "speed": 0
+        },
+        "objective": null,
+        "interact": null,
+        "thirst": 100,
+        "sips": 0,
+        "render": {
+          "calls": 36,
+          "tris": 170260,
+          "textures": 11,
+          "geometries": 45
+        },
+        "errors": 0
+      },
+      "text": "ش\nق\nج\nغ\nش\nق\nج\nغ\nش\nق\nج\nغ\nعواءٌ طويل شقّ الليل… ثم أجابه ثانٍ، فثالث.",
+      "choice": false,
+      "typing": false,
+      "verb": null,
+      "camera": {
+        "yaw": 3.141592653589793,
+        "pitch": 0.20943951023931956,
+        "pos": [
+          1.5999999999999996,
+          6.7222450049074896,
+          -9.691780076918016
+        ]
+      },
+      "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+      "errors": []
+    },
+    {
+      "file": "c3_wolves_late.jpg",
+      "state": {
+        "mode": "dialogue",
+        "chapter": 3,
+        "beat": "c3_wolves",
+        "flags": {
+          "ration": "self",
+          "gaveWater": false,
+          "sawWolfPrint": false,
+          "leftRifle": false,
+          "haybah": 0
+        },
+        "time": 20.42,
+        "player": {
+          "x": 1.6,
+          "y": 4.4,
+          "z": -13.8,
+          "yaw": 3.14,
+          "mode": "foot",
+          "speed": 0
+        },
+        "objective": null,
+        "interact": null,
+        "thirst": 100,
+        "sips": 0,
+        "render": {
+          "calls": 36,
+          "tris": 170260,
+          "textures": 11,
+          "geometries": 45
+        },
+        "errors": 0
+      },
+      "text": "ش\nق\nج\nغ\nش\nق\nج\nغ\nش\nق\nج\nغ\nعواءٌ طويل شقّ الليل… ثم أجابه ثانٍ، فثالث.",
+      "choice": false,
+      "typing": false,
+      "verb": null,
+      "camera": {
+        "yaw": 3.141592653589793,
+        "pitch": 0.20943951023931956,
+        "pos": [
+          1.5999999999999996,
+          6.7222450049074896,
+          -9.691780076918016
+        ]
+      },
+      "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+      "errors": []
+    },
+    {
+      "file": "c4_search_start.jpg",
+      "state": {
+        "mode": "play",
+        "chapter": 4,
+        "beat": "c4_search",
+        "flags": {
+          "ration": "self",
+          "gaveWater": false,
+          "sawWolfPrint": false,
+          "leftRifle": false,
+          "haybah": 0
+        },
+        "time": 8.57,
+        "player": {
+          "x": 19,
+          "y": 7.18,
+          "z": -247,
+          "yaw": -0.65,
+          "mode": "mounted",
+          "speed": 0
+        },
+        "objective": "c4_search.obj",
+        "interact": null,
+        "thirst": 36,
+        "sips": 1,
+        "render": {
+          "calls": 28,
+          "tris": 86595,
+          "textures": 7,
+          "geometries": 48
+        },
+        "errors": 0
+      },
+      "text": "اتبع القطا والرجوم إلى الماء\nش\nق\nج\nغ\nش\nق\nج\nغ\nش\nق\nج\nغ\nمضى ضاري وحده… ولأوّل مرّة لم يسأله أحد: ماذا ترى؟",
+      "choice": false,
+      "typing": false,
+      "verb": null,
+      "camera": {
+        "yaw": -0.646302221915377,
+        "pitch": 0.20033578667181828,
+        "pos": [
+          10.164160401448324,
+          9.65058996315174,
+          -244.3148061803578
+        ]
+      },
+      "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+      "errors": []
+    },
+    {
+      "file": "c4_search_walk.jpg",
+      "state": {
+        "mode": "play",
+        "chapter": 4,
+        "beat": "c4_search",
+        "flags": {
+          "ration": "self",
+          "gaveWater": false,
+          "sawWolfPrint": false,
+          "leftRifle": false,
+          "haybah": 0
+        },
+        "time": 11.68,
+        "player": {
+          "x": 15.68,
+          "y": 7.83,
+          "z": -242.6,
+          "yaw": -0.65,
+          "mode": "mounted",
+          "speed": 0.31
+        },
+        "objective": "c4_search.obj",
+        "interact": null,
+        "thirst": 36,
+        "sips": 1,
+        "render": {
+          "calls": 44,
+          "tris": 126936,
+          "textures": 7,
+          "geometries": 48
+        },
+        "errors": 0
+      },
+      "text": "اتبع القطا والرجوم إلى الماء\nش\nق\nج\nغ\nش\nق\nج\nغ\nش\nق\nج\nغ",
+      "choice": false,
+      "typing": false,
+      "verb": null,
+      "camera": {
+        "yaw": -0.646302221915377,
+        "pitch": 0.06981317007977317,
+        "pos": [
+          20.19431779068185,
+          10.94418508082926,
+          -248.58316544346192
+        ]
+      },
+      "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+      "errors": []
+    },
+    {
+      "file": "c4_search_turn.jpg",
+      "state": {
+        "mode": "play",
+        "chapter": 4,
+        "beat": "c4_search",
+        "flags": {
+          "ration": "self",
+          "gaveWater": false,
+          "sawWolfPrint": false,
+          "leftRifle": false,
+          "haybah": 0
+        },
+        "time": 12.8,
+        "player": {
+          "x": 15.63,
+          "y": 7.84,
+          "z": -242.54,
+          "yaw": -0.65,
+          "mode": "mounted",
+          "speed": 0
+        },
+        "objective": "c4_search.obj",
+        "interact": null,
+        "thirst": 36,
+        "sips": 1,
+        "render": {
+          "calls": 35,
+          "tris": 103075,
+          "textures": 7,
+          "geometries": 48
+        },
+        "errors": 0
+      },
+      "text": "اتبع القطا والرجوم إلى الماء\nش\nق\nج\nغ\nش\nق\nج\nغ\nش\nق\nج\nغ",
+      "choice": false,
+      "typing": false,
+      "verb": null,
+      "camera": {
+        "yaw": -0.9813061778668951,
+        "pitch": -0.048332194670612214,
+        "pos": [
+          21.86038284466356,
+          10.082243468902668,
+          -246.70206597254207
+        ]
+      },
+      "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+      "errors": []
+    },
+    {
+      "file": "c5_walk_start.jpg",
+      "state": {
+        "mode": "play",
+        "chapter": 5,
+        "beat": "c5_walk",
+        "flags": {
+          "ration": "self",
+          "gaveWater": false,
+          "sawWolfPrint": false,
+          "leftRifle": false,
+          "haybah": 0
+        },
+        "time": 8.47,
+        "player": {
+          "x": 0,
+          "y": -7.57,
+          "z": 194,
+          "yaw": 0,
+          "mode": "foot",
+          "speed": 0
+        },
+        "objective": "c5_walk.obj",
+        "interact": null,
+        "thirst": 100,
+        "sips": 0,
+        "render": {
+          "calls": 48,
+          "tris": 156600,
+          "textures": 15,
+          "geometries": 45
+        },
+        "errors": 0
+      },
+      "text": "انزل إلى النار بخطوةٍ لا تتغيّر\nش\nق\nج\nغ\nش\nق\nج\nغ\nش\nق\nج\nغ\nأبقِ إبهامك مسحوبًا نحو النار… لا تقف ولا تلتفت",
+      "choice": false,
+      "typing": false,
+      "verb": null,
+      "camera": {
+        "yaw": 0,
+        "pitch": 0.20943951023931956,
+        "pos": [
+          0,
+          -5.461316249418823,
+          190.9188350576885
+        ]
+      },
+      "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+      "errors": []
+    },
+    {
+      "file": "c5_walk_walk.jpg",
+      "state": {
+        "mode": "play",
+        "chapter": 5,
+        "beat": "c5_walk",
+        "flags": {
+          "ration": "self",
+          "gaveWater": false,
+          "sawWolfPrint": false,
+          "leftRifle": false,
+          "haybah": 0
+        },
+        "time": 11.58,
+        "player": {
+          "x": 0,
+          "y": -9.14,
+          "z": 197.78,
+          "yaw": 0,
+          "mode": "foot",
+          "speed": 0
+        },
+        "objective": "c5_walk.obj",
+        "interact": null,
+        "thirst": 100,
+        "sips": 0,
+        "render": {
+          "calls": 48,
+          "tris": 156600,
+          "textures": 15,
+          "geometries": 45
+        },
+        "errors": 0
+      },
+      "text": "امشِ بثبات\nانزل إلى النار بخطوةٍ لا تتغيّر\nش\nق\nج\nغ\nش\nق\nج\nغ\nش\nق\nج\nغ\nأبقِ إبهامك مسحوبًا نحو النار… لا تقف ولا تلتفت",
+      "choice": false,
+      "typing": false,
+      "verb": "steady.walk",
+      "camera": {
+        "yaw": 0,
+        "pitch": 0.20943951023931956,
+        "pos": [
+          0,
+          -6.822551996780601,
+          193.68227524613715
+        ]
+      },
+      "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+      "errors": []
+    },
+    {
+      "file": "c5_walk_turn.jpg",
+      "state": {
+        "mode": "play",
+        "chapter": 5,
+        "beat": "c5_walk",
+        "flags": {
+          "ration": "self",
+          "gaveWater": false,
+          "sawWolfPrint": false,
+          "leftRifle": false,
+          "haybah": 0
+        },
+        "time": 12.7,
+        "player": {
+          "x": 0,
+          "y": -9.14,
+          "z": 197.78,
+          "yaw": 0,
+          "mode": "foot",
+          "speed": 0
+        },
+        "objective": "c5_walk.obj",
+        "interact": null,
+        "thirst": 100,
+        "sips": 0,
+        "render": {
+          "calls": 48,
+          "tris": 156600,
+          "textures": 15,
+          "geometries": 45
+        },
+        "errors": 0
+      },
+      "text": "انزل إلى النار بخطوةٍ لا تتغيّر\nش\nق\nج\nغ\nش\nق\nج\nغ\nش\nق\nج\nغ\nأبقِ إبهامك مسحوبًا نحو النار… لا تقف ولا تلتفت\nضحك الرماة: «هذا ما هو ولد مانع!»… عُد إلى سفح الكثيب.",
+      "choice": false,
+      "typing": false,
+      "verb": null,
+      "camera": {
+        "yaw": -0.05583399265858637,
+        "pitch": 0.18974858879978262,
+        "pos": [
+          0.20140242912971484,
+          -7.001588273248418,
+          194.17759696247487
+        ]
+      },
+      "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+      "errors": []
+    },
+    {
+      "file": "c5_words_start.jpg",
+      "state": {
+        "mode": "dialogue",
+        "chapter": 5,
+        "beat": "c5_words",
+        "flags": {
+          "ration": "self",
+          "gaveWater": false,
+          "sawWolfPrint": false,
+          "leftRifle": false,
+          "haybah": 0
+        },
+        "time": 8.47,
+        "player": {
+          "x": 0,
+          "y": -10.8,
+          "z": 237.6,
+          "yaw": 0,
+          "mode": "foot",
+          "speed": 0
+        },
+        "objective": null,
+        "interact": null,
+        "thirst": 100,
+        "sips": 0,
+        "render": {
+          "calls": 35,
+          "tris": 75370,
+          "textures": 11,
+          "geometries": 46
+        },
+        "errors": 0
+      },
+      "text": "ش\nق\nج\nغ\nش\nق\nج\nغ\nش\nق\nج\nغ\nعند النار شيخٌ لم يقم… لحيته خطّها الشيب، وعيناه على ضاري من أوّل خطوة.",
+      "choice": false,
+      "typing": false,
+      "verb": null,
+      "camera": {
+        "yaw": 0,
+        "pitch": 0.20943951023931956,
+        "pos": [
+          -2.5,
+          -9.346956062316895,
+          240.6
+        ]
+      },
+      "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+      "errors": []
+    },
+    {
+      "file": "c5_words_dialogue00.jpg",
+      "state": {
+        "mode": "dialogue",
+        "chapter": 5,
+        "beat": "c5_words",
+        "flags": {
+          "ration": "self",
+          "gaveWater": false,
+          "sawWolfPrint": false,
+          "leftRifle": false,
+          "haybah": 0
+        },
+        "time": 12.47,
+        "player": {
+          "x": 0,
+          "y": -10.8,
+          "z": 237.6,
+          "yaw": 0,
+          "mode": "foot",
+          "speed": 0
+        },
+        "objective": null,
+        "interact": null,
+        "thirst": 100,
+        "sips": 0,
+        "render": {
+          "calls": 35,
+          "tris": 75370,
+          "textures": 11,
+          "geometries": 46
+        },
+        "errors": 0
+      },
+      "text": "ش\nق\nج\nغ\nش\nق\nج\nغ\nش\nق\nج\nغ\nعند النار شيخٌ لم يقم… لحيته خطّها الشيب، وعيناه على ضاري من أوّل خطوة.",
+      "choice": false,
+      "typing": false,
+      "verb": null,
+      "camera": {
+        "yaw": 0,
+        "pitch": 0.20943951023931956,
+        "pos": [
+          -2.5,
+          -9.346956062316895,
+          240.6
+        ]
+      },
+      "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+      "errors": []
+    },
+    {
+      "file": "c5_words_dialogue01.jpg",
+      "state": {
+        "mode": "dialogue",
+        "chapter": 5,
+        "beat": "c5_words",
+        "flags": {
+          "ration": "self",
+          "gaveWater": false,
+          "sawWolfPrint": false,
+          "leftRifle": false,
+          "haybah": 0
+        },
+        "time": 16.52,
+        "player": {
+          "x": 0,
+          "y": -10.8,
+          "z": 237.6,
+          "yaw": 0,
+          "mode": "foot",
+          "speed": 0
+        },
+        "objective": null,
+        "interact": null,
+        "thirst": 100,
+        "sips": 0,
+        "render": {
+          "calls": 35,
+          "tris": 75370,
+          "textures": 11,
+          "geometries": 46
+        },
+        "errors": 0
+      },
+      "text": "ش\nق\nج\nغ\nش\nق\nج\nغ\nش\nق\nج\nغ\nضاري\nالسلام عليكم.",
+      "choice": false,
+      "typing": false,
+      "verb": null,
+      "camera": {
+        "yaw": 0,
+        "pitch": 0.20943951023931956,
+        "pos": [
+          -2.5,
+          -9.346956062316895,
+          240.6
+        ]
+      },
+      "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+      "errors": []
+    },
+    {
+      "file": "c5_words_dialogue02.jpg",
+      "state": {
+        "mode": "dialogue",
+        "chapter": 5,
+        "beat": "c5_words",
+        "flags": {
+          "ration": "self",
+          "gaveWater": false,
+          "sawWolfPrint": false,
+          "leftRifle": false,
+          "haybah": 0
+        },
+        "time": 20.57,
+        "player": {
+          "x": 0,
+          "y": -10.8,
+          "z": 237.6,
+          "yaw": 0,
+          "mode": "foot",
+          "speed": 0
+        },
+        "objective": null,
+        "interact": null,
+        "thirst": 100,
+        "sips": 0,
+        "render": {
+          "calls": 35,
+          "tris": 75370,
+          "textures": 11,
+          "geometries": 46
+        },
+        "errors": 0
+      },
+      "text": "ش\nق\nج\nغ\nش\nق\nج\nغ\nش\nق\nج\nغ\nالشيخ ثامر\nوعليكم السلام.",
+      "choice": false,
+      "typing": false,
+      "verb": null,
+      "camera": {
+        "yaw": 0,
+        "pitch": 0.20943951023931956,
+        "pos": [
+          -2.5,
+          -9.346956062316895,
+          240.6
+        ]
+      },
+      "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+      "errors": []
+    },
+    {
+      "file": "c5_words_dialogue03.jpg",
+      "state": {
+        "mode": "dialogue",
+        "chapter": 5,
+        "beat": "c5_words",
+        "flags": {
+          "ration": "self",
+          "gaveWater": false,
+          "sawWolfPrint": false,
+          "leftRifle": false,
+          "haybah": 0
+        },
+        "time": 24.62,
+        "player": {
+          "x": 0,
+          "y": -10.8,
+          "z": 237.6,
+          "yaw": 0,
+          "mode": "foot",
+          "speed": 0
+        },
+        "objective": null,
+        "interact": null,
+        "thirst": 100,
+        "sips": 0,
+        "render": {
+          "calls": 35,
+          "tris": 75370,
+          "textures": 11,
+          "geometries": 46
+        },
+        "errors": 0
+      },
+      "text": "ش\nق\nج\nغ\nش\nق\nج\nغ\nش\nق\nج\nغ\nالشيخ ثامر\nجاي لضوّي وبندقك على كتفك… حطّها بالأرض، ثم تكلّم.",
+      "choice": false,
+      "typing": false,
+      "verb": null,
+      "camera": {
+        "yaw": 0,
+        "pitch": 0.20943951023931956,
+        "pos": [
+          -2.5,
+          -9.346956062316895,
+          240.6
+        ]
+      },
+      "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+      "errors": []
+    },
+    {
+      "file": "c5_words_dialogue04.jpg",
+      "state": {
+        "mode": "dialogue",
+        "chapter": 5,
+        "beat": "c5_words",
+        "flags": {
+          "ration": "self",
+          "gaveWater": false,
+          "sawWolfPrint": false,
+          "leftRifle": false,
+          "haybah": 0
+        },
+        "time": 28.67,
+        "player": {
+          "x": 0,
+          "y": -10.8,
+          "z": 237.6,
+          "yaw": 0,
+          "mode": "foot",
+          "speed": 0
+        },
+        "objective": null,
+        "interact": null,
+        "thirst": 100,
+        "sips": 0,
+        "render": {
+          "calls": 35,
+          "tris": 75370,
+          "textures": 11,
+          "geometries": 46
+        },
+        "errors": 0
+      },
+      "text": "ش\nق\nج\nغ\nش\nق\nج\nغ\nش\nق\nج\nغ\nوضع ضاري بندقه على الرمل… وأبعد يديه عنها.",
+      "choice": false,
+      "typing": false,
+      "verb": null,
+      "camera": {
+        "yaw": 0,
+        "pitch": 0.20943951023931956,
+        "pos": [
+          -2.5,
+          -9.346956062316895,
+          240.6
+        ]
+      },
+      "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+      "errors": []
+    },
+    {
+      "file": "c5_words_dialogue05.jpg",
+      "state": {
+        "mode": "dialogue",
+        "chapter": 5,
+        "beat": "c5_words",
+        "flags": {
+          "ration": "self",
+          "gaveWater": false,
+          "sawWolfPrint": false,
+          "leftRifle": false,
+          "haybah": 0
+        },
+        "time": 32.72,
+        "player": {
+          "x": 0,
+          "y": -10.8,
+          "z": 237.6,
+          "yaw": 0,
+          "mode": "foot",
+          "speed": 0
+        },
+        "objective": "c5_words.obj",
+        "interact": null,
+        "thirst": 100,
+        "sips": 0,
+        "render": {
+          "calls": 35,
+          "tris": 75370,
+          "textures": 11,
+          "geometries": 46
+        },
+        "errors": 0
+      },
+      "text": "ش\nق\nج\nغ\nش\nق\nج\nغ\nش\nق\nج\nغ\nالشيخ ثامر\nقلت إنك من ربع مانع… من أنت منهم؟ وش ترجع؟",
+      "choice": false,
+      "typing": false,
+      "verb": null,
+      "camera": {
+        "yaw": 0,
+        "pitch": 0.20943951023931956,
+        "pos": [
+          -2.5,
+          -9.346956062316895,
+          240.6
+        ]
+      },
+      "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+      "errors": []
+    },
+    {
+      "file": "c5_words_dialogue06.jpg",
+      "state": {
+        "mode": "dialogue",
+        "chapter": 5,
+        "beat": "c5_words",
+        "flags": {
+          "ration": "self",
+          "gaveWater": false,
+          "sawWolfPrint": false,
+          "leftRifle": false,
+          "haybah": 0
+        },
+        "time": 36.77,
+        "player": {
+          "x": 0,
+          "y": -10.8,
+          "z": 237.6,
+          "yaw": 0,
+          "mode": "foot",
+          "speed": 0
+        },
+        "objective": "c5_words.obj",
+        "interact": null,
+        "thirst": 100,
+        "sips": 0,
+        "render": {
+          "calls": 35,
+          "tris": 87777,
+          "textures": 12,
+          "geometries": 47
+        },
+        "errors": 0
+      },
+      "text": "ش\nق\nج\nغ\nش\nق\nج\nغ\nش\nق\nج\nغ\nثامر: من أنت من ربع مانع… وش ترجع؟\nأنا ضاري… والشيخ مانع جدّي\nاسمي ضاري… وجايّك بحاجة\nواحدٍ من رجاله… والاسم ما يهمّ",
+      "choice": true,
+      "typing": false,
+      "verb": null,
+      "camera": {
+        "yaw": 0,
+        "pitch": 0.20943951023931956,
+        "pos": [
+          3.4,
+          -9.296956062316895,
+          242.9
+        ]
+      },
+      "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+      "errors": []
+    },
+    {
+      "file": "c5_words_dialogue07.jpg",
+      "state": {
+        "mode": "dialogue",
+        "chapter": 5,
+        "beat": "c5_words",
+        "flags": {
+          "ration": "self",
+          "gaveWater": false,
+          "sawWolfPrint": false,
+          "leftRifle": false,
+          "haybah": 0
+        },
+        "time": 41.6,
+        "player": {
+          "x": 0,
+          "y": -10.8,
+          "z": 237.6,
+          "yaw": 0,
+          "mode": "foot",
+          "speed": 0
+        },
+        "objective": "c5_words.obj",
+        "interact": null,
+        "thirst": 100,
+        "sips": 0,
+        "render": {
+          "calls": 35,
+          "tris": 80781,
+          "textures": 12,
+          "geometries": 48
+        },
+        "errors": 0
+      },
+      "text": "ش\nق\nج\nغ\nش\nق\nج\nغ\nش\nق\nج\nغ\nضاري\nأنا ضاري… والشيخ مانع جدّي، أبو أبوي. وأنا اللي قدّام ظعنه.",
+      "choice": false,
+      "typing": false,
+      "verb": null,
+      "camera": {
+        "yaw": 0,
+        "pitch": 0.20943951023931956,
+        "pos": [
+          -2.5,
+          -9.346956062316895,
+          240.6
+        ]
+      },
+      "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+      "errors": []
+    },
+    {
+      "file": "c5_words_dialogue08.jpg",
+      "state": {
+        "mode": "dialogue",
+        "chapter": 5,
+        "beat": "c5_words",
+        "flags": {
+          "ration": "self",
+          "gaveWater": false,
+          "sawWolfPrint": false,
+          "leftRifle": false,
+          "haybah": 0
+        },
+        "time": 45.65,
+        "player": {
+          "x": 0,
+          "y": -10.8,
+          "z": 237.6,
+          "yaw": 0,
+          "mode": "foot",
+          "speed": 0
+        },
+        "objective": "c5_words.obj",
+        "interact": null,
+        "thirst": 100,
+        "sips": 0,
+        "render": {
+          "calls": 35,
+          "tris": 80781,
+          "textures": 12,
+          "geometries": 48
+        },
+        "errors": 0
+      },
+      "text": "ش\nق\nج\nغ\nش\nق\nج\nغ\nش\nق\nج\nغ\nالشيخ ثامر\nولد ولد مانع…",
+      "choice": false,
+      "typing": false,
+      "verb": null,
+      "camera": {
+        "yaw": 0,
+        "pitch": 0.20943951023931956,
+        "pos": [
+          -2.5,
+          -9.346956062316895,
+          240.6
+        ]
+      },
+      "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+      "errors": []
+    },
+    {
+      "file": "c5_words_dialogue09.jpg",
+      "state": {
+        "mode": "dialogue",
+        "chapter": 5,
+        "beat": "c5_words",
+        "flags": {
+          "ration": "self",
+          "gaveWater": false,
+          "sawWolfPrint": false,
+          "leftRifle": false,
+          "haybah": 0
+        },
+        "time": 49.7,
+        "player": {
+          "x": 0,
+          "y": -10.8,
+          "z": 237.6,
+          "yaw": 0,
+          "mode": "foot",
+          "speed": 0
+        },
+        "objective": "c5_words.obj",
+        "interact": null,
+        "thirst": 100,
+        "sips": 0,
+        "render": {
+          "calls": 35,
+          "tris": 80781,
+          "textures": 12,
+          "geometries": 48
+        },
+        "errors": 0
+      },
+      "text": "ش\nق\nج\nغ\nش\nق\nج\nغ\nش\nق\nج\nغ\nالشيخ ثامر\nوالنِّعم. جدّك دليلة ما جاب الله مثله… ولو إن بيني وبينه دم.",
+      "choice": false,
+      "typing": false,
+      "verb": null,
+      "camera": {
+        "yaw": 0,
+        "pitch": 0.20943951023931956,
+        "pos": [
+          -2.5,
+          -9.346956062316895,
+          240.6
+        ]
+      },
+      "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+      "errors": []
+    },
+    {
+      "file": "c5_words_dialogue10.jpg",
+      "state": {
+        "mode": "dialogue",
+        "chapter": 5,
+        "beat": "c5_words",
+        "flags": {
+          "ration": "self",
+          "gaveWater": false,
+          "sawWolfPrint": false,
+          "leftRifle": false,
+          "haybah": 0
+        },
+        "time": 53.75,
+        "player": {
+          "x": 0,
+          "y": -10.8,
+          "z": 237.6,
+          "yaw": 0,
+          "mode": "foot",
+          "speed": 0
+        },
+        "objective": "c5_words.obj",
+        "interact": null,
+        "thirst": 100,
+        "sips": 0,
+        "render": {
+          "calls": 35,
+          "tris": 80781,
+          "textures": 12,
+          "geometries": 48
+        },
+        "errors": 0
+      },
+      "text": "أجب الشيخ ثامر\nش\nق\nج\nغ\nش\nق\nج\nغ\nش\nق\nج\nغ\nهمهمة في الحلقة… وأنزل أحد الرماة بندقه.\nالشيخ ثامر\nبيني وبين جدّك دم… أخوي طاح ذاك اليوم، وأبوك طاح. والدم ما يصير ما.",
+      "choice": false,
+      "typing": false,
+      "verb": null,
+      "camera": {
+        "yaw": 0,
+        "pitch": 0.20943951023931956,
+        "pos": [
+          -2.5,
+          -9.346956062316895,
+          240.6
+        ]
+      },
+      "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+      "errors": []
+    },
+    {
+      "file": "c5_words_dialogue11.jpg",
+      "state": {
+        "mode": "dialogue",
+        "chapter": 5,
+        "beat": "c5_words",
+        "flags": {
+          "ration": "self",
+          "gaveWater": false,
+          "sawWolfPrint": false,
+          "leftRifle": false,
+          "haybah": 0
+        },
+        "time": 57.8,
+        "player": {
+          "x": 0,
+          "y": -10.8,
+          "z": 237.6,
+          "yaw": 0,
+          "mode": "foot",
+          "speed": 0
+        },
+        "objective": "c5_words.obj",
+        "interact": null,
+        "thirst": 100,
+        "sips": 0,
+        "render": {
+          "calls": 35,
+          "tris": 80781,
+          "textures": 12,
+          "geometries": 48
+        },
+        "errors": 0
+      },
+      "text": "أجب الشيخ ثامر\nش\nق\nج\nغ\nش\nق\nج\nغ\nش\nق\nج\nغ\nهمهمة في الحلقة… وأنزل أحد الرماة بندقه.\nالشيخ ثامر\nوأنا حالف ما أسقي غريب هالسنة… وش جابك لمانا يا ولد مانع؟",
+      "choice": false,
+      "typing": false,
+      "verb": null,
+      "camera": {
+        "yaw": 0,
+        "pitch": 0.20943951023931956,
+        "pos": [
+          -2.5,
+          -9.346956062316895,
+          240.6
+        ]
+      },
+      "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+      "errors": []
+    },
+    {
+      "file": "c5_words_dialogue12.jpg",
+      "state": {
+        "mode": "dialogue",
+        "chapter": 5,
+        "beat": "c5_words",
+        "flags": {
+          "ration": "self",
+          "gaveWater": false,
+          "sawWolfPrint": false,
+          "leftRifle": false,
+          "haybah": 0
+        },
+        "time": 61.85,
+        "player": {
+          "x": 0,
+          "y": -10.8,
+          "z": 237.6,
+          "yaw": 0,
+          "mode": "foot",
+          "speed": 0
+        },
+        "objective": "c5_words.obj",
+        "interact": null,
+        "thirst": 100,
+        "sips": 0,
+        "render": {
+          "calls": 35,
+          "tris": 87777,
+          "textures": 12,
+          "geometries": 48
+        },
+        "errors": 0
+      },
+      "text": "أجب الشيخ ثامر\nش\nق\nج\nغ\nش\nق\nج\nغ\nش\nق\nج\nغ\nهمهمة في الحلقة… وأنزل أحد الرماة بندقه.\nثامر: وش جابك لمانا يا ولد مانع؟\nجيت للما… وما أرجع بلاه\nجيتك عاني… داخل على الله ثم عليك\nنشتري وِردنا… ببكرتين من خيار البل",
+      "choice": true,
+      "typing": false,
+      "verb": null,
+      "camera": {
+        "yaw": 0,
+        "pitch": 0.20943951023931956,
+        "pos": [
+          3.4,
+          -9.296956062316895,
+          242.9
+        ]
+      },
+      "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+      "errors": []
+    },
+    {
+      "file": "c5_words_dialogue13.jpg",
+      "state": {
+        "mode": "dialogue",
+        "chapter": 5,
+        "beat": "c5_words",
+        "flags": {
+          "ration": "self",
+          "gaveWater": false,
+          "sawWolfPrint": false,
+          "leftRifle": false,
+          "haybah": 1
+        },
+        "time": 66.68,
+        "player": {
+          "x": 0,
+          "y": -10.8,
+          "z": 237.6,
+          "yaw": 0,
+          "mode": "foot",
+          "speed": 0
+        },
+        "objective": "c5_words.obj",
+        "interact": null,
+        "thirst": 100,
+        "sips": 0,
+        "render": {
+          "calls": 35,
+          "tris": 80781,
+          "textures": 12,
+          "geometries": 48
+        },
+        "errors": 0
+      },
+      "text": "أجب الشيخ ثامر\nش\nق\nج\nغ\nش\nق\nج\nغ\nش\nق\nج\nغ\nهمهمة في الحلقة… وأنزل أحد الرماة بندقه.\nضاري\nجيت للما… واللي مشى للرصاص ما يرجع بلاه.",
+      "choice": false,
+      "typing": false,
+      "verb": null,
+      "camera": {
+        "yaw": 0,
+        "pitch": 0.20943951023931956,
+        "pos": [
+          -2.5,
+          -9.346956062316895,
+          240.6
+        ]
+      },
+      "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+      "errors": []
+    },
+    {
+      "file": "c5_words_dialogue14.jpg",
+      "state": {
+        "mode": "dialogue",
+        "chapter": 5,
+        "beat": "c5_words",
+        "flags": {
+          "ration": "self",
+          "gaveWater": false,
+          "sawWolfPrint": false,
+          "leftRifle": false,
+          "haybah": 1
+        },
+        "time": 70.73,
+        "player": {
+          "x": 0,
+          "y": -10.8,
+          "z": 237.6,
+          "yaw": 0,
+          "mode": "foot",
+          "speed": 0
+        },
+        "objective": "c5_words.obj",
+        "interact": null,
+        "thirst": 100,
+        "sips": 0,
+        "render": {
+          "calls": 35,
+          "tris": 80781,
+          "textures": 12,
+          "geometries": 48
+        },
+        "errors": 0
+      },
+      "text": "أجب الشيخ ثامر\nش\nق\nج\nغ\nش\nق\nج\nغ\nش\nق\nج\nغ\nهمهمة في الحلقة… وأنزل أحد الرماة بندقه.\nالشيخ ثامر\nالرصاص اللي مشيت له كان بالأرض يا ولد… لو بغيته بصدرك ما خطاك.",
+      "choice": false,
+      "typing": false,
+      "verb": null,
+      "camera": {
+        "yaw": 0,
+        "pitch": 0.20943951023931956,
+        "pos": [
+          -2.5,
+          -9.346956062316895,
+          240.6
+        ]
+      },
+      "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+      "errors": []
+    },
+    {
+      "file": "c5_words_dialogue15.jpg",
+      "state": {
+        "mode": "dialogue",
+        "chapter": 5,
+        "beat": "c5_words",
+        "flags": {
+          "ration": "self",
+          "gaveWater": false,
+          "sawWolfPrint": false,
+          "leftRifle": false,
+          "haybah": 1
+        },
+        "time": 74.78,
+        "player": {
+          "x": 0,
+          "y": -10.8,
+          "z": 237.6,
+          "yaw": 0,
+          "mode": "foot",
+          "speed": 0
+        },
+        "objective": "c5_words.obj",
+        "interact": null,
+        "thirst": 100,
+        "sips": 0,
+        "render": {
+          "calls": 35,
+          "tris": 80781,
+          "textures": 12,
+          "geometries": 48
+        },
+        "errors": 0
+      },
+      "text": "أجب الشيخ ثامر\nش\nق\nج\nغ\nش\nق\nج\nغ\nش\nق\nج\nغ\nهمهمة في الحلقة… وأنزل أحد الرماة بندقه.\nالشيخ ثامر\nوالهياط ما يروّي عطشان.",
+      "choice": false,
+      "typing": false,
+      "verb": null,
+      "camera": {
+        "yaw": 0,
+        "pitch": 0.20943951023931956,
+        "pos": [
+          -2.5,
+          -9.346956062316895,
+          240.6
+        ]
+      },
+      "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+      "errors": []
+    },
+    {
+      "file": "c5_words_dialogue16.jpg",
+      "state": {
+        "mode": "dialogue",
+        "chapter": 5,
+        "beat": "c5_words",
+        "flags": {
+          "ration": "self",
+          "gaveWater": false,
+          "sawWolfPrint": false,
+          "leftRifle": false,
+          "haybah": 1
+        },
+        "time": 78.83,
+        "player": {
+          "x": 0,
+          "y": -10.8,
+          "z": 237.6,
+          "yaw": 0,
+          "mode": "foot",
+          "speed": 0
+        },
+        "objective": null,
+        "interact": null,
+        "thirst": 100,
+        "sips": 0,
+        "render": {
+          "calls": 35,
+          "tris": 80781,
+          "textures": 12,
+          "geometries": 48
+        },
+        "errors": 0
+      },
+      "text": "ش\nق\nج\nغ\nش\nق\nج\nغ\nش\nق\nج\nغ\nهمهمة في الحلقة… وأنزل أحد الرماة بندقه.\nضحك الرماة… واشتدّت قبضاتهم على البنادق.\nالشيخ ثامر\nالكلام قلته… والكلام هيّن. خلّني أشوف وش وراه.",
+      "choice": false,
+      "typing": false,
+      "verb": null,
+      "camera": {
+        "yaw": 0,
+        "pitch": 0.20943951023931956,
+        "pos": [
+          -2.5,
+          -9.346956062316895,
+          240.6
+        ]
+      },
+      "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+      "errors": []
+    },
+    {
+      "file": "c5_words_dialogue17.jpg",
+      "state": {
+        "mode": "dialogue",
+        "chapter": 5,
+        "beat": "c5_words",
+        "flags": {
+          "ration": "self",
+          "gaveWater": false,
+          "sawWolfPrint": false,
+          "leftRifle": false,
+          "haybah": 1
+        },
+        "time": 82.88,
+        "player": {
+          "x": 0,
+          "y": -10.8,
+          "z": 237.6,
+          "yaw": 0,
+          "mode": "foot",
+          "speed": 0
+        },
+        "objective": null,
+        "interact": null,
+        "thirst": 100,
+        "sips": 0,
+        "render": {
+          "calls": 35,
+          "tris": 80781,
+          "textures": 12,
+          "geometries": 48
+        },
+        "errors": 0
+      },
+      "text": "ش\nق\nج\nغ\nش\nق\nج\nغ\nش\nق\nج\nغ\nهمهمة في الحلقة… وأنزل أحد الرماة بندقه.\nضحك الرماة… واشتدّت قبضاتهم على البنادق.\nقام الشيخ ثامر… ويده على خنجره.",
+      "choice": false,
+      "typing": false,
+      "verb": null,
+      "camera": {
+        "yaw": 0,
+        "pitch": 0.20943951023931956,
+        "pos": [
+          -2.5,
+          -9.346956062316895,
+          240.6
+        ]
+      },
+      "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+      "errors": []
+    },
+    {
+      "file": "c5_words_dialogue18.jpg",
+      "state": {
+        "mode": "play",
+        "chapter": 5,
+        "beat": "c5_stare",
+        "flags": {
+          "ration": "self",
+          "gaveWater": false,
+          "sawWolfPrint": false,
+          "leftRifle": false,
+          "haybah": 1
+        },
+        "time": 86.93,
+        "player": {
+          "x": 0,
+          "y": -10.8,
+          "z": 237.6,
+          "yaw": 0,
+          "mode": "foot",
+          "speed": 0
+        },
+        "objective": "c5_stare.obj",
+        "interact": null,
+        "thirst": 100,
+        "sips": 0,
+        "render": {
+          "calls": 32,
+          "tris": 78227,
+          "textures": 12,
+          "geometries": 48
+        },
+        "errors": 0
+      },
+      "text": "اثبُت\nاثبُت… وعينك في عينه\nش\nق\nج\nغ\nش\nق\nج\nغ\nش\nق\nج\nغ\nهمهمة في الحلقة… وأنزل أحد الرماة بندقه.\nضحك الرماة… واشتدّت قبضاتهم على البنادق.\nاضغط مطوّلًا على «اثبُت»… ولا تُشِح بنظرك عنه",
+      "choice": false,
+      "typing": false,
+      "verb": "c5_stare.label.steady",
+      "camera": {
+        "yaw": 0.5750459527742074,
+        "pitch": 0.1169215684400563,
+        "pos": [
+          -2.4584450973777767,
+          -9.297939918031277,
+          239.90331144223225
+        ]
+      },
+      "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+      "errors": []
+    }
+  ],
+  "checks": [
+    {
+      "beat": "c1_wake",
+      "type": "CDP touch movement",
+      "before": {
+        "mode": "play",
+        "chapter": 1,
+        "beat": "c1_wake",
+        "flags": {
+          "ration": "self",
+          "gaveWater": false,
+          "sawWolfPrint": false,
+          "leftRifle": false,
+          "haybah": 0
+        },
+        "time": 9.67,
+        "player": {
+          "x": -13,
+          "y": 1.48,
+          "z": 5,
+          "yaw": 1.57,
+          "mode": "foot",
+          "speed": 0
+        },
+        "objective": "c1_wake.obj",
+        "interact": null,
+        "thirst": 100,
+        "sips": 0,
+        "render": {
+          "calls": 36,
+          "tris": 129164,
+          "textures": 15,
+          "geometries": 45
+        },
+        "errors": 0
+      },
+      "after": {
+        "mode": "play",
+        "chapter": 1,
+        "beat": "c1_wake",
+        "flags": {
+          "ration": "self",
+          "gaveWater": false,
+          "sawWolfPrint": false,
+          "leftRifle": false,
+          "haybah": 0
+        },
+        "time": 12.78,
+        "player": {
+          "x": -8.4,
+          "y": 1.48,
+          "z": 4.5,
+          "yaw": 1.68,
+          "mode": "foot",
+          "speed": 0
+        },
+        "objective": "c1_wake.obj",
+        "interact": null,
+        "thirst": 100,
+        "sips": 0,
+        "render": {
+          "calls": 35,
+          "tris": 120316,
+          "textures": 15,
+          "geometries": 45
+        },
+        "errors": 0
+      },
+      "distance": 4.62709412050371
+    },
+    {
+      "beat": "c1_wake",
+      "type": "touch cancel",
+      "state": {
+        "mode": "play",
+        "chapter": 1,
+        "beat": "c1_wake",
+        "flags": {
+          "ration": "self",
+          "gaveWater": false,
+          "sawWolfPrint": false,
+          "leftRifle": false,
+          "haybah": 0
+        },
+        "time": 16.15,
+        "player": {
+          "x": -4.21,
+          "y": 1.48,
+          "z": 5.46,
+          "yaw": 1.34,
+          "mode": "foot",
+          "speed": 2
+        },
+        "objective": "c1_wake.obj",
+        "interact": null,
+        "thirst": 100,
+        "sips": 0,
+        "render": {
+          "calls": 31,
+          "tris": 108074,
+          "textures": 15,
+          "geometries": 45
+        },
+        "errors": 0
+      },
+      "move": {
+        "x": 0,
+        "y": 0.7564935064935064
+      }
+    },
+    {
+      "beat": "c1_wake",
+      "type": "end-scene",
+      "state": {
+        "mode": "play",
+        "chapter": 1,
+        "beat": "c1_wake",
+        "flags": {
+          "ration": "self",
+          "gaveWater": false,
+          "sawWolfPrint": false,
+          "leftRifle": false,
+          "haybah": 0
+        },
+        "time": 16.15,
+        "player": {
+          "x": -4.21,
+          "y": 1.48,
+          "z": 5.46,
+          "yaw": 1.34,
+          "mode": "foot",
+          "speed": 2
+        },
+        "objective": "c1_wake.obj",
+        "interact": null,
+        "thirst": 100,
+        "sips": 0,
+        "render": {
+          "calls": 31,
+          "tris": 108074,
+          "textures": 15,
+          "geometries": 45
+        },
+        "errors": 0
+      },
+      "errors": []
+    },
+    {
+      "beat": "c1_well",
+      "type": "walked to interaction",
+      "state": {
+        "mode": "play",
+        "chapter": 1,
+        "beat": "c1_well",
+        "flags": {
+          "ration": "self",
+          "gaveWater": false,
+          "sawWolfPrint": false,
+          "leftRifle": false,
+          "haybah": 0
+        },
+        "time": 10.07,
+        "player": {
+          "x": 5.09,
+          "y": 1.48,
+          "z": 4.1,
+          "yaw": 0.99,
+          "mode": "foot",
+          "speed": 0.05
+        },
+        "objective": "c1_well.obj",
+        "interact": "well",
+        "thirst": 100,
+        "sips": 0,
+        "render": {
+          "calls": 28,
+          "tris": 102414,
+          "textures": 13,
+          "geometries": 40
+        },
+        "errors": 0
+      }
+    },
+    {
+      "beat": "c1_well",
+      "type": "end-scene",
+      "state": {
+        "mode": "dialogue",
+        "chapter": 1,
+        "beat": "c1_well",
+        "flags": {
+          "ration": "self",
+          "gaveWater": false,
+          "sawWolfPrint": false,
+          "leftRifle": false,
+          "haybah": 0
+        },
+        "time": 14.67,
+        "player": {
+          "x": 5.09,
+          "y": 1.48,
+          "z": 4.1,
+          "yaw": 0.99,
+          "mode": "foot",
+          "speed": 0
+        },
+        "objective": null,
+        "interact": null,
+        "thirst": 100,
+        "sips": 0,
+        "render": {
+          "calls": 28,
+          "tris": 102414,
+          "textures": 13,
+          "geometries": 40
+        },
+        "errors": 0
+      },
+      "errors": []
+    },
+    {
+      "beat": "c1_ride",
+      "type": "CDP touch movement",
+      "before": {
+        "mode": "play",
+        "chapter": 1,
+        "beat": "c1_ride",
+        "flags": {
+          "ration": "self",
+          "gaveWater": false,
+          "sawWolfPrint": false,
+          "leftRifle": false,
+          "haybah": 0
+        },
+        "time": 8.42,
+        "player": {
+          "x": 96,
+          "y": -2.91,
+          "z": 176,
+          "yaw": -2.71,
+          "mode": "mounted",
+          "speed": 0
+        },
+        "objective": "c1_ride.obj",
+        "interact": null,
+        "thirst": 100,
+        "sips": 0,
+        "render": {
+          "calls": 44,
+          "tris": 161053,
+          "textures": 17,
+          "geometries": 49
+        },
+        "errors": 0
+      },
+      "after": {
+        "mode": "play",
+        "chapter": 1,
+        "beat": "c1_ride",
+        "flags": {
+          "ration": "self",
+          "gaveWater": false,
+          "sawWolfPrint": false,
+          "leftRifle": false,
+          "haybah": 0
+        },
+        "time": 11.53,
+        "player": {
+          "x": 93.63,
+          "y": -2.79,
+          "z": 170.83,
+          "yaw": -2.71,
+          "mode": "mounted",
+          "speed": 0.32
+        },
+        "objective": "c1_ride.obj",
+        "interact": null,
+        "thirst": 100,
+        "sips": 0,
+        "render": {
+          "calls": 44,
+          "tris": 161053,
+          "textures": 17,
+          "geometries": 49
+        },
+        "errors": 0
+      },
+      "distance": 5.687336810845643
+    },
+    {
+      "beat": "c1_ride",
+      "type": "touch cancel",
+      "state": {
+        "mode": "play",
+        "chapter": 1,
+        "beat": "c1_ride",
+        "flags": {
+          "ration": "self",
+          "gaveWater": false,
+          "sawWolfPrint": false,
+          "leftRifle": false,
+          "haybah": 0
+        },
+        "time": 14.9,
+        "player": {
+          "x": 91.75,
+          "y": -2.67,
+          "z": 166.75,
+          "yaw": -2.71,
+          "mode": "mounted",
+          "speed": 2.32
+        },
+        "objective": "c1_ride.obj",
+        "interact": null,
+        "thirst": 100,
+        "sips": 0,
+        "render": {
+          "calls": 44,
+          "tris": 161053,
+          "textures": 17,
+          "geometries": 49
+        },
+        "errors": 0
+      },
+      "move": {
+        "x": 0,
+        "y": 0.7564935064935064
+      }
+    },
+    {
+      "beat": "c1_ride",
+      "type": "end-scene",
+      "state": {
+        "mode": "play",
+        "chapter": 1,
+        "beat": "c1_ride",
+        "flags": {
+          "ration": "self",
+          "gaveWater": false,
+          "sawWolfPrint": false,
+          "leftRifle": false,
+          "haybah": 0
+        },
+        "time": 14.9,
+        "player": {
+          "x": 91.75,
+          "y": -2.67,
+          "z": 166.75,
+          "yaw": -2.71,
+          "mode": "mounted",
+          "speed": 2.32
+        },
+        "objective": "c1_ride.obj",
+        "interact": null,
+        "thirst": 100,
+        "sips": 0,
+        "render": {
+          "calls": 44,
+          "tris": 161053,
+          "textures": 17,
+          "geometries": 49
+        },
+        "errors": 0
+      },
+      "errors": []
+    },
+    {
+      "beat": "c2_storm",
+      "type": "CDP touch movement",
+      "before": {
+        "mode": "play",
+        "chapter": 2,
+        "beat": "c2_storm",
+        "flags": {
+          "ration": "self",
+          "gaveWater": false,
+          "sawWolfPrint": false,
+          "leftRifle": false,
+          "haybah": 0
+        },
+        "time": 8.32,
+        "player": {
+          "x": 8,
+          "y": 4.4,
+          "z": -14,
+          "yaw": 1.57,
+          "mode": "foot",
+          "speed": 0
+        },
+        "objective": "c2_storm.obj",
+        "interact": null,
+        "thirst": 55,
+        "sips": 0,
+        "render": {
+          "calls": 28,
+          "tris": 99025,
+          "textures": 7,
+          "geometries": 37
+        },
+        "errors": 0
+      },
+      "after": {
+        "mode": "play",
+        "chapter": 2,
+        "beat": "c2_storm",
+        "flags": {
+          "ration": "self",
+          "gaveWater": false,
+          "sawWolfPrint": false,
+          "leftRifle": false,
+          "haybah": 0
+        },
+        "time": 11.43,
+        "player": {
+          "x": 12.62,
+          "y": 4.4,
+          "z": -14.35,
+          "yaw": 1.65,
+          "mode": "foot",
+          "speed": 0
+        },
+        "objective": "c2_storm.obj",
+        "interact": null,
+        "thirst": 55,
+        "sips": 0,
+        "render": {
+          "calls": 28,
+          "tris": 99025,
+          "textures": 7,
+          "geometries": 37
+        },
+        "errors": 0
+      },
+      "distance": 4.633238608144415
+    },
+    {
+      "beat": "c2_storm",
+      "type": "touch cancel",
+      "state": {
+        "mode": "play",
+        "chapter": 2,
+        "beat": "c2_storm",
+        "flags": {
+          "ration": "self",
+          "gaveWater": false,
+          "sawWolfPrint": false,
+          "leftRifle": false,
+          "haybah": 0
+        },
+        "time": 14.8,
+        "player": {
+          "x": 16.77,
+          "y": 4.4,
+          "z": -13.24,
+          "yaw": 1.31,
+          "mode": "foot",
+          "speed": 2
+        },
+        "objective": "c2_storm.obj",
+        "interact": null,
+        "thirst": 55,
+        "sips": 0,
+        "render": {
+          "calls": 28,
+          "tris": 90395,
+          "textures": 7,
+          "geometries": 37
+        },
+        "errors": 0
+      },
+      "move": {
+        "x": 0,
+        "y": 0.7564935064935064
+      }
+    },
+    {
+      "beat": "c2_storm",
+      "type": "end-scene",
+      "state": {
+        "mode": "play",
+        "chapter": 2,
+        "beat": "c2_storm",
+        "flags": {
+          "ration": "self",
+          "gaveWater": false,
+          "sawWolfPrint": false,
+          "leftRifle": false,
+          "haybah": 0
+        },
+        "time": 14.8,
+        "player": {
+          "x": 16.77,
+          "y": 4.4,
+          "z": -13.24,
+          "yaw": 1.31,
+          "mode": "foot",
+          "speed": 2
+        },
+        "objective": "c2_storm.obj",
+        "interact": null,
+        "thirst": 55,
+        "sips": 0,
+        "render": {
+          "calls": 28,
+          "tris": 90395,
+          "textures": 7,
+          "geometries": 37
+        },
+        "errors": 0
+      },
+      "errors": []
+    },
+    {
+      "beat": "c3_fire",
+      "type": "walked to interaction",
+      "state": {
+        "mode": "play",
+        "chapter": 3,
+        "beat": "c3_fire",
+        "flags": {
+          "ration": "self",
+          "gaveWater": false,
+          "sawWolfPrint": false,
+          "leftRifle": false,
+          "haybah": 0
+        },
+        "time": 10.62,
+        "player": {
+          "x": -2.4,
+          "y": 4.4,
+          "z": -11.66,
+          "yaw": 2.98,
+          "mode": "foot",
+          "speed": 0.05
+        },
+        "objective": "c3_fire.obj",
+        "interact": "sit",
+        "thirst": 100,
+        "sips": 0,
+        "render": {
+          "calls": 34,
+          "tris": 156424,
+          "textures": 11,
+          "geometries": 45
+        },
+        "errors": 0
+      }
+    },
+    {
+      "beat": "c3_fire",
+      "type": "end-scene",
+      "state": {
+        "mode": "play",
+        "chapter": 3,
+        "beat": "c3_fire",
+        "flags": {
+          "ration": "self",
+          "gaveWater": false,
+          "sawWolfPrint": false,
+          "leftRifle": false,
+          "haybah": 0
+        },
+        "time": 116.47,
+        "player": {
+          "x": -2,
+          "y": 4.4,
+          "z": -14.1,
+          "yaw": 2.33,
+          "mode": "foot",
+          "speed": 0
+        },
+        "objective": null,
+        "interact": null,
+        "thirst": 100,
+        "sips": 0,
+        "render": {
+          "calls": 34,
+          "tris": 139438,
+          "textures": 11,
+          "geometries": 46
+        },
+        "errors": 0
+      },
+      "errors": []
+    },
+    {
+      "beat": "c3_polaris",
+      "type": "end-scene",
+      "state": {
+        "mode": "play",
+        "chapter": 3,
+        "beat": "c3_polaris",
+        "flags": {
+          "ration": "self",
+          "gaveWater": false,
+          "sawWolfPrint": false,
+          "leftRifle": false,
+          "haybah": 0
+        },
+        "time": 10.48,
+        "player": {
+          "x": -2,
+          "y": 4.4,
+          "z": -14.1,
+          "yaw": 3.14,
+          "mode": "foot",
+          "speed": 0
+        },
+        "objective": "c3_polaris.obj",
+        "interact": null,
+        "thirst": 100,
+        "sips": 0,
+        "render": {
+          "calls": 31,
+          "tris": 108463,
+          "textures": 9,
+          "geometries": 43
+        },
+        "errors": 0
+      },
+      "errors": []
+    },
+    {
+      "beat": "c3_wolves",
+      "type": "end-scene",
+      "state": {
+        "mode": "dialogue",
+        "chapter": 3,
+        "beat": "c3_wolves",
+        "flags": {
+          "ration": "self",
+          "gaveWater": false,
+          "sawWolfPrint": false,
+          "leftRifle": false,
+          "haybah": 0
+        },
+        "time": 20.42,
+        "player": {
+          "x": 1.6,
+          "y": 4.4,
+          "z": -13.8,
+          "yaw": 3.14,
+          "mode": "foot",
+          "speed": 0
+        },
+        "objective": null,
+        "interact": null,
+        "thirst": 100,
+        "sips": 0,
+        "render": {
+          "calls": 36,
+          "tris": 170260,
+          "textures": 11,
+          "geometries": 45
+        },
+        "errors": 0
+      },
+      "errors": []
+    },
+    {
+      "beat": "c4_search",
+      "type": "CDP touch movement",
+      "before": {
+        "mode": "play",
+        "chapter": 4,
+        "beat": "c4_search",
+        "flags": {
+          "ration": "self",
+          "gaveWater": false,
+          "sawWolfPrint": false,
+          "leftRifle": false,
+          "haybah": 0
+        },
+        "time": 8.57,
+        "player": {
+          "x": 19,
+          "y": 7.18,
+          "z": -247,
+          "yaw": -0.65,
+          "mode": "mounted",
+          "speed": 0
+        },
+        "objective": "c4_search.obj",
+        "interact": null,
+        "thirst": 36,
+        "sips": 1,
+        "render": {
+          "calls": 28,
+          "tris": 86595,
+          "textures": 7,
+          "geometries": 48
+        },
+        "errors": 0
+      },
+      "after": {
+        "mode": "play",
+        "chapter": 4,
+        "beat": "c4_search",
+        "flags": {
+          "ration": "self",
+          "gaveWater": false,
+          "sawWolfPrint": false,
+          "leftRifle": false,
+          "haybah": 0
+        },
+        "time": 11.68,
+        "player": {
+          "x": 15.68,
+          "y": 7.83,
+          "z": -242.6,
+          "yaw": -0.65,
+          "mode": "mounted",
+          "speed": 0.31
+        },
+        "objective": "c4_search.obj",
+        "interact": null,
+        "thirst": 36,
+        "sips": 1,
+        "render": {
+          "calls": 44,
+          "tris": 126936,
+          "textures": 7,
+          "geometries": 48
+        },
+        "errors": 0
+      },
+      "distance": 5.512023222012045
+    },
+    {
+      "beat": "c4_search",
+      "type": "touch cancel",
+      "state": {
+        "mode": "play",
+        "chapter": 4,
+        "beat": "c4_search",
+        "flags": {
+          "ration": "self",
+          "gaveWater": false,
+          "sawWolfPrint": false,
+          "leftRifle": false,
+          "haybah": 0
+        },
+        "time": 15.05,
+        "player": {
+          "x": 14.79,
+          "y": 8.13,
+          "z": -241.42,
+          "yaw": -0.65,
+          "mode": "mounted",
+          "speed": 0
+        },
+        "objective": "c4_search.obj",
+        "interact": null,
+        "thirst": 35,
+        "sips": 1,
+        "render": {
+          "calls": 45,
+          "tris": 118334,
+          "textures": 7,
+          "geometries": 49
+        },
+        "errors": 0
+      },
+      "move": {
+        "x": 0,
+        "y": 0
+      }
+    },
+    {
+      "beat": "c4_search",
+      "type": "end-scene",
+      "state": {
+        "mode": "play",
+        "chapter": 4,
+        "beat": "c4_search",
+        "flags": {
+          "ration": "self",
+          "gaveWater": false,
+          "sawWolfPrint": false,
+          "leftRifle": false,
+          "haybah": 0
+        },
+        "time": 15.05,
+        "player": {
+          "x": 14.79,
+          "y": 8.13,
+          "z": -241.42,
+          "yaw": -0.65,
+          "mode": "mounted",
+          "speed": 0
+        },
+        "objective": "c4_search.obj",
+        "interact": null,
+        "thirst": 35,
+        "sips": 1,
+        "render": {
+          "calls": 45,
+          "tris": 118334,
+          "textures": 7,
+          "geometries": 49
+        },
+        "errors": 0
+      },
+      "errors": []
+    },
+    {
+      "beat": "c5_walk",
+      "type": "CDP touch movement",
+      "before": {
+        "mode": "play",
+        "chapter": 5,
+        "beat": "c5_walk",
+        "flags": {
+          "ration": "self",
+          "gaveWater": false,
+          "sawWolfPrint": false,
+          "leftRifle": false,
+          "haybah": 0
+        },
+        "time": 8.47,
+        "player": {
+          "x": 0,
+          "y": -7.57,
+          "z": 194,
+          "yaw": 0,
+          "mode": "foot",
+          "speed": 0
+        },
+        "objective": "c5_walk.obj",
+        "interact": null,
+        "thirst": 100,
+        "sips": 0,
+        "render": {
+          "calls": 48,
+          "tris": 156600,
+          "textures": 15,
+          "geometries": 45
+        },
+        "errors": 0
+      },
+      "after": {
+        "mode": "play",
+        "chapter": 5,
+        "beat": "c5_walk",
+        "flags": {
+          "ration": "self",
+          "gaveWater": false,
+          "sawWolfPrint": false,
+          "leftRifle": false,
+          "haybah": 0
+        },
+        "time": 11.58,
+        "player": {
+          "x": 0,
+          "y": -9.14,
+          "z": 197.78,
+          "yaw": 0,
+          "mode": "foot",
+          "speed": 0
+        },
+        "objective": "c5_walk.obj",
+        "interact": null,
+        "thirst": 100,
+        "sips": 0,
+        "render": {
+          "calls": 48,
+          "tris": 156600,
+          "textures": 15,
+          "geometries": 45
+        },
+        "errors": 0
+      },
+      "distance": 3.780000000000001
+    },
+    {
+      "beat": "c5_walk",
+      "type": "touch cancel",
+      "state": {
+        "mode": "play",
+        "chapter": 5,
+        "beat": "c5_walk",
+        "flags": {
+          "ration": "self",
+          "gaveWater": false,
+          "sawWolfPrint": false,
+          "leftRifle": false,
+          "haybah": 0
+        },
+        "time": 14.95,
+        "player": {
+          "x": 0,
+          "y": -7.57,
+          "z": 194,
+          "yaw": 0,
+          "mode": "foot",
+          "speed": 0.28
+        },
+        "objective": null,
+        "interact": null,
+        "thirst": 100,
+        "sips": 0,
+        "render": {
+          "calls": 48,
+          "tris": 156600,
+          "textures": 15,
+          "geometries": 45
+        },
+        "errors": 0
+      },
+      "move": {
+        "x": 0,
+        "y": 0.7564935064935064
+      }
+    },
+    {
+      "beat": "c5_walk",
+      "type": "end-scene",
+      "state": {
+        "mode": "play",
+        "chapter": 5,
+        "beat": "c5_walk",
+        "flags": {
+          "ration": "self",
+          "gaveWater": false,
+          "sawWolfPrint": false,
+          "leftRifle": false,
+          "haybah": 0
+        },
+        "time": 14.95,
+        "player": {
+          "x": 0,
+          "y": -7.57,
+          "z": 194,
+          "yaw": 0,
+          "mode": "foot",
+          "speed": 0.28
+        },
+        "objective": null,
+        "interact": null,
+        "thirst": 100,
+        "sips": 0,
+        "render": {
+          "calls": 48,
+          "tris": 156600,
+          "textures": 15,
+          "geometries": 45
+        },
+        "errors": 0
+      },
+      "errors": []
+    },
+    {
+      "beat": "c5_words",
+      "type": "end-scene",
+      "state": {
+        "mode": "play",
+        "chapter": 5,
+        "beat": "c5_stare",
+        "flags": {
+          "ration": "self",
+          "gaveWater": false,
+          "sawWolfPrint": false,
+          "leftRifle": false,
+          "haybah": 1
+        },
+        "time": 86.93,
+        "player": {
+          "x": 0,
+          "y": -10.8,
+          "z": 237.6,
+          "yaw": 0,
+          "mode": "foot",
+          "speed": 0
+        },
+        "objective": "c5_stare.obj",
+        "interact": null,
+        "thirst": 100,
+        "sips": 0,
+        "render": {
+          "calls": 32,
+          "tris": 78227,
+          "textures": 12,
+          "geometries": 48
+        },
+        "errors": 0
+      },
+      "errors": []
+    }
+  ],
+  "errors": [],
+  "requests": [],
+  "browser": "153.0.8010.12",
+  "touch_cancel_correction": "Original immediate-step touchCancel checks did not yield to DOM dispatch; invalid as failure evidence. Separate instrumented baseline rerun with 50ms dispatch wait observed pointercancel/lostpointercapture/touchcancel and move={x:0,y:0}. Main QA tool corrected to wait30ms."
+}

@@ -109,13 +109,14 @@ export function createWolves(G) {
   function mk(i, ang, r) {
     return { id: 'wolf' + i, ang, r, baseR: r, dir: G.rng.next() < 0.5 ? -1 : 1, vs: 0.035 + G.rng.next() * 0.03, tAng: ang, glide: false, busy: false, ctrl: false, hidden: false, teleT: -99,
       full: false, out: 0, flare: 0, crouch: 0, roll: 0, lift: 0, vel: 0, x: 0, z: 0, yaw: 0, px: 0, pz: 0, blink: 1 + G.vrng.next() * 4, blinkOn: 0, eyeK: 1, body: null, isAlpha: false, stare: false,
+      age: 0, revealAt: 0, bodyAt: 0, scale: 1, pauseLeft: 0, walkLeft: 1.5 + i * 0.43,
       pos: { x: 0, y: 0, z: 0 } };
   }
   function polar(w) { w.x = cx + Math.sin(w.ang) * w.r; w.z = cz + Math.cos(w.ang) * w.r; }
   function toPolar(w) { w.ang = Math.atan2(w.x - cx, w.z - cz); w.r = Math.hypot(w.x - cx, w.z - cz); }
   function claim(w) {
     if (!skin || skinOwner) return false;
-    skinOwner = w; w.full = true; skin.setVisible(true); pose(skin, 'crouch', { duration: 0.3 }); return true;
+    skinOwner = w; w.full = true; skin.root.scale.setScalar(w.scale); skin.setVisible(true); pose(skin, 'crouch', { duration: 0.3 }); return true;
   }
   function release(w) { if (skinOwner !== w) return; w.full = false; skinOwner = null; if (skin) { skin.setVisible(false); skin.setSpeed(0); skin.root.rotation.z = 0; } }
 
@@ -124,15 +125,19 @@ export function createWolves(G) {
     const b = w.full ? skin : w.isAlpha ? alphaBody : null;
     if (b && b.head && b.head.getWorldPosition) {
       b.head.getWorldPosition(out); out.y += 0.03;
-    } else { const s = 1 - 0.3 * w.crouch; out.set(w.x + Math.sin(w.yaw) * 0.55, w.pos.y + 0.7 * s, w.z + Math.cos(w.yaw) * 0.55); }
+    } else { const s = 1 - 0.3 * w.crouch; out.set(w.x + Math.sin(w.yaw) * 0.55 * w.scale, w.pos.y + 0.7 * s * w.scale, w.z + Math.cos(w.yaw) * 0.55 * w.scale); }
     out.x += Math.cos(w.yaw) * 0.075 * side; out.z -= Math.sin(w.yaw) * 0.075 * side; return out;
   }
   function updateWolf(w, dt) {
+    w.age += dt;
     if (!w.ctrl && !w.isAlpha) {
       if (!w.busy) {
         if (w.glide) { w.ang += wrapPi(w.tAng - w.ang) * (1 - Math.exp(-1.0 * dt)); if (Math.abs(wrapPi(w.tAng - w.ang)) < 0.01) w.glide = false; }
         else {
-          w.ang += w.dir * w.vs * dt;
+          // Separate, unequal pauses break the mechanical procession around the fire.
+          w.walkLeft -= dt;
+          if (w.walkLeft <= 0 && w.pauseLeft <= 0) { w.pauseLeft = 0.7 + G.rng.next() * 2.4; w.walkLeft = 1.4 + G.rng.next() * 3.1; }
+          if (w.pauseLeft > 0) w.pauseLeft -= dt; else w.ang += w.dir * w.vs * dt;
           const rel = wrapPi(w.ang - centerYaw), half = width * 0.5;
           if (rel > half) { w.ang = centerYaw + half; w.dir = -1; } else if (rel < -half) { w.ang = centerYaw - half; w.dir = 1; }
         }
@@ -140,7 +145,7 @@ export function createWolves(G) {
         w.crouch = damp(w.crouch, 0, 3, dt);
       }
       polar(w);
-      if (!w.busy) w.yaw = yawOf(Math.cos(w.ang) * w.dir, -Math.sin(w.ang) * w.dir);
+      if (!w.busy) w.yaw = dampAng(w.yaw, w.pauseLeft > 0 ? yawOf(cx - w.x, cz - w.z) : yawOf(Math.cos(w.ang) * w.dir, -Math.sin(w.ang) * w.dir), 2.8, dt);
     }
     const gy = G.world.terrain.heightAt(w.x, w.z);
     w.pos.x = w.x; w.pos.z = w.z; w.pos.y = gy + w.lift;
@@ -157,17 +162,17 @@ export function createWolves(G) {
       const w = i < n ? pack[i] : alphaW;
       const slot = w.isAlpha ? ALPHA : i;
       if (!w.isAlpha) {
-        if (w.hidden || w.full) sils.setMatrixAt(i, ZERO);
+        if (w.hidden || w.full || w.age < w.bodyAt) sils.setMatrixAt(i, ZERO);
         else {
-          _e.set(0, w.yaw, w.roll); _q.setFromEuler(_e); _v.set(w.x, w.pos.y, w.z); _s.set(1, 1 - 0.3 * w.crouch, 1);
+          _e.set(0, w.yaw, w.roll); _q.setFromEuler(_e); _v.set(w.x, w.pos.y, w.z); _s.set(w.scale, w.scale * (1 - 0.3 * w.crouch), w.scale);
           sils.setMatrixAt(i, _m.compose(_v, _q, _s));
         }
       }
       let g = w.hidden ? 0 : 0.6 + 0.2 * fa;
       if (w.isAlpha) g = w.hidden ? 0 : 0.8;
       if (W.next === w) g = 0.55 + fa * 0.45 * (0.75 + 0.25 * Math.sin(t * 9));
-      g = Math.max(g, w.flare * 1.25); g *= w.eyeK * (w.blinkOn > 0 ? 0.1 : 1);
-      const rad = (0.08 + 0.06 * Math.min(1, w.flare)) * (w.hidden ? 0 : 1) * (w.isAlpha ? 1.3 : 1);
+      g = Math.max(g, w.flare * 1.25); g *= w.eyeK * (w.blinkOn > 0 ? 0.1 : 1) * Math.max(0, Math.min(1, (w.age - w.revealAt) / 0.65));
+      const rad = (0.045 + 0.055 * Math.min(1, w.flare)) * (w.hidden ? 0 : 1) * (w.isAlpha ? 1.3 : 1);
       for (let s = 0; s < 2; s++) {
         eyePos(w, s ? 1 : -1, _h); _s.set(rad, rad, rad);
         eyes.setMatrixAt(slot * 2 + s, _m.compose(_h, _q.identity(), _s)); glowAttr.array[slot * 2 + s] = g;
@@ -238,21 +243,38 @@ export function createWolves(G) {
     threat: false, next: null,
     get alpha() { return alphaBody; },
     get pack() { return pack; },
-    spawnPack({ cx: x = 0, cz: z = 0, radius: r = 14, arc } = {}) {
+    spawnPack({ cx: x = 0, cz: z = 0, radius: r = 14, arc, staged = false } = {}) {
       ensureSilhouette();
       W.clear();
       cx = x; cz = z; radius = r; centerYaw = arc && arc.centerYaw !== undefined ? arc.centerYaw : 0;
       width = arc && arc.width ? arc.width : Math.PI; if (width > 6.5) width *= DEG;
       const n = G.quality.pick(5, 6, 6);
       for (let i = 0; i < n; i++) {
-        const a = centerYaw + ((i + 0.5) / n - 0.5) * width + (G.rng.next() - 0.5) * 0.1;
-        const w = mk(i, a, radius + (G.rng.next() - 0.5) * 2); polar(w); w.yaw = a; w.px = w.x; w.pz = w.z; pack.push(w);
+        const offsets = [-0.08, 0.34, -0.4, 0.12, -0.25, 0.47];
+        const a = centerYaw + offsets[i] * width + (G.rng.next() - 0.5) * 0.07;
+        const w = mk(i, a, radius + [-1.5, 2.8, 5.1, 0.8, 7, 3.7][i]);
+        w.scale = [1.04, 0.89, 0.96, 1.09, 0.86, 0.98][i];
+        w.revealAt = staged ? [0.3, 3.1, 5.9, 2.2, 7.3, 4.8][i] : 0;
+        w.bodyAt = staged ? w.revealAt + 1.7 : 0;
+        polar(w); w.yaw = a; w.px = w.x; w.pz = w.z; pack.push(w);
       }
       skin = createQuadruped(G, 'wolf', { name: 'wolfFull' }); skin.setVisible(false); skin.place(cx, cz + radius + 8, 0);
       alphaBody = createQuadruped(G, 'wolf', { name: 'alpha', scale: 1.3, tint: 0x8a8078 }); alphaBody.setVisible(false);
       alphaW = mk(ALPHA, 0, radius + 8); alphaW.isAlpha = true; alphaW.body = alphaBody; alphaW.hidden = true; alphaW.ctrl = true;
       alphaW.x = cx + Math.sin(centerYaw) * (radius + 8); alphaW.z = cz + Math.cos(centerYaw) * (radius + 8); alphaW.yaw = centerYaw + Math.PI;
       W.threat = true;
+    },
+    /** Eyes first, then one animal tests the light and withdraws; no attack window yet. */
+    async introduce() {
+      const w = pack[0]; if (!w) return;
+      await G.scope.sleep(D(2.2));
+      w.busy = true; claim(w);
+      const r0 = w.r;
+      await G.scope.tween(D(2.1), k => { w.r = r0 - 2.3 * k; w.yaw = yawOf(cx - w.x, cz - w.z); });
+      pose(skin, 'crouch', { duration: 0.8 });
+      await G.scope.sleep(D(0.85));
+      await G.scope.tween(D(1.6), k => { w.r = r0 - 2.3 * (1 - k); });
+      release(w); w.busy = false;
     },
     async wave({ target, lunges = 3, gap = 6, double = false, tele = 1.2, calm = 0 } = {}) {
       const res = { repelled: 0, missed: 0 };

@@ -5,6 +5,7 @@
  * All text lives in content/story.ar.js (keys c1_*); every place is derived from levels.js pois.
  */
 import { LEVELS } from './levels.js';
+import { pullWellBucket } from './well-pull.js';
 import { at, yawTo, toast, prompt, hud, goal, use, music, pause } from './kit.js';
 import { dist2, pointOf, yawOf } from '../core/math.js';
 
@@ -271,13 +272,8 @@ const BEATS = {
     frame(G, p.well);
     calfCalls(G, d);
     prompt(G, 'c1_well.prompt.hold');
-    await use(G, d, { id: 'well', at: p.well, label: 'c1_well.label.pull', hold: 1.5, radius: 3.6 });
+    await pullWellBucket(G, d, { at: p.well, label: 'c1_well.label.pull', muddy: true });
     prompt(G, null); done(d);
-    G.audio.sfx('sfx_pulley', { at: p.well });
-    // he pulls the bucket himself — mud
-    pl.setScripted(true);
-    try { pl.actor.faceTo(p.well.x, p.well.z, 10); pl.actor.play('pull', { fade: 0.2 }); await pause(G, d, 1.8); pl.actor.play('idle', { fade: 0.3 }); }
-    finally { pl.setScripted(false); }
     await d.talk('c1_well.mud');
     // the sandgrouse cross the well and do not land; the Sheikh hears them
     const f = G.world.props.flock({ from: at(L, 'well', -95, -60), to: at(L, 'well', 95, 60), count: 15, height: 17, speed: 13 });

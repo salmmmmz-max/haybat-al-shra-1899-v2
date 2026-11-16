@@ -70,7 +70,9 @@ export function createGame(canvas, opts = {}) {
   G.state.flags = G.save.data.flags;
 
   // --- renderer -------------------------------------------------------------------------------
-  const mobileUA = /Android|iPhone|iPad|iPod|Mobile/i.test(navigator.userAgent || '');
+  // iPadOS may identify as Macintosh; align renderer MSAA policy with quality's device detection.
+  const ua = navigator.userAgent || '';
+  const mobileUA = /Android|iPhone|iPad|iPod|Mobile/i.test(ua) || ((navigator.maxTouchPoints || 0) > 1 && /Macintosh/.test(ua));
   const renderer = new THREE.WebGLRenderer({
     canvas, antialias: !mobileUA, alpha: false, stencil: false, depth: true,
     powerPreference: 'high-performance', preserveDrawingBuffer: !!opts.test,

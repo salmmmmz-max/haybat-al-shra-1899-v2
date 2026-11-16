@@ -1,0 +1,367 @@
+{
+  "method": "Chromium headless + SwiftShader; 844x390 CSS px DPR1 touch emulation. Developer API scene entry and fixed simulation steps. CDP touch events for sticks/look/holds. No physical mobile hardware; no Safari certification.",
+  "mode": "walkthrough",
+  "root": "/home/user/website-1e78ea813f57149af9babf44",
+  "shots": [],
+  "checks": [],
+  "errors": [],
+  "requests": [],
+  "browser": "153.0.8010.12",
+  "walkthrough": {
+    "steps": 55598,
+    "minutes": 15.5,
+    "mode": "end",
+    "chapter": 5,
+    "beat": "c5_end",
+    "flags": {
+      "ration": "child",
+      "gaveWater": true,
+      "sawWolfPrint": false,
+      "leftRifle": true,
+      "haybah": 1
+    },
+    "peakTris": 254584,
+    "peakCalls": 92,
+    "errors": [],
+    "timedOut": false,
+    "log": [
+      "0:null",
+      "0:c1_intro",
+      "711:c1_wake",
+      "1188:c1_well",
+      "2365:c1_firasa",
+      "3460:c1_trail",
+      "3461:c1_gravel",
+      "3933:c1_calm",
+      "4527:c1_ride",
+      "4674:c1_decision",
+      "6053:c2_march",
+      "14411:c2_ration",
+      "15767:c2_wall",
+      "17189:c2_storm",
+      "20601:c2_return",
+      "24694:c2_dusk",
+      "25544:c3_fire",
+      "27883:c3_polaris",
+      "28839:c3_wolves",
+      "33358:c3_alpha",
+      "35187:c3_suhail",
+      "36744:c4_stranger",
+      "39092:c4_collapse",
+      "41422:c4_search",
+      "41978:c4_search2",
+      "42386:c4_ridge",
+      "43107:c5_scout",
+      "43791:c5_walk",
+      "46326:c5_words",
+      "47841:c5_stare",
+      "48460:c5_verdict",
+      "49861:c5_signal",
+      "52608:c5_staff",
+      "55429:c5_end"
+    ],
+    "events": [
+      {
+        "type": "stars:found",
+        "id": "megrez",
+        "beat": "c3_polaris",
+        "time": 465.9833333332382,
+        "feint": false
+      },
+      {
+        "type": "stars:found",
+        "id": "polaris",
+        "beat": "c3_polaris",
+        "time": 473.5166666665647,
+        "feint": false
+      },
+      {
+        "type": "wolf:telegraph",
+        "id": "wolf2",
+        "beat": "c3_wolves",
+        "time": 493.3999999998799,
+        "feint": false
+      },
+      {
+        "type": "wolf:lunge",
+        "id": "wolf2",
+        "beat": "c3_wolves",
+        "time": 494.59999999987883,
+        "feint": false
+      },
+      {
+        "type": "wolf:repelled",
+        "id": "wolf2",
+        "beat": "c3_wolves",
+        "time": 495.1999999998783,
+        "feint": false
+      },
+      {
+        "type": "wolf:telegraph",
+        "id": "wolf4",
+        "beat": "c3_wolves",
+        "time": 498.48333333320863,
+        "feint": false
+      },
+      {
+        "type": "wolf:lunge",
+        "id": "wolf4",
+        "beat": "c3_wolves",
+        "time": 499.68333333320754,
+        "feint": false
+      },
+      {
+        "type": "wolf:repelled",
+        "id": "wolf4",
+        "beat": "c3_wolves",
+        "time": 500.283333333207,
+        "feint": false
+      },
+      {
+        "type": "wolf:telegraph",
+        "id": "wolf5",
+        "beat": "c3_wolves",
+        "time": 503.56666666653734,
+        "feint": false
+      },
+      {
+        "type": "wolf:lunge",
+        "id": "wolf5",
+        "beat": "c3_wolves",
+        "time": 504.76666666653625,
+        "feint": false
+      },
+      {
+        "type": "wolf:repelled",
+        "id": "wolf5",
+        "beat": "c3_wolves",
+        "time": 505.3666666665357,
+        "feint": false
+      },
+      {
+        "type": "wolf:telegraph",
+        "id": "wolf2",
+        "beat": "c3_wolves",
+        "time": 514.9499999998603,
+        "feint": false
+      },
+      {
+        "type": "wolf:lunge",
+        "id": "wolf2",
+        "beat": "c3_wolves",
+        "time": 516.1499999998592,
+        "feint": false
+      },
+      {
+        "type": "wolf:repelled",
+        "id": "wolf2",
+        "beat": "c3_wolves",
+        "time": 516.7499999998587,
+        "feint": false
+      },
+      {
+        "type": "wolf:telegraph",
+        "id": "wolf2",
+        "beat": "c3_wolves",
+        "time": 519.5333333331895,
+        "feint": false
+      },
+      {
+        "type": "wolf:lunge",
+        "id": "wolf2",
+        "beat": "c3_wolves",
+        "time": 520.7333333331884,
+        "feint": false
+      },
+      {
+        "type": "wolf:repelled",
+        "id": "wolf2",
+        "beat": "c3_wolves",
+        "time": 521.3333333331879,
+        "feint": false
+      },
+      {
+        "type": "wolf:telegraph",
+        "id": "wolf4",
+        "beat": "c3_wolves",
+        "time": 524.1166666665187,
+        "feint": false
+      },
+      {
+        "type": "wolf:lunge",
+        "id": "wolf4",
+        "beat": "c3_wolves",
+        "time": 525.3166666665176,
+        "feint": false
+      },
+      {
+        "type": "wolf:repelled",
+        "id": "wolf4",
+        "beat": "c3_wolves",
+        "time": 525.916666666517,
+        "feint": false
+      },
+      {
+        "type": "wolf:telegraph",
+        "id": "wolf0",
+        "beat": "c3_wolves",
+        "time": 528.6999999998478,
+        "feint": false
+      },
+      {
+        "type": "wolf:lunge",
+        "id": "wolf0",
+        "beat": "c3_wolves",
+        "time": 529.8999999998467,
+        "feint": false
+      },
+      {
+        "type": "wolf:repelled",
+        "id": "wolf0",
+        "beat": "c3_wolves",
+        "time": 530.4999999998462,
+        "feint": false
+      },
+      {
+        "type": "wolf:telegraph",
+        "id": "wolf1",
+        "beat": "c3_wolves",
+        "time": 539.5833333331713,
+        "feint": false
+      },
+      {
+        "type": "wolf:lunge",
+        "id": "wolf1",
+        "beat": "c3_wolves",
+        "time": 540.7833333331702,
+        "feint": false
+      },
+      {
+        "type": "wolf:repelled",
+        "id": "wolf1",
+        "beat": "c3_wolves",
+        "time": 541.3833333331696,
+        "feint": false
+      },
+      {
+        "type": "wolf:telegraph",
+        "id": "wolf4",
+        "beat": "c3_wolves",
+        "time": 543.6666666665009,
+        "feint": false
+      },
+      {
+        "type": "wolf:lunge",
+        "id": "wolf4",
+        "beat": "c3_wolves",
+        "time": 544.8666666664998,
+        "feint": false
+      },
+      {
+        "type": "wolf:repelled",
+        "id": "wolf4",
+        "beat": "c3_wolves",
+        "time": 545.4666666664992,
+        "feint": false
+      },
+      {
+        "type": "wolf:telegraph",
+        "id": "wolf1",
+        "beat": "c3_wolves",
+        "time": 547.7499999998305,
+        "feint": false
+      },
+      {
+        "type": "wolf:lunge",
+        "id": "wolf1",
+        "beat": "c3_wolves",
+        "time": 548.9499999998294,
+        "feint": false
+      },
+      {
+        "type": "wolf:repelled",
+        "id": "wolf1",
+        "beat": "c3_wolves",
+        "time": 549.5499999998289,
+        "feint": false
+      },
+      {
+        "type": "wolf:telegraph",
+        "id": "wolf2",
+        "beat": "c3_wolves",
+        "time": 551.8333333331601,
+        "feint": false
+      },
+      {
+        "type": "wolf:telegraph",
+        "id": "wolf5",
+        "beat": "c3_wolves",
+        "time": 552.4333333331596,
+        "feint": false
+      },
+      {
+        "type": "wolf:lunge",
+        "id": "wolf2",
+        "beat": "c3_wolves",
+        "time": 553.033333333159,
+        "feint": false
+      },
+      {
+        "type": "wolf:repelled",
+        "id": "wolf2",
+        "beat": "c3_wolves",
+        "time": 553.6333333331585,
+        "feint": false
+      },
+      {
+        "type": "wolf:lunge",
+        "id": "wolf5",
+        "beat": "c3_wolves",
+        "time": 553.6499999998251,
+        "feint": false
+      },
+      {
+        "type": "wolf:repelled",
+        "id": "wolf5",
+        "beat": "c3_wolves",
+        "time": 554.2499999998246,
+        "feint": false
+      },
+      {
+        "type": "wolf:telegraph",
+        "id": "wolf6",
+        "beat": "c3_alpha",
+        "time": 572.2166666664749,
+        "feint": false
+      },
+      {
+        "type": "wolf:lunge",
+        "id": "wolf6",
+        "beat": "c3_alpha",
+        "time": 573.4166666664738,
+        "feint": true
+      },
+      {
+        "type": "wolf:telegraph",
+        "id": "wolf6",
+        "beat": "c3_alpha",
+        "time": 574.8333333331392,
+        "feint": false
+      },
+      {
+        "type": "wolf:lunge",
+        "id": "wolf6",
+        "beat": "c3_alpha",
+        "time": 576.0333333331381,
+        "feint": true
+      },
+      {
+        "type": "stars:found",
+        "id": "canopus",
+        "beat": "c3_suhail",
+        "time": 600.0499999997829,
+        "feint": false
+      }
+    ]
+  }
+}

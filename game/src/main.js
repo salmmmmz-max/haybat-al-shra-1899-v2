@@ -30,6 +30,7 @@ async function boot() {
 
   // pause when the tab is hidden; resume audio/time when it returns
   document.addEventListener('visibilitychange', () => {
+    G.loop.resetClock();
     if (document.hidden) { G.audio.suspend(); if (G.state.mode === 'play' && G.time.scale !== 0) { G.setPaused(true); G.ui.menus.showPause(true); } }
     else G.audio.resume();
   });

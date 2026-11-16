@@ -51,8 +51,10 @@ export function createLoop(G) {
     if (!running) return;
     raf = requestAnimationFrame(frame);
     let ms = ts - last; last = ts;
-    if (ms > 250 || ms <= 0) ms = 16.7;          // tab was hidden / first frame
-    G.quality.onFrame(ms);
+    if (ms <= 0) ms = 16.7;
+    // Quality must see slow frames as slow; clamping simulation is a separate concern.
+    // visibilitychange resets the clock so returning to the tab is not a GPU sample.
+    G.quality.onFrame(Math.min(ms, 1000));
     tick(clamp(ms / 1000, 1 / 240, 1 / 20));
   }
 
@@ -60,6 +62,7 @@ export function createLoop(G) {
     add, tick,
     start() { if (running) return; running = true; last = performance.now(); raf = requestAnimationFrame(frame); },
     stop() { running = false; cancelAnimationFrame(raf); },
+    resetClock() { last = performance.now(); },
     get running() { return running; },
     /** tests: skip the draw while fast-forwarding */
     get render() { return renderOn; }, set render(v) { renderOn = !!v; },

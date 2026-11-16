@@ -1,0 +1,89 @@
+{
+  "method": "Chromium headless + SwiftShader; 844x390 CSS px DPR1 touch emulation. Developer API scene entry and fixed simulation steps. CDP touch events for sticks/look/holds. No physical mobile hardware; no Safari certification.",
+  "mode": "perf",
+  "root": "/home/user/haybat-v2-baseline",
+  "shots": [],
+  "checks": [
+    {
+      "profile": "phone-landscape",
+      "width": 844,
+      "height": 390,
+      "samples": 63,
+      "elapsed": 10110.89999999986,
+      "p50": 150,
+      "p95": 300,
+      "mean": 156.07777777777778,
+      "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+      "draw": {
+        "calls": 36,
+        "triangles": 118977
+      },
+      "resolution": [
+        590,
+        273
+      ],
+      "antialias": false,
+      "userAgent": "Mozilla/5.0 (Linux; Android 13; Pixel 6a) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Mobile Safari/537.36",
+      "maxTouchPoints": 1,
+      "state": {
+        "mode": "play",
+        "beat": "c1_wake"
+      }
+    },
+    {
+      "profile": "phone-portrait",
+      "width": 390,
+      "height": 844,
+      "samples": 89,
+      "elapsed": 10259.899999999907,
+      "p50": 116.59999999999945,
+      "p95": 266.7999999999993,
+      "mean": 114.60337078651686,
+      "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+      "draw": {
+        "calls": 36,
+        "triangles": 118977
+      },
+      "resolution": [
+        506,
+        234
+      ],
+      "antialias": false,
+      "userAgent": "Mozilla/5.0 (iPhone; CPU iPhone OS 17_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.0 Mobile/15E148 Safari/604.1",
+      "maxTouchPoints": 1,
+      "state": {
+        "mode": "play",
+        "beat": "c1_wake"
+      }
+    },
+    {
+      "profile": "tablet-landscape",
+      "width": 1024,
+      "height": 768,
+      "samples": 24,
+      "elapsed": 10040.600000000046,
+      "p50": 350.10000000000036,
+      "p95": 866.6000000000004,
+      "mean": 410.3999999999999,
+      "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+      "draw": {
+        "calls": 32,
+        "triangles": 105198
+      },
+      "resolution": [
+        1024,
+        768
+      ],
+      "antialias": true,
+      "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.0 Safari/605.1.15",
+      "maxTouchPoints": 1,
+      "state": {
+        "mode": "play",
+        "beat": "c1_wake"
+      }
+    }
+  ],
+  "errors": [],
+  "requests": [],
+  "browser": "153.0.8010.12"
+}

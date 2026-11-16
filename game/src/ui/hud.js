@@ -52,22 +52,15 @@ export function createHud(G, root, ctx) {
   const steady = h('div', 'ring-w', el); h('div', 'halo', steady);
   const sRing = ring(steady, '', 44, 5), sMove = mover(steady), sOn = flag(steady, 'on'), sTense = flag(steady, 'tense');
   const wm = h('div', 'wmark', el); icon(ICONS.diamond, '', wm); const wmMove = mover(wm), wmOn = flag(wm, 'on');
-  const ret = h('div', 'reticle', el), rRing = ring(ret, '', 52, 4), rOn = flag(ret, 'on');
+  const ret = h('div', 'reticle', el), rRing = ring(ret, '', 15, 1.5), rOn = flag(ret, 'on');
+  const skyHint = h('div', 'sky-hint', el), skyHintText = texter(skyHint), skyHintOn = flag(skyHint, 'on');
+  let stripBearing = null;
 
-  // ---- gust
-  const gust = h('div', 'gust', el), flash = h('div', 'flash', el), setFlash = fader(flash);
-  const streaks = []; let gustSign = 1, gustFlip = 0;
-  for (let i = 0; i < 9; i++) {
-    const s = h('i', '', gust); s.style.top = (8 + i * 10.5) + '%'; s.style.width = (150 + (i * 53) % 190) + 'px';
-    streaks.push({ el: s, ph: (i * 0.37) % 1, sp: 0.9 + (i * 0.23) % 0.8, a: 0.35 + (i * 0.17) % 0.5, mv: mover(s), op: fader(s) });
-  }
-  let warnT = 0, warnTot = 1, gustT = 0, gustTot = 1, flashT = 0, gustOn = false;
-  G.events.on('weather:gustWarn', e => {
-    const cam = G.actors.cam, d = e.dir || { x: 0, z: 1 }, y = cam ? cam.yaw : 0;
-    gustSign = (d.x * -Math.cos(y) + d.z * Math.sin(y)) >= 0 ? 1 : -1;
-    warnTot = Math.max(0.3, e.in || 1.5); warnT = warnTot; gustT = 0;
-  });
-  G.events.on('weather:gust', e => { gustTot = gustT = Math.max(0.4, (e && e.duration) || 1.5); warnT = 0; flashT = 0.45; ctx.vib(35); });
+  // Gust direction is carried by world dust. A tiny luminance response and haptic
+  // onset remain; screen-space stripes used to flatten the whole scene (R09).
+  const flash = h('div', 'flash', el), setFlash = fader(flash);
+  let flashT = 0;
+  G.events.on('weather:gust', () => { flashT = 0.45; ctx.vib(35); });
 
   // ---- ripple / glint
   const rip = h('div', 'ripple', el); h('i', '', rip); h('i', '', rip); h('i', '', rip);
@@ -103,7 +96,16 @@ export function createHud(G, root, ctx) {
     prompt(key, glyph) {
       if (!key) { pOn(false); return; }
       const g = glyph || (/move|walk|stick/.test(key) ? 'thumb' : /look|turn|swipe/.test(key) ? 'swipe' : /hold|steady|eye|firasa|drink/.test(key) ? 'hold' : 'tap');
-      glyphEl.innerHTML = ICONS[g] || ICONS.tap; promptTx.textContent = t(key); pOn(true);
+      glyphEl.innerHTML = ICONS[g] || ICONS.tap;
+      const movement = /c1_wake.prompt.move|c1_trail.prompt.run|c5_walk.prompt.pace/.test(key);
+      const looking = /c1_wake.prompt.look/.test(key);
+      promptEl.classList.toggle('at-stick', movement); promptEl.classList.toggle('at-look', looking);
+      // Keep one action beside its control; the mission remains in the objective.
+      const keyboard = root.classList.contains('kb');
+      promptTx.textContent = key === 'c1_wake.prompt.move' ? (keyboard ? 'امشِ بمفاتيح الأسهم' : 'اسحب لتمشي')
+        : key === 'c1_wake.prompt.look' ? (keyboard ? 'اسحب بالفأرة لتنظر' : 'اسحب هنا لتنظر')
+        : key === 'c5_walk.prompt.pace' ? (keyboard ? 'تقدّم بثبات نحو النار' : 'اسحب بثبات نحو النار') : t(key);
+      pOn(true);
     },
     count(n) {
       if (n === null || n === undefined) { setCountOp(0); return; }
@@ -165,7 +167,11 @@ export function createHud(G, root, ctx) {
 
     // horizon strip
     if (vis.strip) {
-      moveTrk(-(360 + camB) * PPD, 0);
+      // Short, wrapped low-pass removes mount sway without a 359°→0° jump.
+      if (stripBearing === null || Math.abs(wrap180(camB - stripBearing)) > 70) stripBearing = camB;
+      stripBearing += wrap180(camB - stripBearing) * (1 - Math.exp(-Math.min(dt, 0.1) / 0.075));
+      stripBearing = (stripBearing + 360) % 360;
+      moveTrk(-(360 + stripBearing) * PPD, 0);
       const list = O && O.marks, isMap = list && !Array.isArray(list) && typeof list.get === 'function';
       const keys = isMap ? Array.from(list.keys()) : null;   // legacy Map only (small, rare)
       const n = list ? (isMap ? keys.length : list.length) : 0;
@@ -179,7 +185,7 @@ export function createHud(G, root, ctx) {
         if (!m || b === null || b === undefined) { M.shown(true); continue; }
         M.shown(false);
         if (M.icon !== m.icon) { M.icon = m.icon; M.ic.innerHTML = ICONS[m.icon] || ICONS.diamond; M.ic.className = 'ic'; }
-        const x = wrap180(b - camB) * PPD, lim = strip.clientWidth ? strip.clientWidth / 2 - 14 : 140;
+        const x = wrap180(b - stripBearing) * PPD, lim = strip.clientWidth ? strip.clientWidth / 2 - 20 : 140;
         M.edge(Math.abs(x) > lim); M.mv(clamp(x, -lim, lim), 0);
         M.txt(typeof dist === 'number' && isFinite(dist) ? arDigits(Math.round(dist / 10) * 10) : '');
       }
@@ -202,20 +208,10 @@ export function createHud(G, root, ctx) {
 
     // star-gaze reticle
     const sa = S.stars && S.stars.active; rOn(!!sa); if (sa) rRing.set(sa.progress || 0);
+    skyHintOn(!!(sa && sa.hint) && !promptEl.classList.contains('on')); if (sa) skyHintText(sa.hint || '');
 
-    // gust streaks + impact flash
-    if (warnT > 0) warnT -= dt; if (gustT > 0) gustT -= dt;
-    const inten = gustT > 0 ? 1 : warnT > 0 ? 0.15 + 0.6 * (1 - warnT / warnTot) : 0;
-    if (inten > 0) {
-      gustOn = true;
-      if (gustSign !== gustFlip) { gustFlip = gustSign; gust.style.transform = gustSign < 0 ? 'scaleX(-1)' : ''; }
-      const sp = gustT > 0 ? 1.5 : 0.7 + inten;
-      for (let i = 0; i < streaks.length; i++) {
-        const s = streaks[i]; s.ph += dt * s.sp * sp * 0.6; if (s.ph > 1) s.ph -= 1;
-        s.mv(s.ph * (W + 500) - 350, 0); s.op(inten * s.a * (0.4 + 0.6 * Math.sin(s.ph * Math.PI)));
-      }
-    } else if (gustOn) { gustOn = false; for (let i = 0; i < streaks.length; i++) streaks[i].op(0); }
-    if (flashT > 0) { flashT -= dt; setFlash(Math.max(0, flashT / 0.45) * 0.7); } else setFlash(0);
+    // A gust never obscures the center of the view.
+    if (flashT > 0) { flashT -= dt; setFlash(Math.max(0, flashT / 0.45) * 0.12); } else setFlash(0);
 
     // direction ripple
     if (ripFn) {
@@ -245,6 +241,6 @@ export function createHud(G, root, ctx) {
     const tv = clamp((55 - th) / 55, 0, 1); setVigT(tv * tv * 0.85 + (th < 25 ? 0.1 : 0)); pulseT(th < 25);
   };
   function ar_rot(rel) { const st = ripAr.style; const r = Math.round(rel / 3) * 3; if (ripAr._r !== r) { ripAr._r = r; st.transform = 'rotate(' + r + 'deg)'; } }
-  hud.reset = () => { warnT = gustT = flashT = 0; ripFn = null; ripOn(false); pOn(false); setCountOp(0); slots.forEach(s => { s.t = 0; s.on(false); }); glints.forEach(g => { g.t = 0; g.op(0); }); };
+  hud.reset = () => { flashT = 0; stripBearing = null; skyHintOn(false); ripFn = null; ripOn(false); pOn(false); setCountOp(0); slots.forEach(s => { s.t = 0; s.on(false); }); glints.forEach(g => { g.t = 0; g.op(0); }); };
   return hud;
 }

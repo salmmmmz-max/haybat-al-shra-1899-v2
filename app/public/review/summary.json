@@ -1,0 +1,735 @@
+{
+  "baseline_commit": "f7afe6147b43ae6ad6bca7f1676b53d292e81e1b",
+  "live_original_parity_verified": false,
+  "original_unchanged": true,
+  "paid_generation_used": false,
+  "physical_devices_tested": [],
+  "issues": [
+    {
+      "id": "R01",
+      "title": "الجلوس وملامسة الرمل",
+      "status": "أُصلح وفُحص",
+      "change": "أزيل خفض الجسد داخل الأرض، وأُعيد ضبط الجلسة والملابس وتماس الأجسام أثناء الانتقال. الصور والاختبار العددي يفحصان الجسد الفعلي.",
+      "limit": "الملابس تستخدم الهيكل الحالي؛ لا توجد محاكاة قماش كاملة.",
+      "before": "/home/user/haybat-v2-evidence/before/c3_fire_dialogue07.jpg",
+      "after": "/home/user/haybat-v2-evidence/after-final/c3_fire_dialogue07.jpg",
+      "pair": "R01.jpg"
+    },
+    {
+      "id": "R02",
+      "title": "تكوين كاميرا البئر",
+      "status": "أُصلح وفُحص",
+      "change": "زاوية جانبية ثابتة ترى اليد والحبل والدلو، مع اقتراب محسوب خارج الحافة وإبقاء النتيجة مرئية.",
+      "limit": "فُحص البئر في المحاكاة، وليس على آيفون فعلي.",
+      "before": "/home/user/haybat-v2-evidence/before/c1_well_inreach.jpg",
+      "after": "/home/user/haybat-v2-evidence/after-final/c1_well_inreach.jpg",
+      "pair": "R02.jpg"
+    },
+    {
+      "id": "R03",
+      "title": "اليد والحبل وسحب الدلو",
+      "status": "أُصلح ميكانيكيًا",
+      "change": "الجهد والدلو يتحركان أثناء الضغط؛ ترك الزر يخفض الدلو، والضغط مجددًا يكمل الرفع. أزيل الدلو الساكن المكرر وضُبط تماس المعصمين مع الحبل. قبل الإمساك وبعد الإفلات يعود الحبل إلى التعليق عند البئر بدل متابعة موضع اليد.",
+      "limit": "الأصابع في الأصول الحالية مبسطة؛ ليست قبضة أصابع مفصلية جديدة.",
+      "before": "/home/user/haybat-v2-evidence/before/c1_well_hold3.jpg",
+      "after": "/home/user/haybat-v2-evidence/after-final/c1_well_hold3.jpg",
+      "pair": "R03.jpg"
+    },
+    {
+      "id": "R04",
+      "title": "اعتراف الشيخ ورد الفعل",
+      "status": "حُسّن وفُحص",
+      "change": "لقطة أمامية عند الاعتراف، نظرة هادئة ورد فعل لضاري؛ مجلس ثامر يتبع المتحدث ويُظهر وضع البندقية.",
+      "limit": "تعبيرات الوجه محدودة بنماذج المصدر؛ لا أنيميشن وجه جديد.",
+      "before": "/home/user/haybat-v2-evidence/before/c3_fire_dialogue10.jpg",
+      "after": "/home/user/haybat-v2-evidence/after-final/c3_fire_dialogue10.jpg",
+      "pair": "R04.jpg"
+    },
+    {
+      "id": "R05",
+      "title": "الخامات والاتجاه البصري",
+      "status": "جزئي",
+      "change": "خامات PBR عند الجودة العالية؛ تستخدم الجودة المتوسطة والمنخفضة Lambert لتقليل كلفة الرسم. أضيفت تفاصيل سطحية وإضاءة أكثر اتساقًا مع البيئة، مع الحفاظ على الأصول والهوية التاريخية.",
+      "limit": "لم تتحول النماذج المبسطة إلى أصول فوتوغرافية؛ الشجرة والناقة والوجوه ما زالت تحتاج إعادة نمذجة/خامات أعمق للوصول إلى الواقعية المطلوبة كاملة. لم يُستخدم توليد مدفوع.",
+      "before": "/home/user/haybat-v2-evidence/before/c1_wake_start.jpg",
+      "after": "/home/user/haybat-v2-evidence/after-final/c1_wake_start.jpg",
+      "pair": "R05.jpg"
+    },
+    {
+      "id": "R06",
+      "title": "الرمل وآثار المعسكر",
+      "status": "حُسّن وفُحص",
+      "change": "أرض مستخدمة حول البئر والجلسة، آثار قديمة وتفاوت موضعي، وإزالة التموج المنتظم داخل منطقة السقاية بدل تغطية الصحراء بالأغراض.",
+      "limit": "الآثار موضعية وإجرائية؛ ليست محاكاة تشوه رمل مستمر.",
+      "before": "/home/user/haybat-v2-evidence/before/c1_well_inreach.jpg",
+      "after": "/home/user/haybat-v2-evidence/after-final/c1_well_inreach.jpg",
+      "pair": "R06.jpg"
+    },
+    {
+      "id": "R07",
+      "title": "اتزان الراكب على الناقة",
+      "status": "حُسّن وفُحص",
+      "change": "موازنة الحوض مع الميل والخطوة والانعطاف، يدان على القبضة وحبل قيادة، واتساق ميل الناقة مع الأرض.",
+      "limit": "اختبار الحركة والاتزان داخل المتصفح؛ شكل الناقة الأساسي لا يزال مبسطًا.",
+      "before": "/home/user/haybat-v2-evidence/before/c1_ride_turn.jpg",
+      "after": "/home/user/haybat-v2-evidence/after/c1_ride_turn.jpg",
+      "pair": "R07.jpg"
+    },
+    {
+      "id": "R08",
+      "title": "النار وحجم لوحة الحوار",
+      "status": "حُسّن وفُحص",
+      "change": "حوار أقصر مساحة دون تصغير الخط، ونار/ضوء أكثر هدوءًا مع ترك وزن بصري للوجوه.",
+      "limit": "جودة الوجه والنار لا تبلغ تصويرًا واقعيًا كاملًا.",
+      "before": "/home/user/haybat-v2-evidence/before/c3_fire_dialogue17.jpg",
+      "after": "/home/user/haybat-v2-evidence/after-final/c3_fire_dialogue17.jpg",
+      "pair": "R08.jpg"
+    },
+    {
+      "id": "R09",
+      "title": "عمق العاصفة الرملية",
+      "status": "أُصلح وفُحص",
+      "change": "أزيلت شرائط الشاشة والفاصل المصطنع واستُخدمت جزيئات غبار داخل العالم بعمق وسرعات متفاوتة مع بقاء الأرض القريبة مقروءة.",
+      "limit": "تعتمد القراءة النهائية للهبات على الشاشة وسطوع الجهاز؛ لم تُختبر أجهزة فعلية.",
+      "before": "/home/user/haybat-v2-evidence/before/c2_storm_walk.jpg",
+      "after": "/home/user/haybat-v2-evidence/after/c2_storm_walk.jpg",
+      "pair": "R09.jpg"
+    },
+    {
+      "id": "R10",
+      "title": "وضوح مؤشر الاتجاه",
+      "status": "أُصلح وفُحص",
+      "change": "خلفية أوضح وحدود وتباين أعلى للاتجاه والهدف أثناء ركوب الناقة في الغروب.",
+      "limit": "لم يُقَس تحت سطوع شمس على هاتف حقيقي.",
+      "before": "/home/user/haybat-v2-evidence/before/c4_search_walk.jpg",
+      "after": "/home/user/haybat-v2-evidence/after/c4_search_walk.jpg",
+      "pair": "R10.jpg"
+    },
+    {
+      "id": "R11",
+      "title": "النجوم ومؤشر التصويب",
+      "status": "أُصلح وفُحص",
+      "change": "مؤشر نظر 34 بكسل، تدرج سطوع وحجم للنجوم المهمة، وتلميح مرحلي دون تحريك مواقع النجوم أو كشف الإجابة مباشرة. نجح المسار الآلي في النجوم الثلاثة.",
+      "limit": "نجاح آلي داخل Chromium، وليس قياس سهولة التحدي مع لاعبين على Safari.",
+      "before": "/home/user/haybat-v2-evidence/before/c3_polaris_sky.jpg",
+      "after": "/home/user/haybat-v2-evidence/after/c3_polaris_sky.jpg",
+      "pair": "R11.jpg"
+    },
+    {
+      "id": "R12",
+      "title": "تقديم الذئاب والتهديد",
+      "status": "حُسّن وفُحص",
+      "change": "دخول متتابع ومسافات غير متناظرة وذئب يختبر ضوء النار، وردود فعل من الناس والإبل، مع الحفاظ على القتال.",
+      "limit": "نموذج الذئب وحركته الأساسية ما زالا ضمن أصول المصدر.",
+      "before": "/home/user/haybat-v2-evidence/before/c3_wolves_late.jpg",
+      "after": "/home/user/haybat-v2-evidence/after-final/c3_wolves_late.jpg",
+      "pair": "R12.jpg"
+    },
+    {
+      "id": "R13",
+      "title": "وضوح الرماة أثناء المواجهة",
+      "status": "حُسّن وفُحص",
+      "change": "لقطات تعريف للرماة قبل السير، رجال أقرب على جانبي الطريق وبنادق متجهة نحو ضاري، وتلميح مختصر بجانب التحكم.",
+      "limit": "الإضاءة تظل ليلية؛ بعض الحراس البعيدين يقرؤون كظلال. يلزم تقييم سطوع أجهزة فعلية.",
+      "before": "/home/user/haybat-v2-evidence/before/c5_walk_start.jpg",
+      "after": "/home/user/haybat-v2-evidence/after-final/c5_walk_start.jpg",
+      "pair": "R13.jpg"
+    },
+    {
+      "id": "R14",
+      "title": "تلميح الحركة الأول",
+      "status": "أُصلح وفُحص",
+      "change": "تعليم قصير قرب عصا اللمس؛ إرشاد النظر يأتي بعد الحركة بدل شريط يعترض وجهة البئر.",
+      "limit": "مقروئية العربية واللمس فُحصتا بالمحاكاة والاتجاهين.",
+      "before": "/home/user/haybat-v2-evidence/before/c1_wake_start.jpg",
+      "after": "/home/user/haybat-v2-evidence/after-final/c1_wake_start.jpg",
+      "pair": "R14.jpg"
+    }
+  ],
+  "tests": {
+    "unit_pass_count": 23,
+    "production_smoke": {
+      "method": "Production build served locally; headless Chromium SwiftShader smoke, not a physical phone or Safari.",
+      "buildstamp": "0.0.0-mwise7t9",
+      "bundle_bytes": 1147087,
+      "bundle_excludes_dev_globals": true,
+      "bundle_excludes_inline_source_map": true,
+      "smoke_exit_code": 0,
+      "info": {
+        "rot": false,
+        "canvas": [
+          886,
+          409
+        ],
+        "ui": 20
+      },
+      "bad": [],
+      "screenshots": [
+        "phone_title.jpg",
+        "phone_play1.jpg",
+        "phone_play2.jpg"
+      ]
+    },
+    "continuous_story": {
+      "steps": 55598,
+      "minutes": 15.5,
+      "mode": "end",
+      "chapter": 5,
+      "beat": "c5_end",
+      "flags": {
+        "ration": "child",
+        "gaveWater": true,
+        "sawWolfPrint": false,
+        "leftRifle": true,
+        "haybah": 1
+      },
+      "peakTris": 254584,
+      "peakCalls": 92,
+      "errors": [],
+      "timedOut": false,
+      "log": [
+        "0:null",
+        "0:c1_intro",
+        "711:c1_wake",
+        "1188:c1_well",
+        "2365:c1_firasa",
+        "3460:c1_trail",
+        "3461:c1_gravel",
+        "3933:c1_calm",
+        "4527:c1_ride",
+        "4674:c1_decision",
+        "6053:c2_march",
+        "14411:c2_ration",
+        "15767:c2_wall",
+        "17189:c2_storm",
+        "20601:c2_return",
+        "24694:c2_dusk",
+        "25544:c3_fire",
+        "27883:c3_polaris",
+        "28839:c3_wolves",
+        "33358:c3_alpha",
+        "35187:c3_suhail",
+        "36744:c4_stranger",
+        "39092:c4_collapse",
+        "41422:c4_search",
+        "41978:c4_search2",
+        "42386:c4_ridge",
+        "43107:c5_scout",
+        "43791:c5_walk",
+        "46326:c5_words",
+        "47841:c5_stare",
+        "48460:c5_verdict",
+        "49861:c5_signal",
+        "52608:c5_staff",
+        "55429:c5_end"
+      ]
+    },
+    "events": {
+      "stars:found": 3,
+      "wolf:telegraph": 14,
+      "wolf:lunge": 14,
+      "wolf:repelled": 12
+    },
+    "stars_found": [
+      "megrez",
+      "polaris",
+      "canopus"
+    ],
+    "material_quality_transitions_pass": true,
+    "multitouch": {
+      "before": {
+        "move": {
+          "x": 0,
+          "y": 0
+        },
+        "yaw": 1.6790669176553528,
+        "player": {
+          "x": -13,
+          "y": 1.48,
+          "z": 5,
+          "yaw": 1.57,
+          "mode": "foot",
+          "speed": 0
+        },
+        "events": []
+      },
+      "both": {
+        "move": {
+          "x": 0,
+          "y": 0.7159090909090909
+        },
+        "yaw": 1.4185082852486164,
+        "player": {
+          "x": -10.9,
+          "y": 1.48,
+          "z": 5.32,
+          "yaw": 1.42,
+          "mode": "foot",
+          "speed": 2
+        },
+        "events": [
+          {
+            "type": "pointerdown",
+            "id": 2
+          },
+          {
+            "type": "pointerdown",
+            "id": 3
+          }
+        ]
+      },
+      "releaseMethod": "CDP touchEnd releases right/look contact; left remains down",
+      "lookReleased": {
+        "move": {
+          "x": 0,
+          "y": 0.7159090909090909
+        },
+        "yaw": 1.4185082852486164,
+        "player": {
+          "x": -10.57,
+          "y": 1.48,
+          "z": 5.37,
+          "yaw": 1.42,
+          "mode": "foot",
+          "speed": 2
+        },
+        "events": [
+          {
+            "type": "pointerdown",
+            "id": 2
+          },
+          {
+            "type": "pointerdown",
+            "id": 3
+          },
+          {
+            "type": "pointerup",
+            "id": 3
+          }
+        ]
+      },
+      "leftStillMoves": {
+        "move": {
+          "x": 0,
+          "y": 0.7564935064935064
+        },
+        "yaw": 1.4185082852486164,
+        "player": {
+          "x": -10.24,
+          "y": 1.48,
+          "z": 5.42,
+          "yaw": 1.42,
+          "mode": "foot",
+          "speed": 2
+        },
+        "events": [
+          {
+            "type": "pointerdown",
+            "id": 2
+          },
+          {
+            "type": "pointerdown",
+            "id": 3
+          },
+          {
+            "type": "pointerup",
+            "id": 3
+          }
+        ]
+      },
+      "afterCancel": {
+        "move": {
+          "x": 0,
+          "y": 0
+        },
+        "yaw": 1.4185082852486164,
+        "player": {
+          "x": -10.12,
+          "y": 1.48,
+          "z": 5.44,
+          "yaw": 1.42,
+          "mode": "foot",
+          "speed": 0.19
+        },
+        "events": [
+          {
+            "type": "pointerdown",
+            "id": 2
+          },
+          {
+            "type": "pointerdown",
+            "id": 3
+          },
+          {
+            "type": "pointerup",
+            "id": 3
+          },
+          {
+            "type": "pointercancel",
+            "id": 2
+          }
+        ]
+      },
+      "pass": true
+    },
+    "well_lod_stability": {
+      "before": [
+        {
+          "uuid": "9d4a49a2-d05c-46b2-b40b-e4631032f007",
+          "indices": 18822,
+          "vertices": 6199
+        }
+      ],
+      "far": [
+        {
+          "uuid": "9d4a49a2-d05c-46b2-b40b-e4631032f007",
+          "indices": 18822,
+          "vertices": 6199
+        }
+      ],
+      "near": [
+        {
+          "uuid": "9d4a49a2-d05c-46b2-b40b-e4631032f007",
+          "indices": 18822,
+          "vertices": 6199
+        }
+      ],
+      "pass": true
+    },
+    "webgl_context_recovery": {
+      "available": true,
+      "lost": true,
+      "restored": true,
+      "mode": "play",
+      "contextLost": false,
+      "errors": []
+    },
+    "well_contact_active_frames": {
+      "frames": 275,
+      "maxLeft": 1.6459600056674294e-06,
+      "maxRight": 1.8221923518992716e-06,
+      "over1cm": 0
+    },
+    "well_resting_line_before": {
+      "left": 0,
+      "right": 0
+    },
+    "well_resting_line_after": {
+      "left": 0,
+      "right": 0
+    },
+    "input_tests": {
+      "F11": {
+        "pass": true,
+        "detail": {
+          "maxTouchPoints": 0,
+          "mode": "play",
+          "touchActive": true,
+          "deskYaw": 0.899,
+          "deskPitch": 0.42,
+          "dragFromPauseBtn": 0,
+          "pauseByMouse": true,
+          "dragInMenu": 0,
+          "hybridTouchPoints": 1,
+          "hybridMouseYaw": 0.9,
+          "hybridTouchYaw": 0.491,
+          "hybridStick": 1,
+          "hybridStickAfter": 0,
+          "phoneTouchYaw": 0.67,
+          "phoneStick": 1
+        }
+      },
+      "F12": {
+        "pass": true,
+        "detail": {
+          "phone": {
+            "rot": false,
+            "mode": "dialogue",
+            "btnInDialogue": true,
+            "topElement": "svg|tb pause",
+            "onTop": true,
+            "pauseOpened": true,
+            "settingsOpened": true,
+            "backToPause": true,
+            "resumed": true,
+            "lineKept": true,
+            "mainMenu": true,
+            "btnInCine": true,
+            "cineTop": "svg|tb pause",
+            "cinePause": true,
+            "cineResume": true,
+            "btnOnTitle": false
+          },
+          "portrait": {
+            "rot": true,
+            "mode": "dialogue",
+            "btnInDialogue": true,
+            "topElement": "svg|tb pause",
+            "onTop": true,
+            "pauseOpened": true,
+            "settingsOpened": true,
+            "backToPause": true,
+            "resumed": true,
+            "lineKept": true,
+            "mainMenu": true,
+            "btnInCine": true,
+            "cineTop": "svg|tb pause",
+            "cinePause": true,
+            "cineResume": true,
+            "btnOnTitle": false
+          }
+        }
+      },
+      "F13": {
+        "pass": true,
+        "detail": {
+          "phone": {
+            "overflow": 137,
+            "starts": {
+              "label": 105,
+              "segBtn": 105,
+              "slider": 0
+            },
+            "bottom": 137,
+            "maxTop": 137,
+            "lastVisible": true,
+            "backTop": 0,
+            "pass": true
+          },
+          "portrait": {
+            "overflow": 137,
+            "starts": {
+              "label": 120,
+              "segBtn": 120,
+              "slider": 120
+            },
+            "bottom": 137,
+            "maxTop": 137,
+            "lastVisible": true,
+            "backTop": 0,
+            "pass": true
+          },
+          "phone+big": {
+            "overflow": 148,
+            "starts": {
+              "label": 105,
+              "segBtn": 105,
+              "slider": 0
+            },
+            "bottom": 148,
+            "maxTop": 148,
+            "lastVisible": true,
+            "backTop": 0,
+            "pass": true
+          },
+          "portrait+big": {
+            "overflow": 148,
+            "starts": {
+              "label": 120,
+              "segBtn": 120,
+              "slider": 120
+            },
+            "bottom": 148,
+            "maxTop": 148,
+            "lastVisible": true,
+            "backTop": 0,
+            "pass": true
+          }
+        }
+      },
+      "F14": {
+        "pass": true,
+        "detail": {
+          "dir": "rtl",
+          "tap": 0.25,
+          "tapStored": 0.25,
+          "tapVol": 0.25,
+          "dragBefore": 0.25,
+          "drag": 0.8,
+          "dragStored": 0.8,
+          "dragVol": 0.8,
+          "keys": {
+            "start": 0.8,
+            "up": 0.85,
+            "down": 0.8,
+            "right": 0.75,
+            "left": 0.8,
+            "end": 1,
+            "home": 0
+          },
+          "keyStored": 0,
+          "keyVol": 0,
+          "moveMagWhileFocused": 0,
+          "arrowDefaultPrevented": false,
+          "arrowOutsidePrevented": true,
+          "tapOk": true,
+          "dragOk": true,
+          "keyOk": true
+        }
+      }
+    }
+  },
+  "performance": {
+    "method": "Real RAF intervals on Chromium SwiftShader, adaptive quality; not physical-device FPS. Before/after samples differ in render resolution and cannot establish hardware performance.",
+    "before": {
+      "phone-landscape": {
+        "profile": "phone-landscape",
+        "width": 844,
+        "height": 390,
+        "samples": 63,
+        "elapsed": 10110.89999999986,
+        "p50": 150,
+        "p95": 300,
+        "mean": 156.07777777777778,
+        "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+        "draw": {
+          "calls": 36,
+          "triangles": 118977
+        },
+        "resolution": [
+          590,
+          273
+        ],
+        "antialias": false,
+        "userAgent": "Mozilla/5.0 (Linux; Android 13; Pixel 6a) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Mobile Safari/537.36",
+        "maxTouchPoints": 1,
+        "state": {
+          "mode": "play",
+          "beat": "c1_wake"
+        }
+      },
+      "phone-portrait": {
+        "profile": "phone-portrait",
+        "width": 390,
+        "height": 844,
+        "samples": 89,
+        "elapsed": 10259.899999999907,
+        "p50": 116.59999999999945,
+        "p95": 266.7999999999993,
+        "mean": 114.60337078651686,
+        "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+        "draw": {
+          "calls": 36,
+          "triangles": 118977
+        },
+        "resolution": [
+          506,
+          234
+        ],
+        "antialias": false,
+        "userAgent": "Mozilla/5.0 (iPhone; CPU iPhone OS 17_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.0 Mobile/15E148 Safari/604.1",
+        "maxTouchPoints": 1,
+        "state": {
+          "mode": "play",
+          "beat": "c1_wake"
+        }
+      },
+      "tablet-landscape": {
+        "profile": "tablet-landscape",
+        "width": 1024,
+        "height": 768,
+        "samples": 23,
+        "elapsed": 10325.399999999907,
+        "p50": 366.6999999999989,
+        "p95": 1183.199999999999,
+        "mean": 443.45652173913044,
+        "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+        "draw": {
+          "calls": 32,
+          "triangles": 105146
+        },
+        "resolution": [
+          1024,
+          768
+        ],
+        "antialias": true,
+        "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.0 Safari/605.1.15",
+        "maxTouchPoints": 5,
+        "state": {
+          "mode": "play",
+          "beat": "c1_wake"
+        }
+      }
+    },
+    "after": {
+      "phone-landscape": {
+        "profile": "phone-landscape",
+        "width": 844,
+        "height": 390,
+        "samples": 53,
+        "elapsed": 10128.300000000094,
+        "p50": 166.6999999999989,
+        "p95": 450,
+        "mean": 188.67169811320758,
+        "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+        "draw": {
+          "calls": 41,
+          "triangles": 118695
+        },
+        "resolution": [
+          506,
+          234
+        ],
+        "antialias": false,
+        "userAgent": "Mozilla/5.0 (Linux; Android 13; Pixel 6a) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Mobile Safari/537.36",
+        "maxTouchPoints": 5,
+        "state": {
+          "mode": "play",
+          "beat": "c1_wake"
+        }
+      },
+      "phone-portrait": {
+        "profile": "phone-portrait",
+        "width": 390,
+        "height": 844,
+        "samples": 64,
+        "elapsed": 10007.599999999999,
+        "p50": 133.39999999999964,
+        "p95": 400.10000000000036,
+        "mean": 156.5046875,
+        "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+        "draw": {
+          "calls": 41,
+          "triangles": 118695
+        },
+        "resolution": [
+          506,
+          234
+        ],
+        "antialias": false,
+        "userAgent": "Mozilla/5.0 (iPhone; CPU iPhone OS 17_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.0 Mobile/15E148 Safari/604.1",
+        "maxTouchPoints": 5,
+        "state": {
+          "mode": "play",
+          "beat": "c1_wake"
+        }
+      },
+      "tablet-landscape": {
+        "profile": "tablet-landscape",
+        "width": 1024,
+        "height": 768,
+        "samples": 32,
+        "elapsed": 10092.999999999814,
+        "p50": 283.2999999999993,
+        "p95": 783.3999999999996,
+        "mean": 305.71875000000006,
+        "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+        "draw": {
+          "calls": 36,
+          "triangles": 103706
+        },
+        "resolution": [
+          614,
+          460
+        ],
+        "antialias": false,
+        "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.0 Safari/605.1.15",
+        "maxTouchPoints": 5,
+        "state": {
+          "mode": "play",
+          "beat": "c1_wake"
+        }
+      }
+    }
+  }
+}

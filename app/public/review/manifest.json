@@ -1,0 +1,142 @@
+[
+  {
+    "id": "R01",
+    "title": "الجلوس وملامسة الرمل",
+    "status": "أُصلح وفُحص",
+    "change": "أزيل خفض الجسد داخل الأرض، وأُعيد ضبط الجلسة والملابس وتماس الأجسام أثناء الانتقال. الصور والاختبار العددي يفحصان الجسد الفعلي.",
+    "limit": "الملابس تستخدم الهيكل الحالي؛ لا توجد محاكاة قماش كاملة.",
+    "before": "/home/user/haybat-v2-evidence/before/c3_fire_dialogue07.jpg",
+    "after": "/home/user/haybat-v2-evidence/after-final/c3_fire_dialogue07.jpg",
+    "pair": "R01.jpg"
+  },
+  {
+    "id": "R02",
+    "title": "تكوين كاميرا البئر",
+    "status": "أُصلح وفُحص",
+    "change": "زاوية جانبية ثابتة ترى اليد والحبل والدلو، مع اقتراب محسوب خارج الحافة وإبقاء النتيجة مرئية.",
+    "limit": "فُحص البئر في المحاكاة، وليس على آيفون فعلي.",
+    "before": "/home/user/haybat-v2-evidence/before/c1_well_inreach.jpg",
+    "after": "/home/user/haybat-v2-evidence/after-final/c1_well_inreach.jpg",
+    "pair": "R02.jpg"
+  },
+  {
+    "id": "R03",
+    "title": "اليد والحبل وسحب الدلو",
+    "status": "أُصلح ميكانيكيًا",
+    "change": "الجهد والدلو يتحركان أثناء الضغط؛ ترك الزر يخفض الدلو، والضغط مجددًا يكمل الرفع. أزيل الدلو الساكن المكرر وضُبط تماس المعصمين مع الحبل. قبل الإمساك وبعد الإفلات يعود الحبل إلى التعليق عند البئر بدل متابعة موضع اليد.",
+    "limit": "الأصابع في الأصول الحالية مبسطة؛ ليست قبضة أصابع مفصلية جديدة.",
+    "before": "/home/user/haybat-v2-evidence/before/c1_well_hold3.jpg",
+    "after": "/home/user/haybat-v2-evidence/after-final/c1_well_hold3.jpg",
+    "pair": "R03.jpg"
+  },
+  {
+    "id": "R04",
+    "title": "اعتراف الشيخ ورد الفعل",
+    "status": "حُسّن وفُحص",
+    "change": "لقطة أمامية عند الاعتراف، نظرة هادئة ورد فعل لضاري؛ مجلس ثامر يتبع المتحدث ويُظهر وضع البندقية.",
+    "limit": "تعبيرات الوجه محدودة بنماذج المصدر؛ لا أنيميشن وجه جديد.",
+    "before": "/home/user/haybat-v2-evidence/before/c3_fire_dialogue10.jpg",
+    "after": "/home/user/haybat-v2-evidence/after-final/c3_fire_dialogue10.jpg",
+    "pair": "R04.jpg"
+  },
+  {
+    "id": "R05",
+    "title": "الخامات والاتجاه البصري",
+    "status": "جزئي",
+    "change": "خامات PBR عند الجودة العالية؛ تستخدم الجودة المتوسطة والمنخفضة Lambert لتقليل كلفة الرسم. أضيفت تفاصيل سطحية وإضاءة أكثر اتساقًا مع البيئة، مع الحفاظ على الأصول والهوية التاريخية.",
+    "limit": "لم تتحول النماذج المبسطة إلى أصول فوتوغرافية؛ الشجرة والناقة والوجوه ما زالت تحتاج إعادة نمذجة/خامات أعمق للوصول إلى الواقعية المطلوبة كاملة. لم يُستخدم توليد مدفوع.",
+    "before": "/home/user/haybat-v2-evidence/before/c1_wake_start.jpg",
+    "after": "/home/user/haybat-v2-evidence/after-final/c1_wake_start.jpg",
+    "pair": "R05.jpg"
+  },
+  {
+    "id": "R06",
+    "title": "الرمل وآثار المعسكر",
+    "status": "حُسّن وفُحص",
+    "change": "أرض مستخدمة حول البئر والجلسة، آثار قديمة وتفاوت موضعي، وإزالة التموج المنتظم داخل منطقة السقاية بدل تغطية الصحراء بالأغراض.",
+    "limit": "الآثار موضعية وإجرائية؛ ليست محاكاة تشوه رمل مستمر.",
+    "before": "/home/user/haybat-v2-evidence/before/c1_well_inreach.jpg",
+    "after": "/home/user/haybat-v2-evidence/after-final/c1_well_inreach.jpg",
+    "pair": "R06.jpg"
+  },
+  {
+    "id": "R07",
+    "title": "اتزان الراكب على الناقة",
+    "status": "حُسّن وفُحص",
+    "change": "موازنة الحوض مع الميل والخطوة والانعطاف، يدان على القبضة وحبل قيادة، واتساق ميل الناقة مع الأرض.",
+    "limit": "اختبار الحركة والاتزان داخل المتصفح؛ شكل الناقة الأساسي لا يزال مبسطًا.",
+    "before": "/home/user/haybat-v2-evidence/before/c1_ride_turn.jpg",
+    "after": "/home/user/haybat-v2-evidence/after/c1_ride_turn.jpg",
+    "pair": "R07.jpg"
+  },
+  {
+    "id": "R08",
+    "title": "النار وحجم لوحة الحوار",
+    "status": "حُسّن وفُحص",
+    "change": "حوار أقصر مساحة دون تصغير الخط، ونار/ضوء أكثر هدوءًا مع ترك وزن بصري للوجوه.",
+    "limit": "جودة الوجه والنار لا تبلغ تصويرًا واقعيًا كاملًا.",
+    "before": "/home/user/haybat-v2-evidence/before/c3_fire_dialogue17.jpg",
+    "after": "/home/user/haybat-v2-evidence/after-final/c3_fire_dialogue17.jpg",
+    "pair": "R08.jpg"
+  },
+  {
+    "id": "R09",
+    "title": "عمق العاصفة الرملية",
+    "status": "أُصلح وفُحص",
+    "change": "أزيلت شرائط الشاشة والفاصل المصطنع واستُخدمت جزيئات غبار داخل العالم بعمق وسرعات متفاوتة مع بقاء الأرض القريبة مقروءة.",
+    "limit": "تعتمد القراءة النهائية للهبات على الشاشة وسطوع الجهاز؛ لم تُختبر أجهزة فعلية.",
+    "before": "/home/user/haybat-v2-evidence/before/c2_storm_walk.jpg",
+    "after": "/home/user/haybat-v2-evidence/after/c2_storm_walk.jpg",
+    "pair": "R09.jpg"
+  },
+  {
+    "id": "R10",
+    "title": "وضوح مؤشر الاتجاه",
+    "status": "أُصلح وفُحص",
+    "change": "خلفية أوضح وحدود وتباين أعلى للاتجاه والهدف أثناء ركوب الناقة في الغروب.",
+    "limit": "لم يُقَس تحت سطوع شمس على هاتف حقيقي.",
+    "before": "/home/user/haybat-v2-evidence/before/c4_search_walk.jpg",
+    "after": "/home/user/haybat-v2-evidence/after/c4_search_walk.jpg",
+    "pair": "R10.jpg"
+  },
+  {
+    "id": "R11",
+    "title": "النجوم ومؤشر التصويب",
+    "status": "أُصلح وفُحص",
+    "change": "مؤشر نظر 34 بكسل، تدرج سطوع وحجم للنجوم المهمة، وتلميح مرحلي دون تحريك مواقع النجوم أو كشف الإجابة مباشرة. نجح المسار الآلي في النجوم الثلاثة.",
+    "limit": "نجاح آلي داخل Chromium، وليس قياس سهولة التحدي مع لاعبين على Safari.",
+    "before": "/home/user/haybat-v2-evidence/before/c3_polaris_sky.jpg",
+    "after": "/home/user/haybat-v2-evidence/after/c3_polaris_sky.jpg",
+    "pair": "R11.jpg"
+  },
+  {
+    "id": "R12",
+    "title": "تقديم الذئاب والتهديد",
+    "status": "حُسّن وفُحص",
+    "change": "دخول متتابع ومسافات غير متناظرة وذئب يختبر ضوء النار، وردود فعل من الناس والإبل، مع الحفاظ على القتال.",
+    "limit": "نموذج الذئب وحركته الأساسية ما زالا ضمن أصول المصدر.",
+    "before": "/home/user/haybat-v2-evidence/before/c3_wolves_late.jpg",
+    "after": "/home/user/haybat-v2-evidence/after-final/c3_wolves_late.jpg",
+    "pair": "R12.jpg"
+  },
+  {
+    "id": "R13",
+    "title": "وضوح الرماة أثناء المواجهة",
+    "status": "حُسّن وفُحص",
+    "change": "لقطات تعريف للرماة قبل السير، رجال أقرب على جانبي الطريق وبنادق متجهة نحو ضاري، وتلميح مختصر بجانب التحكم.",
+    "limit": "الإضاءة تظل ليلية؛ بعض الحراس البعيدين يقرؤون كظلال. يلزم تقييم سطوع أجهزة فعلية.",
+    "before": "/home/user/haybat-v2-evidence/before/c5_walk_start.jpg",
+    "after": "/home/user/haybat-v2-evidence/after-final/c5_walk_start.jpg",
+    "pair": "R13.jpg"
+  },
+  {
+    "id": "R14",
+    "title": "تلميح الحركة الأول",
+    "status": "أُصلح وفُحص",
+    "change": "تعليم قصير قرب عصا اللمس؛ إرشاد النظر يأتي بعد الحركة بدل شريط يعترض وجهة البئر.",
+    "limit": "مقروئية العربية واللمس فُحصتا بالمحاكاة والاتجاهين.",
+    "before": "/home/user/haybat-v2-evidence/before/c1_wake_start.jpg",
+    "after": "/home/user/haybat-v2-evidence/after-final/c1_wake_start.jpg",
+    "pair": "R14.jpg"
+  }
+]

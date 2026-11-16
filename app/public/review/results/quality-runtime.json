@@ -1,0 +1,432 @@
+{
+  "method": "Chromium SwiftShader runtime medium→low→high transitions, mounted camel and well, non-rendering scene pre-roll.",
+  "checks": [
+    {
+      "beat": "c1_ride",
+      "quality": "medium",
+      "state": {
+        "mode": "play",
+        "chapter": 1,
+        "beat": "c1_ride",
+        "flags": {
+          "ration": "self",
+          "gaveWater": false,
+          "sawWolfPrint": false,
+          "leftRifle": false,
+          "haybah": 0
+        },
+        "time": 7.72,
+        "player": {
+          "x": 96,
+          "y": -2.91,
+          "z": 176,
+          "yaw": -2.71,
+          "mode": "mounted",
+          "speed": 0
+        },
+        "objective": "c1_ride.obj",
+        "interact": null,
+        "thirst": 100,
+        "sips": 0,
+        "render": {
+          "calls": 53,
+          "tris": 161051,
+          "textures": 16,
+          "geometries": 59
+        },
+        "errors": 0
+      },
+      "materialCount": 45,
+      "assetMaterialTypes": {
+        "MeshLambertMaterial": 17
+      },
+      "assetMaterialClassPass": true,
+      "shaderHooks": 45,
+      "errors": []
+    },
+    {
+      "beat": "c1_ride",
+      "quality": "low",
+      "state": {
+        "mode": "play",
+        "chapter": 1,
+        "beat": "c1_ride",
+        "flags": {
+          "ration": "self",
+          "gaveWater": false,
+          "sawWolfPrint": false,
+          "leftRifle": false,
+          "haybah": 0
+        },
+        "time": 7.77,
+        "player": {
+          "x": 96,
+          "y": -2.91,
+          "z": 176,
+          "yaw": -2.71,
+          "mode": "mounted",
+          "speed": 0
+        },
+        "objective": "c1_ride.obj",
+        "interact": null,
+        "thirst": 100,
+        "sips": 0,
+        "render": {
+          "calls": 53,
+          "tris": 157182,
+          "textures": 16,
+          "geometries": 61
+        },
+        "errors": 0
+      },
+      "materialCount": 45,
+      "assetMaterialTypes": {
+        "MeshLambertMaterial": 17
+      },
+      "assetMaterialClassPass": true,
+      "shaderHooks": 45,
+      "errors": []
+    },
+    {
+      "beat": "c1_ride",
+      "quality": "high",
+      "state": {
+        "mode": "play",
+        "chapter": 1,
+        "beat": "c1_ride",
+        "flags": {
+          "ration": "self",
+          "gaveWater": false,
+          "sawWolfPrint": false,
+          "leftRifle": false,
+          "haybah": 0
+        },
+        "time": 7.82,
+        "player": {
+          "x": 96,
+          "y": -2.91,
+          "z": 176,
+          "yaw": -2.71,
+          "mode": "mounted",
+          "speed": 0
+        },
+        "objective": "c1_ride.obj",
+        "interact": null,
+        "thirst": 100,
+        "sips": 0,
+        "render": {
+          "calls": 53,
+          "tris": 164192,
+          "textures": 16,
+          "geometries": 63
+        },
+        "errors": 0
+      },
+      "materialCount": 45,
+      "assetMaterialTypes": {
+        "MeshStandardMaterial": 17
+      },
+      "assetMaterialClassPass": true,
+      "shaderHooks": 45,
+      "errors": []
+    },
+    {
+      "beat": "c1_well",
+      "quality": "medium",
+      "state": {
+        "mode": "play",
+        "chapter": 1,
+        "beat": "c1_well",
+        "flags": {
+          "ration": "self",
+          "gaveWater": false,
+          "sawWolfPrint": false,
+          "leftRifle": false,
+          "haybah": 0
+        },
+        "time": 18.92,
+        "player": {
+          "x": 3,
+          "y": 1.48,
+          "z": 6,
+          "yaw": 1.57,
+          "mode": "foot",
+          "speed": 0
+        },
+        "objective": "c1_well.obj",
+        "interact": null,
+        "thirst": 100,
+        "sips": 0,
+        "render": {
+          "calls": 42,
+          "tris": 105786,
+          "textures": 16,
+          "geometries": 72
+        },
+        "errors": 0
+      },
+      "materialCount": 49,
+      "assetMaterialTypes": {
+        "MeshLambertMaterial": 17
+      },
+      "assetMaterialClassPass": true,
+      "shaderHooks": 49,
+      "errors": []
+    },
+    {
+      "beat": "c1_well",
+      "quality": "low",
+      "state": {
+        "mode": "play",
+        "chapter": 1,
+        "beat": "c1_well",
+        "flags": {
+          "ration": "self",
+          "gaveWater": false,
+          "sawWolfPrint": false,
+          "leftRifle": false,
+          "haybah": 0
+        },
+        "time": 18.97,
+        "player": {
+          "x": 3,
+          "y": 1.48,
+          "z": 6,
+          "yaw": 1.57,
+          "mode": "foot",
+          "speed": 0
+        },
+        "objective": "c1_well.obj",
+        "interact": null,
+        "thirst": 100,
+        "sips": 0,
+        "render": {
+          "calls": 42,
+          "tris": 99572,
+          "textures": 16,
+          "geometries": 72
+        },
+        "errors": 0
+      },
+      "materialCount": 49,
+      "assetMaterialTypes": {
+        "MeshLambertMaterial": 17
+      },
+      "assetMaterialClassPass": true,
+      "shaderHooks": 49,
+      "errors": []
+    },
+    {
+      "beat": "c1_well",
+      "quality": "high",
+      "state": {
+        "mode": "play",
+        "chapter": 1,
+        "beat": "c1_well",
+        "flags": {
+          "ration": "self",
+          "gaveWater": false,
+          "sawWolfPrint": false,
+          "leftRifle": false,
+          "haybah": 0
+        },
+        "time": 19.02,
+        "player": {
+          "x": 3,
+          "y": 1.48,
+          "z": 6,
+          "yaw": 1.57,
+          "mode": "foot",
+          "speed": 0
+        },
+        "objective": "c1_well.obj",
+        "interact": null,
+        "thirst": 100,
+        "sips": 0,
+        "render": {
+          "calls": 42,
+          "tris": 108927,
+          "textures": 16,
+          "geometries": 72
+        },
+        "errors": 0
+      },
+      "materialCount": 49,
+      "assetMaterialTypes": {
+        "MeshStandardMaterial": 17
+      },
+      "assetMaterialClassPass": true,
+      "shaderHooks": 49,
+      "errors": []
+    }
+  ],
+  "errors": [],
+  "wellLod": {
+    "before": [
+      {
+        "uuid": "9d4a49a2-d05c-46b2-b40b-e4631032f007",
+        "indices": 18822,
+        "vertices": 6199
+      }
+    ],
+    "far": [
+      {
+        "uuid": "9d4a49a2-d05c-46b2-b40b-e4631032f007",
+        "indices": 18822,
+        "vertices": 6199
+      }
+    ],
+    "near": [
+      {
+        "uuid": "9d4a49a2-d05c-46b2-b40b-e4631032f007",
+        "indices": 18822,
+        "vertices": 6199
+      }
+    ],
+    "pass": true
+  },
+  "multitouch": {
+    "before": {
+      "move": {
+        "x": 0,
+        "y": 0
+      },
+      "yaw": 1.6790669176553528,
+      "player": {
+        "x": -13,
+        "y": 1.48,
+        "z": 5,
+        "yaw": 1.57,
+        "mode": "foot",
+        "speed": 0
+      },
+      "events": []
+    },
+    "both": {
+      "move": {
+        "x": 0,
+        "y": 0.7159090909090909
+      },
+      "yaw": 1.4185082852486164,
+      "player": {
+        "x": -10.9,
+        "y": 1.48,
+        "z": 5.32,
+        "yaw": 1.42,
+        "mode": "foot",
+        "speed": 2
+      },
+      "events": [
+        {
+          "type": "pointerdown",
+          "id": 2
+        },
+        {
+          "type": "pointerdown",
+          "id": 3
+        }
+      ]
+    },
+    "releaseMethod": "CDP touchEnd releases right/look contact; left remains down",
+    "lookReleased": {
+      "move": {
+        "x": 0,
+        "y": 0.7159090909090909
+      },
+      "yaw": 1.4185082852486164,
+      "player": {
+        "x": -10.57,
+        "y": 1.48,
+        "z": 5.37,
+        "yaw": 1.42,
+        "mode": "foot",
+        "speed": 2
+      },
+      "events": [
+        {
+          "type": "pointerdown",
+          "id": 2
+        },
+        {
+          "type": "pointerdown",
+          "id": 3
+        },
+        {
+          "type": "pointerup",
+          "id": 3
+        }
+      ]
+    },
+    "leftStillMoves": {
+      "move": {
+        "x": 0,
+        "y": 0.7564935064935064
+      },
+      "yaw": 1.4185082852486164,
+      "player": {
+        "x": -10.24,
+        "y": 1.48,
+        "z": 5.42,
+        "yaw": 1.42,
+        "mode": "foot",
+        "speed": 2
+      },
+      "events": [
+        {
+          "type": "pointerdown",
+          "id": 2
+        },
+        {
+          "type": "pointerdown",
+          "id": 3
+        },
+        {
+          "type": "pointerup",
+          "id": 3
+        }
+      ]
+    },
+    "afterCancel": {
+      "move": {
+        "x": 0,
+        "y": 0
+      },
+      "yaw": 1.4185082852486164,
+      "player": {
+        "x": -10.12,
+        "y": 1.48,
+        "z": 5.44,
+        "yaw": 1.42,
+        "mode": "foot",
+        "speed": 0.19
+      },
+      "events": [
+        {
+          "type": "pointerdown",
+          "id": 2
+        },
+        {
+          "type": "pointerdown",
+          "id": 3
+        },
+        {
+          "type": "pointerup",
+          "id": 3
+        },
+        {
+          "type": "pointercancel",
+          "id": 2
+        }
+      ]
+    },
+    "pass": true
+  },
+  "contextRecovery": {
+    "available": true,
+    "lost": true,
+    "restored": true,
+    "mode": "play",
+    "contextLost": false,
+    "errors": []
+  }
+}

@@ -6,11 +6,12 @@
 - extra animation clip on a rigged GLB (model `3d_rigging`, enable_animation): 8 cr
 - music 40s (sonilo_music): 2.5 cr ; SFX 3s (mirelo_text_to_audio): 0.75 cr ; TTS line (inworld_text_to_speech, voice "Omar (ar)"): 2 cr
 
-## STYLE FORMULA (byte-identical in EVERY visual prompt — never paraphrase)
-stylized painterly realism in the manner of a hand-painted adventure game model, matte brushed textures with soft gradients and no photographic noise, clean strong silhouettes with simplified natural proportions and broad flowing cloth folds, environment in warm golden-amber sand and pale dusty blue sky, people in sun-bleached off-white cotton and dark coffee-brown wool with deep indigo and madder-red woven accents that stand out against the sand, evenly lit with soft warm desert light and no harsh shadows, calm dignified epic mood, high contrast, clean readable shapes
+## V2 visual direction and limits
+V2 targets observed material behaviour and natural proportions of Bedouin life in the Empty Quarter, 1899: dusty woven cotton/wool, worn leather, rough stone, dry acacia wood, compressed sand at use sites and sparse damp soil at water handling. Retain off-white, indigo, madder and coffee tones; do not replace local identity with generic western imagery. No motion blur is used to hide geometry or contact.
 
-## STYLE TOKEN (≤120 chars, for texture_prompt)
-painterly hand-painted matte textures, warm sand and off-white cotton palette, indigo and madder-red accents
+The approved baseline meshes and painted textures are retained; V2 does not claim newly scanned or photoreal assets. High tiers preserve roughness/normal/AO maps when present and use restrained physically based materials; low uses matte diffuse lighting. Most supplied meshes have base colour only, so shader changes cannot recover missing anatomy, cloth topology or fine skin detail. Further mesh authoring remains a separate asset-quality limitation, and paid asset generation has not been used.
+
+The previous asset prompts specified hand-painted stylization and simplified proportions. That historical recipe is superseded by the material/proportion targets above, while the existing licensed/generated files remain intact.
 
 ## Meshy animation library — chosen clip ids
 | use | id | name |

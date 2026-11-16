@@ -4,7 +4,7 @@
  *   crowd(modelId, [{ x, z, yaw, tint?, clip, t }]) → { setVisible(b), remove() }   (no skinned meshes: poses baked on the CPU)
  */
 import * as THREE from 'three';
-import { createHumanoid, humanoidMeasure } from './humanoid.js';
+import { createHumanoid, humanoidMeasure, foldGroundLegs } from './humanoid.js';
 import { yawOf, turnToward, damp, clamp, angleDelta, DEG } from '../core/math.js';
 
 const _o = { x: 0, z: 0 }, _v = new THREE.Vector3(), _n = new THREE.Vector3(), _n2 = new THREE.Vector3(), _tp = { x: 0, z: 0 };
@@ -18,7 +18,7 @@ export function createNpcs(G) {
     actor.place(o.x || 0, o.z || 0, o.yaw || 0);
     actor.play(o.clip || 'idle', { fade: 0 });
     let mode = 'idle', tx = 0, tz = 0, stopD = 0.4, spd = 1.6, followT = null, followDist = 1.6, followSpeed = 2.2, behind = 2.5;
-    let look = false, riding = null, speed = 0, job = null, best = 1e9, stuck = 0, speaking = false, jid = 0;
+    let look = false, riding = null, speed = 0, job = null, best = 1e9, stuck = 0, speaking = false, jid = 0, speechGestures = true;
     const finish = v => { if (job) { job.v = v; job = null; } };
 
     /** move along (dx,dz) at speed sp for dt: turn, avoid props / player circle, stay on the terrain */
@@ -61,7 +61,9 @@ export function createNpcs(G) {
       followTrail(player = G.actors.player, { behind: b = 2.5, speed: sp = 4 } = {}) { finish(false); followT = player; behind = b; followSpeed = sp; mode = 'trail'; },
       stop() { finish(false); mode = 'idle'; followT = null; },
       lookAtPlayer(on) { look = !!on; actor.lookAt(on ? G.actors.player.actor : null); },
-      speak(on) { speaking = !!on; actor.gesture(!!on); },
+      speak(on) { speaking = !!on; actor.gesture(!!on && speechGestures); },
+      /** A quiet dramatic line keeps the authored seated/idle pose instead of a looping talk overlay. */
+      setSpeechGesture(on) { speechGestures = !!on; actor.gesture(speaking && speechGestures); },
       /** sit on a camel's saddle (instant) */
       ride(camel, { x = 0, y = 0, z = 0 } = {}) {
         finish(false); mode = 'idle'; followT = null; riding = camel; speed = 0;
@@ -118,7 +120,7 @@ export function createNpcs(G) {
       const byName = {}; for (const c of anims) byName[c.name] = c;
       const lodGeo = G.assets.lodGeometry ? G.assets.lodGeometry(modelId) : null;
       const farGeo = G.assets.lodGeometry ? G.assets.lodGeometry(modelId, 2) : null;
-      const meshes = []; inst.traverse(o => { if (o.isSkinnedMesh) meshes.push(o); });
+      const meshes = [], crowdBones = {}; inst.traverse(o => { if (o.isSkinnedMesh) meshes.push(o); if (o.isBone) crowdBones[o.name] = o; });
       // near: full index for ≤ 6 extras, the seam-safe LOD1 for big crowds / low tier; far (beyond FAR_NEAR m, scaled per tier
       // by core/lod.js): the Permissive LOD2 — a crowd seen from a ridge costs a fraction, and nobody close sees its seams
       const useLod = opts.lod !== undefined ? opts.lod : (items.length > 6 || G.quality.tier === 'low');
@@ -127,6 +129,7 @@ export function createNpcs(G) {
         const clip = byName[it.clip] || byName.sit || byName.idle || anims[0];
         if (clip) { const a = mixer.clipAction(clip); a.play(); a.time = clamp(it.t || 0, 0, clip.duration); mixer.update(0); }
         holder.updateMatrixWorld(true);
+        if ((it.clip || 'sit') === 'sit' || !byName[it.clip]) foldGroundLegs(holder, crowdBones);
         const mesh = meshes[0]; if (!mesh) continue;
         const src = mesh.geometry, idx = (useLod && lodGeo && lodGeo.index) ? lodGeo.index : src.index, n = src.attributes.position.count;
         const pos = new Float32Array(n * 3), nor = new Float32Array(n * 3), pa = src.attributes.position, na = src.attributes.normal;
@@ -157,7 +160,12 @@ export function createNpcs(G) {
         }
         const m = new THREE.Mesh(g, mat); m.frustumCulled = true; m.matrixAutoUpdate = true;
         const k = it.clip === 'sit' || !byName[it.clip] ? 'sit' : it.clip;
-        const drop = M && M.ground[k] !== undefined ? M.ground[k] : 0;
+        // Exact posed garment clearance, including terrain under the full seated silhouette.
+        let drop = -Infinity; const sy = Math.sin(it.yaw || 0), cy = Math.cos(it.yaw || 0), base = G.world.terrain.heightAt(it.x, it.z);
+        for (let i = 0; i < n; i++) {
+          const x = pos[i * 3], y = pos[i * 3 + 1], z = pos[i * 3 + 2];
+          drop = Math.max(drop, G.world.terrain.heightAt(it.x + x * cy + z * sy, it.z - x * sy + z * cy) - base + 0.022 - y);
+        }
         m.rotation.y = it.yaw || 0; m.position.set(it.x, G.world.terrain.heightAt(it.x, it.z) + drop, it.z);
         group.add(m); own.push(g);
         if (gFar && G.lod) lods.push(G.lod.add({ at: m, near: FAR_NEAR, set(level) { m.geometry = level ? gFar : g; } }));

@@ -95,6 +95,23 @@ export function createQuadruped(G, modelId, opts = {}) {
   const saddle = new THREE.Group(); saddle.position.fromArray(S.saddle); saddle.scale.setScalar(1 / scale); rig.add(saddle);
   const head = new THREE.Group(); head.position.fromArray(S.head); rig.add(head);
   if (S.neckExt) { head.position.y += S.neckExt[1] * S.neckExt[3]; head.position.z += S.neckExt[2] * S.neckExt[3]; }
+  // A visible saddle grip and two rein runs give the rider's hands an actual contact surface.
+  const tack = [], reins = [];
+  if (modelId === 'camel') {
+    const leather = G.shade.patch(new THREE.MeshStandardMaterial({ color: 0x503320, roughness: 0.94 }));
+    const ropeMat = new THREE.LineBasicMaterial({ color: 0x4b3422 });
+    const seatGeo = new THREE.CylinderGeometry(0.24, 0.27, 0.035, 16), seat = new THREE.Mesh(seatGeo, leather);
+    seat.scale.z = 1.35; seat.position.y = 0.015; saddle.add(seat); tack.push(seatGeo, leather, ropeMat);
+    const curve = new THREE.CatmullRomCurve3([new THREE.Vector3(-0.26,0.04,0.34),new THREE.Vector3(-0.21,0.32,0.35),new THREE.Vector3(0,0.38,0.36),new THREE.Vector3(0.21,0.32,0.35),new THREE.Vector3(0.26,0.04,0.34)]);
+    const railGeo = new THREE.TubeGeometry(curve, 16, 0.018, 6, false), rail = new THREE.Mesh(railGeo, leather); saddle.add(rail); tack.push(railGeo);
+    const grips = {};
+    for (const [name, sign] of [['left',1],['right',-1]]) {
+      const grip = new THREE.Object3D(); grip.position.set(sign * 0.16, 0.31, 0.29); saddle.add(grip); grips[name] = grip;
+      const geo = new THREE.BufferGeometry().setAttribute('position', new THREE.BufferAttribute(new Float32Array(12 * 3), 3));
+      const line = new THREE.Line(geo, ropeMat); line.frustumCulled = false; rig.add(line); reins.push({ line, grip, sign }); tack.push(geo);
+    }
+    saddle.userData.handGrips = grips;
+  }
   G.scene.add(root);
   if (G.world.decals && G.world.decals.blob) blob = G.world.decals.blob(root, S.blob * scale);
 
@@ -161,8 +178,22 @@ export function createQuadruped(G, modelId, opts = {}) {
       if (lookTarget) { const q = pointOf(lookTarget); hy = clamp(angleDelta(yaw, yawOf(q.x - p.x, q.z - p.z)), -1.1, 1.1) * 0.85; }
       headYaw = damp(headYaw, hy, 4, dt);
       U.uQHead.value.set(headPitch + (S.headRest || 0) + Math.sin(phase * Math.PI * 4 + 0.7) * 0.07 * amt + Math.sin(t * 0.9) * 0.015, -headYaw);
+      // Keep the physical head socket and reins aligned with the same neck transform used by the mesh shader.
+      const ny = S.head[1] + (S.neckExt ? S.neckExt[1] * S.neckExt[3] : 0), nz = S.head[2] + (S.neckExt ? S.neckExt[2] * S.neckExt[3] : 0);
+      const hp = U.uQHead.value.x, hyaw = U.uQHead.value.y, dy = ny - S.neck[1], dz = nz - S.neck[2];
+      const hz = dy * Math.sin(hp) + dz * Math.cos(hp);
+      head.position.set(S.head[0] * Math.cos(hyaw) + hz * Math.sin(hyaw), S.neck[1] + dy * Math.cos(hp) - dz * Math.sin(hp), S.neck[2] - S.head[0] * Math.sin(hyaw) + hz * Math.cos(hyaw));
+      for (const { line, grip, sign } of reins) {
+        const p = line.geometry.attributes.position;
+        const x0 = saddle.position.x + grip.position.x / scale, y0 = saddle.position.y + grip.position.y / scale, z0 = saddle.position.z + grip.position.z / scale;
+        for (let j = 0; j < p.count; j++) {
+          const k = j / (p.count - 1);
+          p.setXYZ(j, lerp(x0, head.position.x + sign * 0.09, k), lerp(y0, head.position.y - 0.1, k) - Math.sin(k * Math.PI) * 0.16, lerp(z0, head.position.z + 0.1, k));
+        }
+        p.needsUpdate = true;
+      }
     },
-    dispose() { if (lodReg) lodReg.remove(); if (blob) blob.remove(); G.scene.remove(root); if (mat) mat.dispose(); },
+    dispose() { for (const t of tack) t.dispose(); if (lodReg) lodReg.remove(); if (blob) blob.remove(); G.scene.remove(root); if (mat) mat.dispose(); },
   };
   void scratch;
   body.place(0, 0, 0);

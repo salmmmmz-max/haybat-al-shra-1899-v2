@@ -1,0 +1,22 @@
+{
+  "method": "Production build served locally; headless Chromium SwiftShader smoke, not a physical phone or Safari.",
+  "buildstamp": "0.0.0-mwise7t9",
+  "bundle_bytes": 1147087,
+  "bundle_excludes_dev_globals": true,
+  "bundle_excludes_inline_source_map": true,
+  "smoke_exit_code": 0,
+  "info": {
+    "rot": false,
+    "canvas": [
+      886,
+      409
+    ],
+    "ui": 20
+  },
+  "bad": [],
+  "screenshots": [
+    "phone_title.jpg",
+    "phone_play1.jpg",
+    "phone_play2.jpg"
+  ]
+}

@@ -23,7 +23,7 @@ export function createDialogue(G, root, ctx) {
   const dialogue = {
     get typing() { return shown < full.length; },
     show({ who, name: nm, text: tx }) {
-      full = tx || ''; shown = 0; name.textContent = nm || ''; el.style.setProperty('--plate', SPEAKER[who] || '#5b3a22');
+      full = tx || ''; shown = 0; tA._n = -1; el.classList.toggle('short', full.length <= 85); name.textContent = nm || ''; el.style.setProperty('--plate', SPEAKER[who] || '#5b3a22');
       tA.textContent = ''; tB.textContent = full; done(false);
       if (G.state.fastText) dialogue.finishTyping();
       vis = true; hideT = 0; el.classList.remove('hidden'); tap.classList.toggle('hidden', boxOn); void el.offsetWidth; on(true);

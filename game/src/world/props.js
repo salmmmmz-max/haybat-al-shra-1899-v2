@@ -88,13 +88,13 @@ void main(){ float h = vUv.y; float x = (vUv.x-0.5)*2.0;
   float w = mix(0.8, 0.0, pow(h, 0.75)) * (1.0 + 0.18*fl);
   float d = abs(x + 0.16*fl*h) / max(w, 0.001);
   float a = smoothstep(1.0, 0.3, d) * smoothstep(0.0, 0.1, h) * (1.0 - smoothstep(0.78, 1.0, h));
-  vec3 col = mix(vec3(1.0,0.95,0.55), vec3(1.0,0.5,0.12), smoothstep(0.0,0.45,h)); col = mix(col, vec3(0.85,0.2,0.06), smoothstep(0.4,1.0,h));
-  gl_FragColor = vec4(col, a*uLit); }`;
+  vec3 col = mix(vec3(1.0,0.72,0.3), vec3(0.9,0.33,0.065), smoothstep(0.0,0.45,h)); col = mix(col, vec3(0.85,0.2,0.06), smoothstep(0.4,1.0,h));
+  gl_FragColor = vec4(col, a*uLit*0.78); }`;
 const GROUND_VS = `varying vec2 vUv; void main(){ vUv = uv; gl_Position = projectionMatrix * modelViewMatrix * vec4(position,1.0); }`;
 const GROUND_FS = `
 uniform float uT, uLit, uSeed; varying vec2 vUv;
-void main(){ float r = length(vUv*2.0-1.0); float a = pow(max(1.0-r,0.0),2.0) * 0.55 * uLit * (0.88+0.12*sin(uT*11.0+uSeed));
-  gl_FragColor = vec4(1.0,0.55,0.18, a); }`;
+void main(){ float r = length(vUv*2.0-1.0); float a = pow(max(1.0-r,0.0),3.0) * 0.11 * uLit * (0.95+0.05*sin(uT*7.0+uSeed));
+  gl_FragColor = vec4(0.65,0.32,0.1, a); }`;
 const EMBER_VS = `
 attribute vec4 aS; uniform float uT, uPx, uLit; varying float vA;
 void main(){ float age = fract(uT*aS.y*0.32 + aS.x); float ang = aS.z;
@@ -134,6 +134,20 @@ export function createProps(G) {
   const matStand = G.shade.patch(new THREE.MeshLambertMaterial({ color: 0x8a6a4a }));
   const standGeo = new THREE.BoxGeometry(1, 1, 1).translate(0, 0.5, 0);
 
+  // A charred fuel bed replaces the supplied fire mesh's baked bright flame shapes.
+  // The original GLB remains in the asset archive; visible flame is animated only.
+  const fuelParts=[];
+  for(let i=0;i<5;i++){
+    const a=i*1.18;
+    fuelParts.push(part(cyl(0.065,0.075,0.85,9),0x30231a,Math.cos(a)*0.11,0.11+(i%2)*0.05,Math.sin(a)*0.11,1,1,1,Math.PI/2-0.08,a,0,[0.65,1.0],0.015));
+  }
+  for(let i=0;i<10;i++){
+    const a=i*0.6283,r=0.58+(i%3)*0.035;
+    fuelParts.push(part(ico(1),0x726656,Math.cos(a)*r,0.08,Math.sin(a)*r,0.24+(i%2)*0.04,0.16,0.22,0,a,0,[0.72,1.03],0.07));
+  }
+  for(let i=0;i<8;i++)fuelParts.push(part(ico(0),i%3?0x402a20:0x6a2814,Math.sin(i*2.1)*0.32,0.07,Math.cos(i*1.8)*0.3,0.12,0.07,0.09));
+  const fuelGeo=merged(fuelParts);
+
   // ---------- camera blockers (F05) ----------
   /**
    * A large prop gets (1) an oriented box in `camBlockers` {x,z,c,s,hx,hz,y0,y1,want,fade} — c/s = cos/sin of its yaw, hx/hz = half sizes along its
@@ -141,14 +155,14 @@ export function createProps(G) {
    * the cloth is still between lens and hero. Its collision circles follow the box (a chain along a long tent) and are flagged `nc`
    * (the camera's circle samples skip them). The hero can no longer stand inside the ends of a tent.
    */
-  function addBlocker(o, x, z, yaw, r) {
+  function addBlocker(o, x, z, yaw, r, modelId) {
     const ry = o.rotation.y; o.rotation.y = 0; o.updateMatrixWorld(true); _box.setFromObject(o); o.rotation.y = ry; o.updateMatrixWorld(true);
     const c = Math.cos(yaw), s = Math.sin(yaw), cu = (_box.min.x + _box.max.x) / 2 - o.position.x, cv = (_box.min.z + _box.max.z) / 2 - o.position.z;
     const b = {
       x: x + cu * c + cv * s, z: z - cu * s + cv * c, c, s, hx: (_box.max.x - _box.min.x) / 2, hz: (_box.max.z - _box.min.z) / 2,
-      y0: _box.min.y, y1: _box.max.y, want: 0, fade: 0, op: 1, mats: [],
+      modelId, kind: modelId, y0: _box.min.y, y1: _box.max.y, want: 0, fade: 0, op: 1, mats: [],
     };
-    const mk = m => { const k = m.clone(); k.userData.hsShade = false; G.shade.patch(k); k.transparent = true; b.mats.push(k); return k; };
+    const mk = m => { const k = m.clone(); k.userData.hsShade = false; G.shade.patch(k); k.transparent = false; k.opacity = 1; k.depthWrite = true; b.mats.push(k); return k; };
     o.traverse(n => { if (n.isMesh) n.material = Array.isArray(n.material) ? n.material.map(mk) : mk(n.material); });
     camBlockers.push(b);
     const long = b.hx > b.hz ? 'x' : 'z', hl = Math.max(b.hx, b.hz), hw = Math.min(b.hx, b.hz);
@@ -160,7 +174,7 @@ export function createProps(G) {
 
   // ---------- GLB props ----------
   function spawn(modelId, { x = 0, z = 0, yaw = 0, scale = 1, y, solid = true } = {}) {
-    let o = G.assets.instance(modelId), r = 1, size = SIZES[modelId] || [1, 1, 1];
+    let o = modelId==='campfire' ? new THREE.Mesh(fuelGeo,matLit) : G.assets.instance(modelId), r = 1, size = SIZES[modelId] || [1, 1, 1];
     const meta = G.assets.meta(modelId);
     if (meta && meta.size) size = meta.size;
     if (!o) {
@@ -176,14 +190,35 @@ export function createProps(G) {
       h = Math.min(h, hAt(x + k, z) + 0.2, hAt(x - k, z) + 0.2, hAt(x, z + k) + 0.2, hAt(x, z - k) + 0.2);
     }
     o.position.set(x, y !== undefined ? y : h - 0.03, z); o.rotation.y = yaw; o.scale.setScalar(scale);
+    o.userData.modelId=modelId;
     lvl.add(o);
-    if (solid && CAM_BLOCK.has(modelId)) addBlocker(o, x, z, yaw, r);
+    const wear=G.world.terrain.addWear;
+    if(wear){
+      if(modelId==='well') {wear(x,z,5.8*scale,0.95);wear(x+Math.sin(yaw)*2,z+Math.cos(yaw)*2,1.65*scale,0.72,1);}
+      else if(modelId==='camelsit') wear(x,z,1.9*scale,0.8);
+      else if(modelId==='waterskins') wear(x,z,1.1*scale,0.5,1);
+      else if(modelId==='tent') wear(x+Math.sin(yaw)*2,z+Math.cos(yaw)*2,2.4*scale,0.55);
+    }
+    if(['well','camelsit','tent'].includes(modelId)&&G.world.decals){
+      const rnd=rng32(Math.round(x*131+z*71)+1899);
+      const camel=modelId==='camelsit';
+      for(let i=0;i<(camel?6:modelId==='well'?28:14);i++){
+        const a=modelId==='well'?i*2.39996+(rnd()-0.5)*0.3:yaw+(rnd()-0.5)*2.3,rad=(camel?1.1:1.8)+rnd()*(modelId==='well'?2.1:1.6);
+        G.world.decals.print(x+Math.sin(a)*rad,z+Math.cos(a)*rad,a+(rnd()-0.5)*0.8,camel?'camel':'hero',{fresh:0.3,vis:modelId==='well'?0.85:0.55});
+      }
+    }
+    if (solid && CAM_BLOCK.has(modelId)) addBlocker(o, x, z, yaw, r, modelId);
     else if (solid) colliders.push({ x, z, r });
     const lod = G.assets.lodGeometry(modelId);
     if (lod) {
       const meshes = [];
       o.traverse(n => { if (n.isMesh && n.geometry.attributes.position === lod.attributes.position) meshes.push([n, n.geometry]); });
-      if (meshes.length) lodHandles.push(G.lod.add({ at: o, near: 22, set(l) { for (const [n, g] of meshes) n.geometry = l ? lod : g; } }));
+      if (meshes.length) {
+        const h = G.lod.add({ at: o, near: 22, set(l) { for (const [n, g] of meshes) n.geometry = l ? lod : g; } });
+        lodHandles.push(h);
+        // Scoped interactions may replace geometry; do not swap the authored mesh back underneath them.
+        o.userData.pinLod = pinned => h.pin(pinned);
+      }
     }
     return o;
   }
@@ -417,7 +452,7 @@ export function createProps(G) {
   }
   const sm = (o) => new THREE.ShaderMaterial({ transparent: true, depthWrite: false, blending: THREE.AdditiveBlending, ...o });
   const baseMat = {
-    flame: sm({ vertexShader: FLAME_VS, fragmentShader: FLAME_FS, side: THREE.DoubleSide, uniforms: { uT: T, uSeed: { value: 0 }, uLit: { value: 0 } } }),
+    flame: sm({ blending: THREE.NormalBlending, vertexShader: FLAME_VS, fragmentShader: FLAME_FS, side: THREE.DoubleSide, uniforms: { uT: T, uSeed: { value: 0 }, uLit: { value: 0 } } }),
     ground: sm({ vertexShader: GROUND_VS, fragmentShader: GROUND_FS, polygonOffset: true, polygonOffsetFactor: -2, polygonOffsetUnits: -2, uniforms: { uT: T, uSeed: { value: 0 }, uLit: { value: 0 } } }),
     ember: sm({ vertexShader: EMBER_VS, fragmentShader: EMBER_FS, uniforms: { uT: T, uPx: PX, uLit: { value: 0 } } }),
     smoke: sm({ vertexShader: SMOKE_VS, fragmentShader: SMOKE_FS, blending: THREE.NormalBlending, uniforms: { uT: T, uPx: PX, uLit: { value: 0 }, uWind: WIND, uNight: { value: 0 } } }),
@@ -434,11 +469,11 @@ export function createProps(G) {
     for (const k of ['ember', 'smoke', 'beacon', 'flame', 'ground']) { mats[k].uniforms.uT = T; }
     mats.ember.uniforms.uPx = mats.smoke.uniforms.uPx = PX; mats.smoke.uniforms.uWind = WIND; mats.smoke.uniforms.uNight = NIGHT();
     const g = em.group; g.visible = false;
-    em.flame = new THREE.Mesh(flameGeo, mats.flame); em.flame.scale.setScalar(size); em.flame.renderOrder = 50; g.add(em.flame);
+    em.flame = new THREE.Mesh(flameGeo, mats.flame); em.flame.scale.set(size*0.85,size*0.78,size*0.85); em.flame.renderOrder = 50; g.add(em.flame);
     em.embers = new THREE.Points(pts(torch ? 6 : embers, false), mats.ember); em.embers.scale.setScalar(size); em.embers.renderOrder = 50; em.embers.frustumCulled = false; g.add(em.embers);
     if (!torch) {
       em.smoke = new THREE.Points(pts(smokeN(), true), mats.smoke); em.smoke.scale.setScalar(size); em.smoke.renderOrder = 50; em.smoke.frustumCulled = false; g.add(em.smoke);
-      em.ground = new THREE.Mesh(groundGeo, mats.ground); em.ground.scale.setScalar(6 * size); em.ground.position.y = 0.12; em.ground.renderOrder = 40; g.add(em.ground);
+      em.ground = new THREE.Mesh(groundGeo, mats.ground); em.ground.scale.setScalar(4.5 * size); em.ground.position.y = 0.12; em.ground.renderOrder = 40; g.add(em.ground);
       em.beacon = new THREE.Mesh(quad, mats.beacon); em.beacon.position.y = 2 * size; em.beacon.renderOrder = 60; em.beacon.frustumCulled = false; em.beacon.visible = false; g.add(em.beacon);
     }
     emitters.push(em);
@@ -453,6 +488,15 @@ export function createProps(G) {
   function fire(x, z, { size = 1, lit = true, logs = false } = {}) {
     const em = makeEmitter(size, false, emberN());
     em.x = x; em.y = hAt(x, z); em.z = z;
+    G.world.terrain.addWear?.(x,z,3.8*size,0.85);
+    G.world.terrain.addWear?.(x,z,1.05*size,0.9,2);
+    if(G.world.decals){
+      const rnd=rng32(Math.round(x*83+z*47)+1921);
+      for(let i=0;i<12;i++){
+        const a=rnd()*Math.PI*2,rad=(1.5+rnd()*1.4)*size;
+        G.world.decals.print(x+Math.sin(a)*rad,z+Math.cos(a)*rad,a+Math.PI,'hero',{fresh:0.2,vis:0.5});
+      }
+    }
     em.group.position.set(x, em.y, z); lvl.add(em.group);
     if (logs) {
       const ps = []; for (let i = 0; i < 3; i++) ps.push(part(cyl(0.06, 0.07, 0.8, 5), 0x2e2019, 0, 0.08, 0, size, size, size, Math.PI / 2 - 0.15, i * 1.05, 0, [0.7, 1]));
@@ -477,10 +521,10 @@ export function createProps(G) {
 
   // two pooled lights (never added/removed)
   const lights = [0, 1].map(() => {
-    const L = new THREE.PointLight(0xff9a3c, 0, 14, 2); L.position.set(0, -100, 0); G.scene.add(L);
+    const L = new THREE.PointLight(0xffbb78, 0, 14, 2); L.position.set(0, -100, 0); G.scene.add(L);
     return { L, em: null, k: 0, want: null };
   });
-  const LI = 14;
+  const LI = 12;
   function updateLights(dt, now) {
     const c = G.camera.position; let a = null, b = null, da = 1e12, db = 1e12;
     for (let i = 0; i < emitters.length; i++) {
@@ -498,8 +542,8 @@ export function createProps(G) {
       if (l.em && l.em === l.want) l.k = Math.min(1, l.k + dt / 0.3);
       const e = l.em;
       if (e && l.k > 0) {
-        const fl = 0.9 + 0.1 * Math.sin(now * 13.7 + e.seed) + 0.05 * Math.sin(now * 31 + e.seed * 2.1);
-        l.L.position.set(e.x, e.y + 0.6 * Math.max(0.5, e.size), e.z);
+        const fl = 0.95 + 0.035 * Math.sin(now * 7.7 + e.seed) + 0.02 * Math.sin(now * 17 + e.seed * 2.1);
+        l.L.position.set(e.x, e.y + 0.95 * Math.max(0.5, e.size), e.z);
         l.L.intensity = LI * e.size * l.k * e.fade * fl;
       } else l.L.intensity = 0;
     }
@@ -600,10 +644,12 @@ export function createProps(G) {
     const w = G.world.weather && G.world.weather.wind; if (w) WIND.value.set(w.x, w.z, w.strength);
     G.renderer.getDrawingBufferSize(_bs); PX.value = _bs.y * 0.96;
     for (let i = 0; i < camBlockers.length; i++) {          // cloth between lens and hero eases to 15 % (fast in, slower out)
-      const b = camBlockers[i]; if (b.fade === b.want) continue;
+      const b = camBlockers[i];
+      if(b.modelId==='well') b.want=0;
+      if (b.fade === b.want) continue;
       b.fade = b.want > b.fade ? Math.min(b.want, b.fade + dt / 0.1) : Math.max(b.want, b.fade - dt / 0.4);
       const op = 1 - 0.85 * smoothstep(0, 1, b.fade);
-      if (Math.abs(op - b.op) > 0.002 || b.fade === 0) { b.op = op; for (const m of b.mats) { m.opacity = op; m.depthWrite = op > 0.98; } }
+      if (Math.abs(op - b.op) > 0.002 || b.fade === 0) { b.op = op; for (const m of b.mats) { m.opacity = op; m.depthWrite = op > 0.98; const transparent=op<0.998; if(m.transparent!==transparent){m.transparent=transparent;m.needsUpdate=true;} } }
     }
     const c = G.camera.position;
     for (let i = 0; i < emitters.length; i++) {

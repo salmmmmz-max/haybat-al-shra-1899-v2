@@ -19,7 +19,7 @@ export function stepDwell(t, on, dt, seconds) {
 }
 
 export function createStars(G) {
-  const act = { star: null, progress: 0 };
+  const act = { star: null, progress: 0, hint: '' };
   let open = false;
   const S = {
     get active() { return open ? act : null; },
@@ -34,17 +34,23 @@ export function createStars(G) {
       const dirFn = () => stars.dir(id, _d);
       let p = 0, total = 0, finished = false;
       const cleanup = () => {
-        if (finished) return; finished = true; open = false; act.progress = 0;
-        try { stars.highlight(null, 0); } catch (e) { /* noop */ }
+        if (finished) return; finished = true; open = false; act.progress = 0; act.hint = '';
+        try { stars.teach?.(null); stars.highlight(null, 0); } catch (e) { /* noop */ }
         if (cam.magnet) cam.magnet(null, 0);
         cam.skyMode(false);
       };
-      open = true; act.star = id; act.progress = 0;
+      open = true; act.star = id; act.progress = 0; act.hint = ''; stars.teach?.(id);
       cam.skyMode(true);
       if (cam.magnet) cam.magnet(dirFn, cone);
       G.scope.onEnd(cleanup);
       const task = G.scope.task(dt => {
         total += dt;
+        // First let the player read the sky. Later teach the shape, without
+        // drawing the answer-to-Polaris line or moving any catalogue star.
+        stars.teach?.(id, Math.max(0, Math.min(0.8, (total - 24) / 18)));
+        act.hint = total < 12 ? '' : id === 'megrez' ? 'أربع نجوم للمغرفة، وثلاث تمتد منها.'
+          : id === 'polaris' ? 'مدّ النظر من نجمتَي طرف المغرفة نحو الشمال.'
+          : id === 'canopus' ? 'سهيل منخفض عند الأفق الجنوبي.' : '';
         G.camera.getWorldDirection(_f);
         stars.dir(id, _d);
         const err = _f.angleTo(_d);
@@ -65,8 +71,8 @@ export function createStars(G) {
       task.catch(cleanup);
       return task;
     },
-    onBeatEnd() { open = false; act.progress = 0; },
-    onLevelUnload() { open = false; },
+    onBeatEnd() { open = false; act.progress = 0; act.hint = ''; G.world.sky.stars.teach?.(null); },
+    onLevelUnload() { open = false; act.hint = ''; G.world.sky.stars.teach?.(null); },
     update() {},
   };
   return S;

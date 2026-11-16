@@ -239,19 +239,40 @@ export default {
         // frame's edge and nobody between the lens and him; then a slow push onto his face while he speaks. The look point sits
         // below the heads so the faces ride above the dialogue panel.
         await d.cine([{ pos: p3(G, F.x + 1.5, 1.55, F.z - 5.0), look: p3(G, mid.x, 0.55, mid.z), dur: 2.6, cut: true }]);
-        d.spawn(async () => {
-          await cam.cine([{ pos: p3(G, F.x + 0.1, 1.25, F.z - 2.9), look: p3(G, g.seatM.x - 0.1, 0.72, g.seatM.z), dur: 22 }]);
-          await cam.cine([{ pos: p3(G, F.x - 0.9, 1.15, F.z - 2.0), look: p3(G, g.seatM.x - 0.1, 0.68, g.seatM.z), dur: 50 }]);   // the reveal: barely moving
-        });
+        // Shots follow the confession's speaker, not a timer that may finish before the reader.
+        const face = (actor, side = 1) => {
+          actor.root.updateMatrixWorld(true);
+          const head = actor.socket('head').getWorldPosition(new THREE.Vector3());
+          const yaw = actor.yaw, f = new THREE.Vector3(Math.sin(yaw), 0, Math.cos(yaw));
+          const right = new THREE.Vector3(Math.cos(yaw), 0, -Math.sin(yaw));
+          const pos = head.clone().addScaledVector(f, 1.85).addScaledVector(right, side * 0.65);
+          pos.y += 0.02;
+          cam.cut(pos.toArray(), head.clone().add(new THREE.Vector3(0, -0.1, 0)).toArray());
+        };
+        if (mani) mani.setSpeechGesture(false);
+        d.onEnd(() => { if (mani) { mani.setSpeechGesture(true); mani.actor.lookAt(null); } pl.actor.lookAt(null); cam.release({ duration: 0.6 }); });
         await d.talk('c3_fire.ask');
 
-        // THE REVEAL: the drone enters, he looks at the sky and does not blink
+        // His stillness carries the admission. A skyward procedural neck twist hides the face
+        // in this seated rig, so keep its authored neutral head pose throughout the close shot.
         music(G, 'music_night', 4);
-        if (mani) { mani.lookAtPlayer(false); mani.actor.lookAt({ x: g.seatM.x - 8, y: gy(G, g.seatM.x, g.seatM.z) + 30, z: g.seatM.z - 12 }); }
+        if (mani) { mani.lookAtPlayer(false); mani.actor.lookAt(null); }
+        pl.actor.lookAt(null);
+        let lastSpeaker = null;
+        const offShot = G.events.on('dialogue:line', ({ who }) => {
+          if (who === lastSpeaker) return;
+          if (who === 'mani' && mani) { face(mani.actor, 0); lastSpeaker = who; }
+          else if (who === 'dhari') { face(pl.actor, 1); lastSpeaker = who; }
+        });
+        d.onEnd(offShot);
+        if (mani) face(mani.actor, 0);
         await d.talk('c3_fire.reveal');
+        face(pl.actor, 1); await pause(G, d, 1.15); lastSpeaker = null;
         await d.talk('c3_fire.why');
         if (mani && mani.actor.lookAt) mani.actor.lookAt(null);
+        await pause(G, d, 0.7); lastSpeaker = null;
         await d.talk('c3_fire.eyes');
+        offShot(); if (mani) mani.setSpeechGesture(true); pl.actor.lookAt(null);
 
         // he asks for the stars: up, and the horizon strip appears
         G.ui.cards.letterbox(false);
@@ -327,9 +348,19 @@ export default {
         // the howl, the pack gathers at the rim (eye pairs), the Sheikh says what to do
         S.phase = 'howl';
         G.audio.sfx('sfx_howl', { at: { x: F.x, z: F.z - 40 } });
-        W.spawnPack(packOpts(g));
-        await pause(G, d, 1.0);
+        W.spawnPack({ ...packOpts(g), staged: true });
+        const probing = d.spawn(() => W.introduce());
+        // People respond to the sound before they explain it; the child stays behind the defender.
+        const watch = A.npcs.get('misfer'), child = A.npcs.get('fuhaid'), elder = A.npcs.get('mani');
+        if (watch) { watch.lookAtPlayer(false); watch.actor.lookAt({ x: F.x - 3, y: gy(G, F.x, F.z) + 1, z: F.z - 15 }); bg(watch.goTo(F.x + 2.4, F.z - 2.8, { speed: 1.6, stop: 0.2 })); }
+        if (child) { child.actor.lookAt({ x: F.x - 2, y: gy(G, F.x, F.z) + 1, z: F.z - 12 }); bg(child.goTo(F.x - 1.7, F.z - 0.8, { speed: 1.9, stop: 0.2 })); }
+        if (elder) { elder.setSpeechGesture(false); elder.actor.faceTo(F.x - 2, F.z - 12, 2); d.onEnd(() => elder.setSpeechGesture(true)); }
+        const alertCamel = A.camels.get('camelA');
+        if (alertCamel) { bg(alertCamel.pose('rise', { duration: 1.6 })); if (alertCamel.lookAt) alertCamel.lookAt({ x: F.x, y: gy(G, F.x, F.z) + 1, z: F.z - 15 }); }
+        G.audio.sfx('sfx_calf', { at: g.calf, volume: 0.55 });
+        await pause(G, d, 2.6);
         await d.talk('c3_wolves.howl');
+        await probing.done;
 
         // 1. take a brand from the fire
         S.phase = 'brand';

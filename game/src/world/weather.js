@@ -1,5 +1,5 @@
 /**
- * weather.js — wind, dust streamers, storm (grains + one full-screen sheet), rain (streaks + splashes), scripted gusts.
+ * weather.js — wind, terrain streamers, storm (world-space dust volumes + grains), rain (streaks + splashes), scripted gusts.
  * Everything is camera-relative, preallocated at construction (counts/alpha 0 when unused) and tier-scaled.
  */
 import * as THREE from 'three';
@@ -60,27 +60,68 @@ const RIB_FS = SHADE_PARS_FRAGMENT + `
     ${SHADE_FRAGMENT}
   }`;
 
-const SHEET_VS = `
-  varying vec2 vP;
-  void main() { vP = position.xy; gl_Position = vec4(position.xy, 0.0, 1.0); }`;
-const SHEET_FS = SHADE_PARS_FRAGMENT + `
-  uniform vec3 fogColor;
-  uniform vec2 uDir; uniform float uPhase, uStorm, uWarn, uAspect;
-  varying vec2 vP;
-  float h21(vec2 p) { vec3 q = fract(vec3(p.xyx) * 0.1031); q += dot(q, q.yzx + 33.33); return fract((q.x + q.y) * q.z); }
-  float vn(vec2 p) { vec2 i = floor(p), f = fract(p); f = f * f * (3.0 - 2.0 * f);
-    return mix(mix(h21(i), h21(i + vec2(1, 0)), f.x), mix(h21(i + vec2(0, 1)), h21(i + vec2(1, 1)), f.x), f.y); }
+// Billboards occupy actual world positions. Their depth, occlusion and parallax remain
+// coherent while the player turns; no full-screen sheet or screen-space wind stripes.
+const DUST_VS = `
+  attribute vec4 aSeed; uniform float uPhase, uAmt, uWarn;
+  uniform vec3 uDir; varying vec2 vUv; varying float vAl, vSeed;
+  #include <fog_pars_vertex>
   void main() {
-    vec2 q = vec2(vP.x * uAspect, vP.y);
-    float al = dot(q, uDir), ac = dot(q, vec2(-uDir.y, uDir.x));
-    float n1 = vn(vec2(al * 0.7 - uPhase * 2.4, ac * 16.0));
-    float n2 = vn(vec2(al * 0.28 - uPhase, ac * 5.0));
-    float streak = smoothstep(0.35, 0.95, n1) * (0.4 + 0.6 * n2);
-    float wv = smoothstep(-0.2, 1.2, dot(vP, -uDir * vec2(1.0 / uAspect, 1.0)));
-    float a = uStorm * (0.1 + 0.34 * streak) + uWarn * wv * (0.15 + 0.25 * streak) + uStorm * 0.18 * n2 * (0.4 + 0.6 * wv);
-    if (a < 0.003) discard;
-    gl_FragColor = vec4(fogColor * (0.82 + 0.3 * streak), min(a, 0.7));
+    vUv = uv; vSeed = aSeed.w;
+    float speed = 0.35 + fract(aSeed.w * 9.7) * 0.9;
+    vec3 p = aSeed.xyz * vec3(72.0, 23.0, 72.0) + uDir * uPhase * speed;
+    p.x += sin(uPhase * 0.11 + aSeed.w * 43.0) * 2.2;
+    p.z += cos(uPhase * 0.08 + aSeed.w * 21.0) * 2.7;
+    vec3 r = mod(p - cameraPosition + vec3(36.0, 11.5, 36.0), vec3(72.0, 23.0, 72.0)) - vec3(36.0, 11.5, 36.0);
+    float distanceFade = smoothstep(3.5, 8.0, length(r)) * (1.0 - smoothstep(25.0, 35.0, length(r)));
+    float altitudeFade = 1.0 - smoothstep(6.0, 10.5, abs(r.y));
+    float warning = uWarn * smoothstep(-4.0, 20.0, -dot(r, uDir));
+    vAl = distanceFade * altitudeFade * (uAmt + warning * 0.7);
+    vec4 mvPosition = viewMatrix * vec4(cameraPosition + r, 1.0);
+    float size = 3.2 + fract(aSeed.w * 17.3) * 5.3;
+    mvPosition.xy += position.xy * vec2(size * 1.7, size);
+    gl_Position = projectionMatrix * mvPosition;
+    #include <fog_vertex>
+  }`;
+const DUST_FS = SHADE_PARS_FRAGMENT + `
+  uniform vec3 uColor; uniform float uPhase; varying vec2 vUv; varying float vAl, vSeed;
+  #include <fog_pars_fragment>
+  float dh(vec2 p) { return fract(sin(dot(p,vec2(127.1,311.7))) * 43758.5453); }
+  float dn(vec2 p) { vec2 i=floor(p),f=fract(p); f=f*f*(3.0-2.0*f); return mix(mix(dh(i),dh(i+vec2(1,0)),f.x),mix(dh(i+vec2(0,1)),dh(i+vec2(1,1)),f.x),f.y); }
+  void main() {
+    vec2 q=vUv*2.0-1.0;
+    float edge=1.0-smoothstep(0.3,1.0,length(q));
+    vec2 uvn=vUv*3.8+vec2(vSeed*37.0,uPhase*0.035);
+    float n=dn(uvn)*0.65+dn(uvn*2.3-vec2(uPhase*0.021,0.0))*0.35;
+    float a=edge*smoothstep(0.18,0.78,n)*vAl*0.38;
+    if(a<0.002)discard;
+    gl_FragColor=vec4(uColor*(0.86+n*0.17),min(a,0.30));
     #include <colorspace_fragment>
+    #include <fog_fragment>
+    ${SHADE_FRAGMENT}
+  }`;
+const GRAIN_VS = `
+  attribute vec4 aSeed; uniform float uPhase, uAmt, uPx; uniform vec3 uDir;
+  varying float vAl;
+  #include <fog_pars_vertex>
+  void main(){
+    float speed=0.6+fract(aSeed.w*23.7)*0.8;
+    vec3 p=aSeed.xyz*vec3(30.0,12.0,30.0)+uDir*uPhase*speed;
+    p.y+=sin(uPhase*0.23+aSeed.w*31.0)*0.55;
+    vec3 r=mod(p-cameraPosition+vec3(15.0,6.0,15.0),vec3(30.0,12.0,30.0))-vec3(15.0,6.0,15.0);
+    vAl=uAmt*smoothstep(0.8,2.2,length(r))*(1.0-smoothstep(10.0,15.0,length(r)));
+    vec4 mvPosition=viewMatrix*vec4(cameraPosition+r,1.0);
+    gl_Position=projectionMatrix*mvPosition;
+    gl_PointSize=clamp((0.012+aSeed.w*0.012)*uPx/max(0.5,-mvPosition.z),1.0,2.6);
+    #include <fog_vertex>
+  }`;
+const GRAIN_FS = SHADE_PARS_FRAGMENT + `
+  varying float vAl; uniform vec3 uColor;
+  #include <fog_pars_fragment>
+  void main(){ float a=(1.0-smoothstep(0.0,0.5,length(gl_PointCoord-0.5)))*vAl*0.34; if(a<0.003)discard;
+    gl_FragColor=vec4(uColor,a);
+    #include <colorspace_fragment>
+    #include <fog_fragment>
     ${SHADE_FRAGMENT}
   }`;
 
@@ -141,7 +182,14 @@ export function createWeather(G) {
     G.scene.add(mesh);
     return { mesh, m, g };
   }
-  const grains = streaks(GRAINS.high, 36, 0xd8b074, 0.55, 1.4, 0.5);
+  const grainGeo = new THREE.BufferGeometry();
+  const grainSeeds = new Float32Array(GRAINS.high * 4);
+  for (let i=0;i<grainSeeds.length;i++) grainSeeds[i]=G.vrng.next();
+  grainGeo.setAttribute('position',new THREE.BufferAttribute(new Float32Array(GRAINS.high*3),3));
+  grainGeo.setAttribute('aSeed',new THREE.BufferAttribute(grainSeeds,4));
+  const grainMat=fogMat({uPhase:{value:0},uAmt:{value:0},uPx:{value:800},uDir:{value:new THREE.Vector3(1,0,0)},uColor:{value:new THREE.Color(0xc9ae83)},uFirasa:sh},GRAIN_VS,GRAIN_FS);
+  const grainMesh=new THREE.Points(grainGeo,grainMat); grainMesh.frustumCulled=false; grainMesh.visible=false; grainMesh.renderOrder=50; G.scene.add(grainMesh);
+  const grains={mesh:grainMesh,m:grainMat,g:grainGeo};
   const rainS = streaks(RAIN.high, 30, 0xc4ccd4, 0.38, 0.75, 0.55);
 
   // ---- ground streamers: dynamic ribbons following the dune surface ----
@@ -159,19 +207,21 @@ export function createWeather(G) {
   G.scene.add(ribbons);
   const rb = { x: new Float32Array(MR), z: new Float32Array(MR), ph: new Float32Array(MR), v: new Float32Array(MR), h: new Float32Array(MR) };
   for (let r = 0; r < MR; r++) {
-    for (let j = 0; j < K; j++) { const a = Math.sin(Math.PI * j / (K - 1)); rA[(r * K + j) * 2] = a * 0.38; rA[(r * K + j) * 2 + 1] = 0; }
-    rb.v[r] = 0.7 + G.vrng.next() * 0.6; rb.ph[r] = G.vrng.next() * 6.28; rb.h[r] = 0.12 + G.vrng.next() * 0.14;
+    for (let j = 0; j < K; j++) { const a = Math.sin(Math.PI * j / (K - 1)); rA[(r * K + j) * 2] = a * 0.14; rA[(r * K + j) * 2 + 1] = 0; }
+    rb.v[r] = 0.45 + G.vrng.next() * 1.1; rb.ph[r] = G.vrng.next() * 6.28; rb.h[r] = 0.12 + G.vrng.next() * 0.14;
     rb.x[r] = rb.z[r] = 1e5;   // respawn on first update
   }
 
-  // ---- full-screen storm sheet (one layer) ----
-  const sg = new THREE.BufferGeometry();
-  sg.setAttribute('position', new THREE.BufferAttribute(new Float32Array([-1, -1, 0, 3, -1, 0, -1, 3, 0]), 3));
-  const sheetMat = fogMat({ uDir: { value: new THREE.Vector2(1, 0) }, uPhase: { value: 0 }, uStorm: { value: 0 }, uWarn: { value: 0 }, uAspect: { value: 1.6 }, uFirasa: sh },
-    SHEET_VS, SHEET_FS, { depthTest: false });
-  const sheet = new THREE.Mesh(sg, sheetMat);
-  sheet.frustumCulled = false; sheet.renderOrder = 51; sheet.visible = false;
-  G.scene.add(sheet);
+  // ---- depth-separated dust banks (one instanced draw, bounded mobile overdraw) ----
+  const dustCounts={low:18,medium:30,high:44};
+  const dg=new THREE.PlaneGeometry(1,1);
+  const ds=new Float32Array(dustCounts.high*4);
+  for(let i=0;i<ds.length;i++) ds[i]=G.vrng.next();
+  dg.setAttribute('aSeed',new THREE.InstancedBufferAttribute(ds,4));
+  const dustMat=fogMat({uPhase:{value:0},uAmt:{value:0},uWarn:{value:0},uDir:{value:new THREE.Vector3(1,0,0)},uColor:{value:new THREE.Color(0xbba582)},uFirasa:sh},DUST_VS,DUST_FS);
+  const dustBanks=new THREE.InstancedMesh(dg,dustMat,dustCounts.high);
+  dustBanks.name='world-dust-banks'; dustBanks.frustumCulled=false; dustBanks.renderOrder=49; dustBanks.visible=false;
+  G.scene.add(dustBanks);
 
   // ---- rain splashes ----
   const NS = SPLASH.high;
@@ -193,7 +243,7 @@ export function createWeather(G) {
   }
   function visibility() {
     let v = Infinity;
-    if (storm > 0.01) v = lerp(600, 12, Math.pow(storm, 0.85));
+    if (storm > 0.01) v = Math.max(18,600/(1+storm*storm*24)/(1+gust.surge*0.65));
     if (dust > 0.35) v = Math.min(v, lerp(500, 90, (dust - 0.35) / 0.65));
     if (rain > 0.3) v = Math.min(v, lerp(500, 220, (rain - 0.3) / 0.7));
     return v;
@@ -268,6 +318,7 @@ export function createWeather(G) {
     onBeatEnd() { gust.phase = 0; gust.id++; },
     onLevelUnload() { gust.phase = 0; gust.id++; dust = storm = rain = 0; tw.dust = tw.storm = tw.rain = null; },
     setQuality(t) { if (GRAINS[t]) tier = t; },
+    debug() { return { dustCards: dustBanks.visible ? dustBanks.count : 0, grains: grains.mesh.visible ? grains.g.drawRange.count : 0, screenSheet: false, storm, dust }; },
     update(dt) {
       time += dt;
       for (const k in tw) { const t = tw[k]; if (!t) continue; t.t += dt; const a = Math.min(1, t.t / t.dur); t.set(t.from + (t.to - t.from) * a); if (a >= 1) tw[k] = null; }
@@ -291,16 +342,15 @@ export function createWeather(G) {
       const sl = Math.hypot(sx, sy) || 1;
       const ws = 3 + 14 * wind.strength;
 
-      // grains
-      const gAmt = Math.max(storm, dust * 0.4, surge * 0.8, warnA * 0.2);
-      const gn = Math.ceil(GRAINS[tier] * Math.min(1, gAmt));
-      grains.mesh.visible = gAmt > 0.01; grains.g.setDrawRange(0, gAmt > 0.01 ? GRAINS[tier] * 2 : 0);
+      // Small grains add scale, never long identical screen-facing streaks.
+      const gAmt = Math.max(storm, dust * 0.35, surge * 0.8, warnA * 0.2);
+      grains.mesh.visible = gAmt > 0.01; grains.g.setDrawRange(0, Math.ceil(GRAINS[tier]*Math.min(1,gAmt)));
       if (grains.mesh.visible) {
-        gPhase += dt * (12 + 38 * storm + 60 * surge) * (0.6 + wind.strength);
+        gPhase += dt * (4 + 8 * storm + 11 * surge) * (0.6 + wind.strength);
         const u = grains.m.uniforms;
-        u.uPhase.value = gPhase; u.uAmt.value = gn / GRAINS[tier] * (gAmt >= 1 ? 1 : 1);
-        u.uDir.value.set(wind.x, -0.04, wind.z); u.uLen.value = 0.6 + 1.6 * storm + 1.4 * surge;
-        u.uAlpha.value = 0.3 + 0.35 * Math.min(1, gAmt);
+        u.uPhase.value = gPhase; u.uAmt.value = Math.min(1,gAmt);
+        u.uDir.value.set(wind.x, -0.015, wind.z);
+        u.uPx.value=G.renderer.domElement.height/(2*Math.tan(G.camera.fov*DEG*0.5));
       }
       // rain
       const rn = rain > 0.01;
@@ -315,17 +365,18 @@ export function createWeather(G) {
       updateSplashes(dt, rain);
       updateRibbons(dt, Math.max(dust, storm, surge * 0.8, warnA * 0.3));
 
-      // storm sheet
-      const sAmt = Math.max(storm, 0), wAmt = Math.min(1, warnA + surge * 0.7);
-      sheet.visible = sAmt > 0.02 || wAmt > 0.02;
-      if (sheet.visible) {
-        sPhase += dt * (0.5 + 2.5 * storm + 3 * surge) * (0.5 + wind.strength);
-        const u = sheetMat.uniforms;
-        u.uDir.value.set(sx / sl, sy / sl); u.uPhase.value = sPhase; u.uStorm.value = sAmt; u.uWarn.value = wAmt;
-        u.uAspect.value = G.stage ? G.stage.w / Math.max(1, G.stage.h) : 1.6;
+      const bankAmt=Math.max(storm*0.9,dust*0.24,surge*0.85);
+      dustBanks.visible=bankAmt>0.01 || warnA>0.01;
+      dustBanks.count=dustCounts[tier];
+      if(dustBanks.visible){
+        sPhase+=dt*(2.0+6.0*storm+8.0*surge)*(0.5+wind.strength);
+        const u=dustMat.uniforms;
+        u.uPhase.value=sPhase;u.uAmt.value=bankAmt;u.uWarn.value=warnA;
+        u.uDir.value.set(wind.x,0,wind.z);
       }
     },
   };
+  G.events.on('quality:changed',e=>{if(e?.tier&&GRAINS[e.tier])tier=e.tier;});
   void _c; void clamp;
   return api;
 }

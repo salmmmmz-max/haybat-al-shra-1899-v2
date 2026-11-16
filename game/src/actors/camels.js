@@ -100,7 +100,7 @@ export function createCamels(G) {
           }
         }
       }
-      if (!c.ridden) {   // body pitch follows the slope a little
+      {   // Rider and free camel use the same terrain pitch; mounting must not flatten the animal
         const T = G.world.terrain; const y = c.yaw;
         const ps = clamp((T.heightAt(c.pos.x + Math.sin(y) * 1.4, c.pos.z + Math.cos(y) * 1.4) - T.heightAt(c.pos.x - Math.sin(y) * 1.4, c.pos.z - Math.cos(y) * 1.4)) / 2.8, -0.6, 0.6);
         pitch = dampAngle(pitch, -Math.atan(ps) * 0.55, 4, dt); c.root.rotation.x = pitch;

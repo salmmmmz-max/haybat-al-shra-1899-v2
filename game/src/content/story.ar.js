@@ -618,7 +618,7 @@ export const STORY = {
     // ── c1_well
     'c1_well.obj': 'اسحب الدلو من البئر',
     'c1_well.label.pull': 'اسحب الدلو',
-    'c1_well.prompt.hold': 'اضغط مطوّلًا حتى يمتلئ الطوق',
+    'c1_well.prompt.hold': 'اضغط لسحب الحبل',
     'c1_well.hint1': 'الشيخ: الرِّشا بيدك يا وليدي… وش تنطر؟',
     'c1_well.hint2': 'قف عند البئر واضغط مطوّلًا على «اسحب الدلو».',
     // ── c1_firasa

@@ -69,7 +69,7 @@ varying vec3 vCol; varying float vA;
 void main() {
   vec3 w = uSkyM * position;
   float ext = smoothstep(-0.01, 0.16, w.y);                                   // horizon extinction
-  float tw = 0.78 + 0.22 * sin(uTime * (2.0 + aSeed * 3.0) + aSeed * 40.0) * (1.4 - ext);
+  float tw = 0.91 + 0.09 * sin(uTime * (2.0 + aSeed * 3.0) + aSeed * 40.0) * (1.4 - ext);
   vCol = aColor; vA = uNight * ext * tw;
   vec4 p = projectionMatrix * vec4(mat3(viewMatrix) * w * 1700.0, 1.0);
   gl_Position = p.xyww; gl_PointSize = aSize * uPx;
@@ -114,20 +114,23 @@ export function createSky(G) {
   const faint = makeFaintStars(G.quality.pick(700, 1100, 1500), 'faint-stars');
   const nNamed = STARS.length, nFaint = faint.mag.length, n = nNamed + nFaint;
   const pos = new Float32Array(n * 3), col = new Float32Array(n * 3), size = new Float32Array(n), seedA = new Float32Array(n);
+  const baseSize = new Float32Array(n), baseCol = new Float32Array(n * 3);
   const eq = STARS.map(s => equatorial(s.ra, s.dec, { x: 0, y: 0, z: 0 }));
   for (let i = 0; i < nNamed; i++) {
     const s = STARS[i], e = eq[i];
     pos[i * 3] = e.x; pos[i * 3 + 1] = e.y; pos[i * 3 + 2] = e.z;
     col[i * 3] = s.rgb[0]; col[i * 3 + 1] = s.rgb[1]; col[i * 3 + 2] = s.rgb[2];
-    size[i] = Math.max(2.4, 6.4 - 1.25 * s.mag); seedA[i] = (i * 0.618) % 1;
+    // Magnitude still determines the hierarchy; the floor keeps named stars legible on phones.
+    size[i] = Math.max(2.8, 7.6 - 1.35 * s.mag); seedA[i] = (i * 0.618) % 1;
   }
   for (let j = 0; j < nFaint; j++) {
     const i = nNamed + j;
     pos[i * 3] = faint.pos[j * 3]; pos[i * 3 + 1] = faint.pos[j * 3 + 1]; pos[i * 3 + 2] = faint.pos[j * 3 + 2];
-    const dim = clamp01((6.6 - faint.mag[j]) / 3.2) * 0.75 + 0.2;
+    const dim = clamp01((6.6 - faint.mag[j]) / 3.2) * 0.38 + 0.06;
     col[i * 3] = faint.rgb[j * 3] * dim; col[i * 3 + 1] = faint.rgb[j * 3 + 1] * dim; col[i * 3 + 2] = faint.rgb[j * 3 + 2] * dim;
-    size[i] = 1.3 + clamp01((6.2 - faint.mag[j]) / 3) * 1.3; seedA[i] = (j * 0.381) % 1;
+    size[i] = 1.0 + clamp01((6.2 - faint.mag[j]) / 3) * 0.9; seedA[i] = (j * 0.381) % 1;
   }
+  baseSize.set(size); baseCol.set(col);
   const starU = { uSkyM: { value: skyM }, uPx: { value: 1 }, uTime: uniforms.uTime, uNight: uniforms.uNight };
   const starGeo = new THREE.BufferGeometry();
   starGeo.setAttribute('position', new THREE.BufferAttribute(pos, 3)); starGeo.setAttribute('aColor', new THREE.BufferAttribute(col, 3));
@@ -145,6 +148,21 @@ export function createSky(G) {
   const lines = new THREE.LineSegments(lineGeo, new THREE.ShaderMaterial({ uniforms: { uSkyM: starU.uSkyM, uNight: uniforms.uNight }, vertexShader: LINE_VS, fragmentShader: LINE_FS, transparent: true, depthWrite: false, blending: THREE.AdditiveBlending, fog: false }));
   lines.frustumCulled = false; lines.renderOrder = 31; G.scene.add(lines);
   const highlights = new Map();
+  let lesson = null, lessonGuide = 0;
+  const dipperIds = new Set(ASTERISMS.banat_nash.flat());
+  const lessonBowl = ASTERISMS.banat_nash.slice(3);
+  // Lesson emphasis describes a family of stars, never changes RA/Dec or marks
+  // the sought answer. The guide sketches only the bowl, not the pointer to Polaris.
+  function updateLesson() {
+    for (let i = 0; i < n; i++) {
+      const named = i < nNamed, member = named && dipperIds.has(STARS[i].id);
+      const boost = lesson && member ? 1.28 : 1;
+      size[i] = baseSize[i] * boost;
+      const light = lesson && !named ? 0.58 : 1;
+      for (let j = 0; j < 3; j++) col[i * 3 + j] = baseCol[i * 3 + j] * light;
+    }
+    starGeo.attributes.aSize.needsUpdate = starGeo.attributes.aColor.needsUpdate = true;
+  }
   function rebuildHighlights() {
     let k = 0, s = 0;
     for (const [id, amount] of highlights) {
@@ -158,7 +176,15 @@ export function createSky(G) {
       } else if (STAR_INDEX[id] !== undefined && k < HL) {
         const e = eq[STAR_INDEX[id]], c = STARS[STAR_INDEX[id]].rgb;
         hlPos.set([e.x, e.y, e.z], k * 3); hlCol.set([lerp(0.6, c[0], 0.5) * amount, lerp(0.75, c[1], 0.5) * amount, lerp(1, c[2], 0.5) * amount], k * 3);
-        hlSize[k] = 14 + 12 * amount; hlSeed[k] = 0.5; k++;
+        hlSize[k] = 8 + 6 * amount; hlSeed[k] = 0.5; k++;
+      }
+    }
+    if (lessonGuide > 0 && !highlights.has('banat_nash')) {
+      const segs = lessonBowl;
+      for (let i = 0; i < Math.min(3, segs.length) && s < SEG; i++) {
+        const f = clamp01(lessonGuide * 3 - i); if (f <= 0) break;
+        const a = eq[STAR_INDEX[segs[i][0]]], b = eq[STAR_INDEX[segs[i][1]]];
+        linePos.set([a.x, a.y, a.z, lerp(a.x, b.x, f), lerp(a.y, b.y, f), lerp(a.z, b.z, f)], s++ * 6);
       }
     }
     hlGeo.setDrawRange(0, k); lineGeo.setDrawRange(0, s * 2);
@@ -170,6 +196,12 @@ export function createSky(G) {
   function applyLST() { skyMatrix(((lst % 24) + 24) % 24, undefined, mArr); skyM.fromArray(mArr); }
   applyLST();
   const stars = {
+    teach(id, guide = 0) {
+      const next = id === 'megrez' || id === 'polaris' ? 'banat_nash' : null;
+      if (next !== lesson) { lesson = next; updateLesson(); }
+      const g = next && id === 'megrez' ? Math.round(clamp01(guide) * 20) / 20 : 0;
+      if (g !== lessonGuide) { lessonGuide = g; rebuildHighlights(); }
+    },
     get lst() { return ((lst % 24) + 24) % 24; },
     setLST(h, o = {}) {
       const d = o.duration || 0; lstJob++;
@@ -249,7 +281,7 @@ export function createSky(G) {
       if (lstRate !== 0) { lst += lstRate * dt; if ((lstRate > 0 && lst >= lstTo) || (lstRate < 0 && lst <= lstTo)) { lst = lstTo; lstRate = 0; } applyLST(); }
       const w = G.world.weather && G.world.weather.wind;
       if (w && (w.x || w.z)) { const l = Math.hypot(w.x, w.z) || 1; domeU.uWallDir.value.set(-w.x / l, -w.z / l); }
-      starU.uPx.value = G.renderer.getPixelRatio() * (G.stage && G.stage.h ? Math.max(0.8, G.stage.h / 420) : 1);
+      starU.uPx.value = G.renderer.getPixelRatio() * (G.stage && G.stage.h ? Math.min(1.35, Math.max(1, G.stage.h / 520)) : 1);
       const c = G.camera.position;
       sunLight.position.set(c.x + sunDir.x * 100, c.y + sunDir.y * 100, c.z + sunDir.z * 100); sunLight.target.position.copy(c);
       starPts.visible = hlPts.visible = lines.visible = uniforms.uNight.value > 0.01;

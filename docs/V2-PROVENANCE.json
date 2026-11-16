@@ -1,0 +1,13 @@
+{
+  "name": "Haybat-Al-Sahra-1899-V2",
+  "source": "User-approved ZIP attachment",
+  "attachment_sha256": "aa6225a474aa73656fd67293f94af1b8cc4937a4517b2e62b68afbfb85653b3d",
+  "upstream_reference": "dfe4936412d22d000833121cf29636d78d811e7f",
+  "baseline_commit": "f7afe6147b43ae6ad6bca7f1676b53d292e81e1b",
+  "baseline_tag": "v2-approved-baseline",
+  "live_original_parity": "unverified; original requires authentication",
+  "v2_website_id": "6188f1a7-235b-4f15-81f4-50d921466c47",
+  "original_website_id_DO_NOT_DEPLOY": "cc8b3ebe-071e-49b0-acd0-3e1a73f75218",
+  "original_modified": false,
+  "paid_generation_used": false
+}

@@ -1,0 +1,113 @@
+{
+  "method": "CPU actual GLB skeleton/vertices; no image textures or rendering",
+  "contacts": [
+    {
+      "dt": 0.016666666666666666,
+      "maxErrorM": 0.0000022092134008557454,
+      "pass": true
+    },
+    {
+      "dt": 0.03333333333333333,
+      "maxErrorM": 2.4634512088266086e-8,
+      "pass": true
+    },
+    {
+      "dt": 0.06666666666666667,
+      "maxErrorM": 3.4151241125672234e-8,
+      "pass": true
+    }
+  ],
+  "clearances": [
+    {
+      "slope": 0,
+      "pose": "idle",
+      "minClearanceM": 0.02599999999999989,
+      "pass": true
+    },
+    {
+      "slope": 0,
+      "pose": "sit",
+      "minClearanceM": 0.024658360486006586,
+      "pass": true
+    },
+    {
+      "slope": 0,
+      "pose": "idle",
+      "minClearanceM": 0.02461000111927203,
+      "pass": true
+    },
+    {
+      "slope": 0,
+      "pose": "kneel",
+      "minClearanceM": 0.01181500858004328,
+      "pass": true
+    },
+    {
+      "slope": 0,
+      "pose": "idle",
+      "minClearanceM": 0.02599999999999989,
+      "pass": true
+    },
+    {
+      "slope": 0.18,
+      "pose": "idle",
+      "minClearanceM": 0.023923163123063015,
+      "pass": true
+    },
+    {
+      "slope": 0.18,
+      "pose": "sit",
+      "minClearanceM": 0.020592631271288214,
+      "pass": true
+    },
+    {
+      "slope": 0.18,
+      "pose": "idle",
+      "minClearanceM": 0.022484719584480888,
+      "pass": true
+    },
+    {
+      "slope": 0.18,
+      "pose": "kneel",
+      "minClearanceM": 0.011587043505676877,
+      "pass": true
+    },
+    {
+      "slope": 0.18,
+      "pose": "idle",
+      "minClearanceM": 0.023865413026972076,
+      "pass": true
+    },
+    {
+      "slope": -0.18,
+      "pose": "idle",
+      "minClearanceM": 0.024310302948400694,
+      "pass": true
+    },
+    {
+      "slope": -0.18,
+      "pose": "sit",
+      "minClearanceM": 0.02340337645267629,
+      "pass": true
+    },
+    {
+      "slope": -0.18,
+      "pose": "idle",
+      "minClearanceM": 0.024205418672593765,
+      "pass": true
+    },
+    {
+      "slope": -0.18,
+      "pose": "kneel",
+      "minClearanceM": 0.011587043414900154,
+      "pass": true
+    },
+    {
+      "slope": -0.18,
+      "pose": "idle",
+      "minClearanceM": 0.02471303217803566,
+      "pass": true
+    }
+  ],
+  "pass": true
+}

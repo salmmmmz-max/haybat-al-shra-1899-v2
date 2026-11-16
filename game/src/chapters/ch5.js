@@ -5,21 +5,22 @@
  */
 import * as THREE from 'three';
 import { LEVELS } from './levels.js';
+import { pullWellBucket } from './well-pull.js';
 import { at, yawTo, cast, camel, toast, prompt, hud, goal, use, steadyLadder, music, pause } from './kit.js';
 import { clamp, yawOf, bearingDeg, pointOf } from '../core/math.js';
 
 // ---------------------------------------------------------------------------------------------------- places
 const ORDER = ['c5_scout', 'c5_walk', 'c5_words', 'c5_stare', 'c5_verdict', 'c5_signal', 'c5_staff', 'c5_end'];
-const THAMER_TINT = 0x8a7a70, MEN_TINTS = [0x8a7a70, 0x7c6e66, 0x95857a, 0x7a6a60, 0x8f7f72, 0x84756a];
+const THAMER_TINT = 0xe0d2bf, MEN_TINTS = [0xd6c6b2, 0xc6beb0, 0xdfcfb6, 0xbfb4a6, 0xd8c9b6, 0xcac1b4];
 const WALK_SPEED = 1.5;
 // the six riflemen: x, z (absolute, L3), post while the hero scouts / walks, who fires
 const MEN = [
-  { id: 'rf1', x: 15, z: 222, stand: true, shoots: 1 },
-  { id: 'rf2', x: -15, z: 232, stand: true, shoots: 2 },
-  { id: 'rf3', x: -9, z: 251, stand: false },
-  { id: 'rf4', x: 10, z: 250, stand: false },
-  { id: 'rf5', x: -14, z: 243, stand: false },
-  { id: 'rf6', x: 14, z: 241, stand: false },
+  { id: 'rf1', x: 6.5, z: 222, stand: true, shoots: 1 },
+  { id: 'rf2', x: -6, z: 234, stand: true, shoots: 2 },
+  { id: 'rf3', x: -4.8, z: 247, stand: false },
+  { id: 'rf4', x: 5.2, z: 248, stand: false },
+  { id: 'rf5', x: -4.6, z: 208, stand: true },
+  { id: 'rf6', x: 5.2, z: 216, stand: true },
 ];
 const STARE_FROM = { x: 2.8, z: 241 }, STARE_NEAR = { x: 1.5, z: 239.4 }, STARE_CLOSE = { x: 0.8, z: 238.9 };
 const HERO_AT_FIRE = { x: 0, z: 237.6, yaw: 0 };
@@ -28,6 +29,7 @@ const WELL_FRONT = { x: 6.8, z: 251.6 };
 // module state that outlives a beat (reset when the level loads)
 let seen = new Set();            // riflemen counted by الفراسة in c5_scout (outlined later, shots telegraph earlier)
 let staffGiven = false, camHoldFor = null;
+let threatLight = null, rifleDropAt = null;
 let pileH = null, hungRifle = null, groundRifle = null, staffProp = null, daggerObj = null, titleShown = false, scoutPhase = '';
 
 // ---------------------------------------------------------------------------------------------------- helpers
@@ -110,6 +112,7 @@ function hangRifle(G, wadha) {
   wadha.saddle.add(hungRifle);
 }
 function layRifle(G, x, z) {
+  rifleDropAt = { x, z };
   if (groundRifle && groundRifle.parent) groundRifle.parent.remove(groundRifle);
   groundRifle = rifleMesh(G);
   groundRifle.position.set(x, hAt(G, x, z) + 0.06, z); groundRifle.rotation.set(0, 0.7, Math.PI / 2);
@@ -151,15 +154,19 @@ function people(G, L, idx, flags) {
   // --- riflemen ---
   MEN.forEach((m, i) => {
     let clip = 'idle', p = { x: m.x, z: m.z }, face = fire;
-    if (idx <= 1) { clip = m.stand ? 'idle' : 'sit'; face = m.stand ? { x: 0, z: 218 } : fire; }
+    if (idx >= 2 && m.id === 'rf5') p = { x: -8.5, z: 240 };
+    if (idx >= 2 && m.id === 'rf6') p = { x: 8, z: 241 };
+    if (idx <= 1) { clip = m.stand ? 'idle' : 'sit'; face = idx === 1 && m.stand ? hero : m.stand ? { x: 0, z: 218 } : fire; }
     else if (idx <= 4) { clip = 'idle'; face = idx === 2 ? hero : fire; }
     else if (idx === 5) { clip = 'idle'; face = fire; }
-    else { p = { x: m.x * 0.8 + 3, z: m.z + 3 }; face = at(L, 'well'); }
+    else { p = { x: p.x * 0.8 + 3, z: p.z + 3 }; face = at(L, 'well'); }
     const n = cast(G, m.id, 'jaber', p, yawTo(p, face), { tint: MEN_TINTS[i], clip });
     n.lookAtPlayer(false);
     const a = n.actor;
     if (!a.userData) a.userData = {};
     if (!a.userData.rifle && a.socket && !isStub(a.socket)) { const r = rifleMesh(G); r.scale.setScalar(0.9); a.socket('handR').add(r); a.userData.rifle = r; }
+    if (a.userData.rifle) a.userData.rifle.quaternion.identity();
+    if (a.setHandTargets) a.setHandTargets(null);
   });
   // --- Sheikh ثامر ---
   let tp = th, tclip = 'sit';
@@ -199,6 +206,7 @@ function stage(G, L, id, resumed) {
   W.weather.storm(0, { duration: 0 }); W.weather.rain(idx >= 7 ? 0.5 : 0, { duration: 0 });
   if (L.fires.well) L.fires.well.setLit(true);
   if (pileH) { pileH.setLit(idx >= 6); if (idx >= 6 && pileH.setBeacon) pileH.setBeacon(0); }
+  if (threatLight) { const z = idx >= 2 ? 244 : 229; threatLight.position.set(0.8, hAt(G, 0.8, z) + 2.6, z); threatLight.intensity = idx >= 6 ? 0 : idx >= 2 ? 9 : 26; }
   // hud + firasa: the eye is only needed to count the men
   const eye = id === 'c5_scout';
   hud(G, { eye, water: false, strip: true });
@@ -214,7 +222,7 @@ function stage(G, L, id, resumed) {
   const hung = idx >= 1 && flags.leftRifle;
   hangRifle(G, hung ? wadha : null);
   if (groundRifle && groundRifle.parent) { groundRifle.parent.remove(groundRifle); groundRifle = null; }
-  if (idx >= 3 && !hung && id !== 'c5_scout') layRifle(G, -1.3, 237.9);
+  if (idx >= 3 && !hung && id !== 'c5_scout') layRifle(G, rifleDropAt ? rifleDropAt.x : -1.3, rifleDropAt ? rifleDropAt.z : 237.9);
   const carry = idx <= 2 && !hung ? 'rifle' : null;
   if (pl.equip) pl.equip(carry);
   if (resumed) {
@@ -253,7 +261,7 @@ async function fireShot(G, d, L, man, impact, lead, w) {
   d.spawn(async d2 => { await muzzleFlash(G, d2, { x: mx, y: my, z: mz }, 0xffd070, 2.2, 0.14); });
   d.spawn(async d2 => { await muzzleFlash(G, d2, { x: impact.x, y: hAt(G, impact.x, impact.z) + 0.2, z: impact.z }, 0xc9a877, 1.1, 0.5); });
   await d.wait(0.35);
-  if (n) n.actor.play('idle');
+  if (n) n.actor.play('aim');
 }
 
 // ---------------------------------------------------------------------------------------------------- chapter
@@ -261,7 +269,12 @@ export default {
   id: 'ch5', index: 5, assets: 'ch5', level: LEVELS.haya, sky: 'night', lst: undefined, survival: { thirst: 100, sips: 0, drain: false },
 
   setup(G, L) {
-    BOT.at = null; staffGiven = false; camHoldFor = null; seen = new Set(); titleShown = false; scoutPhase = ''; daggerObj = null; hungRifle = groundRifle = staffProp = null;
+    BOT.at = null; rifleDropAt = null; staffGiven = false; camHoldFor = null; seen = new Set(); titleShown = false; scoutPhase = ''; daggerObj = null; hungRifle = groundRifle = staffProp = null;
+    // Reflected firelight catches coats and rifle barrels without a glowing enemy outline.
+    threatLight = new THREE.PointLight(0xffc28a, 26, 32, 2);
+    threatLight.position.set(0.8, hAt(G, 0.8, 229) + 2.6, 229); threatLight.castShadow = false;
+    threatLight.name = 'camp-reflected-firelight'; G.scene.add(threatLight);
+    L.own({ remove() { G.scene.remove(threatLight); threatLight.dispose(); } });
     const pile = at(L, 'pile');
     pileH = G.world.props.signalPile(pile.x, pile.z); pileH.setLit(false);
     L.own({ remove: G.events.on('player:bounds', () => toast(G, 'c5.bounds', 3.6)) });
@@ -352,6 +365,36 @@ export default {
         const fails = S.fails ? S.fails('c5_walk') : 0;
         // the men's shots are telegraphed (0.4 s earlier for those the hero counted; a little longer after every failure)
         const leadOf = m => 0.6 + (seen.has(m.id) ? 0.4 : 0) + 0.25 * Math.min(fails, 3);
+        // Establish the two nearest rifles before the thumb-stability test starts.
+        if (fails === 0) {
+          for (const m of MEN.filter(m => m.stand)) {
+            const n = G.actors.npcs.get(m.id); if (n) { n.play('aim'); n.actor.faceTo(pl.pos.x, pl.pos.z, 8); }
+          }
+          await d.cine([
+            { pos: P3(G, 3.8, 216.5, 1.65), look: P3(G, 6.5, 222, 1.3), dur: 1.8, cut: true },
+            { pos: P3(G, -2.2, 228.5, 1.65), look: P3(G, -6, 234, 1.3), dur: 1.8, cut: true },
+          ]);
+          G.actors.cam.release({ duration: 0.65 });
+          await pause(G, d, 0.7);
+        }
+        // Both riflemen track the approach; the far pair remain ahead near the fire.
+        d.task(() => {
+          for (const m of MEN.filter(m => m.stand)) {
+            const n = G.actors.npcs.get(m.id); if (!n) continue;
+            n.actor.faceTo(pl.pos.x, pl.pos.z, 3);
+            const rifle = n.actor.userData && n.actor.userData.rifle;
+            if (rifle && rifle.parent) {
+              rifle.parent.updateWorldMatrix(true, false);
+              const grip = rifle.parent.getWorldPosition(new THREE.Vector3());
+              const direction = new THREE.Vector3(pl.pos.x, pl.pos.y + 1.1, pl.pos.z).sub(grip).normalize();
+              const worldQ = new THREE.Quaternion().setFromUnitVectors(new THREE.Vector3(0, 1, 0), direction);
+              rifle.quaternion.copy(rifle.parent.getWorldQuaternion(new THREE.Quaternion()).invert().multiply(worldQ));
+              if (n.actor.setHandTargets) n.actor.setHandTargets({ left: grip.clone().addScaledVector(direction, 0.32), weight: 0.9 });
+            }
+          }
+          return undefined;
+        });
+        d.onEnd(() => { for (const m of MEN.filter(m => m.stand)) { const n = G.actors.npcs.get(m.id); if (n && n.actor.setHandTargets) n.actor.setHandTargets(null); } });
         // found men stay faintly outlined
         for (const m of MEN) if (seen.has(m.id)) {
           const n = G.actors.npcs.get(m.id);
@@ -403,17 +446,43 @@ export default {
       async run(G, L, d) {
         const fl = d.flags, pl = player(G), thamer = G.actors.npcs.get('thamer'), fire = fireP(L);
         const th = at(L, 'thamer');
-        const A = () => shotCut(G, d, P3(G, -2.5, 240.6, 1.45), P3(G, 0.2, th.z, 0.95));       // past the flames onto Thamer (5 m: a seated man reads above the dialogue box)
-        const B = () => shotCut(G, d, P3(G, 3.4, 242.9, 1.5), P3(G, 0.2, 238.3, 1.45));      // from the fire's side: Dhari's face
+        const closeFace = (actor, side) => {
+          actor.root.updateMatrixWorld(true);
+          const h = actor.socket('head').getWorldPosition(new THREE.Vector3()), yaw = actor.yaw;
+          const pos = h.clone().add(new THREE.Vector3(Math.sin(yaw) * 1.8 + Math.cos(yaw) * side * 0.62, 0.06, Math.cos(yaw) * 1.8 - Math.sin(yaw) * side * 0.62));
+          shotCut(G, d, pos.toArray(), h.clone().add(new THREE.Vector3(0, -0.12, 0)).toArray());
+        };
+        const A = () => closeFace(thamer.actor, -1);
+        const B = () => closeFace(pl.actor, 1);
         thamer.actor.faceTo(pl.pos.x, pl.pos.z, 3);
+        thamer.setSpeechGesture(false);
+        thamer.actor.lookAt(pl.actor); pl.actor.lookAt(thamer.actor);
+        d.onEnd(() => { thamer.setSpeechGesture(true); thamer.actor.lookAt(null); pl.actor.lookAt(null); });
+        let priorSpeaker = null, laidRifle = false, weaponAction = null;
+        const offShots = G.events.on('dialogue:line', ({ who, text }) => {
+          if (!fl.leftRifle && who === 'narrator' && text.includes('وضع ضاري بندقه')) {
+            laidRifle = true;
+            const px = pl.pos.x, pz = pl.pos.z;
+            shotCut(G, d, P3(G, px - 3.4, pz + 2.6, 2.7), P3(G, px - 0.25, pz + 0.1, 0.22));
+            pl.pose('kneel', { fade: 0.35 });
+            weaponAction = d.spawn(async d2 => { await pause(G, d2, 0.65); layRifle(G, px - 0.75, pz + 0.28); if (pl.equip) pl.equip(null); await pause(G, d2, 0.55); pl.pose(null, { fade: 0.45 }); });
+            priorSpeaker = null; return;
+          }
+          if (who === priorSpeaker) return;
+          if (who === 'thamer') { A(); priorSpeaker = who; }
+          else if (who === 'dhari') { B(); priorSpeaker = who; }
+        });
+        d.onEnd(offShots);
+        await pause(G, d, 0.12); // let the seated skeleton settle before measuring the first close shot
         A();
         await d.talk(fl.leftRifle ? 'c5_words.open.unarmed' : 'c5_words.open.armed');
-        if (!fl.leftRifle) { layRifle(G, -1.3, 237.9); if (pl.equip) pl.equip(null); }
-        // a rival keeps his manners: he leans in or back with each answer
-        const lean = async (k) => {                         // k: +1 forward (toward the hero), −1 back
-          const sx = thamer.pos.x, sz = thamer.pos.z, step = 0.45 * k;
-          await d.tween(0.7, t => thamer.place(sx, sz - step * t * (1), yawOf(0, -1)));
-          thamer.actor.faceTo(pl.pos.x, pl.pos.z, 4);
+        if (weaponAction) await weaponAction.done;
+        if (!fl.leftRifle && !laidRifle) { layRifle(G, -1.3, 237.9); if (pl.equip) pl.equip(null); }
+        // Keep his seated contact planted. His gaze changes with the answer, without sliding the whole body.
+        const lean = async k => {
+          thamer.actor.lookAt({ x: pl.pos.x, y: pl.pos.y + (k > 0 ? 1.45 : 1.1), z: pl.pos.z });
+          await pause(G, d, k ? 0.85 : 0.45);
+          thamer.actor.lookAt(pl.actor);
         };
         g5(d, 'c5_words.obj', thamer.actor.root);
         let effect = 0;
@@ -441,6 +510,7 @@ export default {
         await pause(G, d, 1.0);
         // ---- words are not enough: he rises and comes around the fire
         await d.talk('c5_words.rise');
+        offShots(); thamer.setSpeechGesture(true); pl.actor.lookAt(null);
         thamer.play('idle');
         daggerTo(G, thamer, 'sheath');
         await walkTo(d, thamer, STARE_FROM, 1.5, pl.pos);
@@ -617,10 +687,9 @@ export default {
         cam.frame(well);
         // ---- the same hold as the first morning — and this time it brings up water
         g5(d, 'c5_staff.obj', well);
-        await use(G, d, { id: 'pull', at: well, radius: 3.6, label: 'c5_staff.label.pull', hold: 1.5, once: true, height: 1.2 });
+        await pullWellBucket(G, d, { at: well, label: 'c5_staff.label.pull', id: 'pull', muddy: false });
         d.objectiveDone();
-        if (pl.actor) pl.actor.play('pull');
-        G.audio.sfx('sfx_pulley'); await pause(G, d, 1.2); G.audio.sfx('sfx_water', { at: well });
+        G.audio.sfx('sfx_water', { at: well });
         await d.talk('c5_staff.water');
         if (pl.actor) pl.actor.play('idle');
         // the old man and the boy over the well: from the north so both are in the upper half (the dialogue box covers the lower)

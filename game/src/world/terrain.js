@@ -90,6 +90,8 @@ export function createTerrain(G) {
     uSunCol: G.world.sky ? G.world.sky.uniforms.uSunColor : { value: new THREE.Color(1, 1, 1) },
     uSand: { value: new THREE.Color(0xdcaa66) }, uSoft: { value: new THREE.Color(0xecd3a2) }, uGravel: { value: new THREE.Color(0x957552) },
     uFirasa: G.shade.uFirasa,
+    uWear: { value: Array.from({length:24},()=>new THREE.Vector4()) },
+    uWearKind: { value: new Float32Array(24) }, uWearCount: { value: 0 },
   };
   const mat = new THREE.MeshLambertMaterial({ color: 0xffffff });
   mat.userData.hsShade = true;                       // shade chunk is injected below (the gold line must come after it)
@@ -99,6 +101,7 @@ export function createTerrain(G) {
       .replace('#include <worldpos_vertex>', '#include <worldpos_vertex>\n vWPos = (modelMatrix * vec4(transformed, 1.0)).xyz; vMask = aMask;');
     sh.fragmentShader = SHADE_PARS_FRAGMENT + /* glsl */`
       uniform vec2 uWind; uniform float uTime, uNightK; uniform vec3 uSunDirW, uSunCol, uSand, uSoft, uGravel;
+      uniform vec4 uWear[24]; uniform float uWearKind[24]; uniform int uWearCount;
       varying vec2 vMask; varying vec3 vWPos;
       float tHash(vec2 p) { vec3 q = fract(vec3(p.xyx) * 0.1031); q += dot(q, q.yzx + 33.33); return fract((q.x + q.y) * q.z); }
       float tNoise(vec2 p) { vec2 i = floor(p), f = fract(p); f = f * f * (3.0 - 2.0 * f);
@@ -107,11 +110,29 @@ export function createTerrain(G) {
       .replace('#include <color_fragment>', /* glsl */`#include <color_fragment>
         float tDist = length(vViewPosition);
         float tBig = tNoise(vWPos.xz * 0.011) * 0.6 + tNoise(vWPos.xz * 0.047) * 0.4;
-        vec3 tSand = uSand * (0.88 + 0.22 * tBig);
+        float tWear=0.0, tWet=0.0, tAsh=0.0;
+        for(int wi=0;wi<24;wi++) {
+          if(wi>=uWearCount) break;
+          vec4 w=uWear[wi]; vec2 delta=vWPos.xz-w.xy;
+          float radius=max(0.1,w.z);
+          if(dot(delta,delta)<radius*radius*1.44) {
+            float d=length(delta)/radius;
+            float ragged=tNoise(vWPos.xz*2.1+float(wi)*7.3)*0.17;
+            float amount=(1.0-smoothstep(0.62,1.0,d+ragged*0.65))*w.w;
+            tWear=max(tWear,amount);
+            if(uWearKind[wi]>1.5) tAsh=max(tAsh,amount);
+            else if(uWearKind[wi]>0.5) tWet=max(tWet,amount);
+          }
+        }
+        vec3 tSand = uSand * (0.92 + 0.17 * tBig);
         tSand = mix(tSand, uSoft, vMask.x * 0.85);
         float tSpk = (tHash(floor(vWPos.xz * 24.0)) - 0.5) * 0.26 * (1.0 - smoothstep(6.0, 26.0, tDist));
         tSand = mix(tSand, uGravel * (0.93 + 0.14 * tNoise(vWPos.xz * 1.9) + tSpk), vMask.y * 0.9 * (1.0 - smoothstep(60.0, 160.0, tDist) * 0.5));
         tSand *= 1.0 - 0.14 * smoothstep(0.55, 0.82, tNoise(vWPos.xz * 0.0042 + uTime * 0.006)) * (1.0 - uNightK);
+        // Compressed feet/seating, wet spill and ash only where camp activity occurs.
+        tSand *= 1.0-tWear*0.09-tWet*0.23;
+        tSand = mix(tSand,vec3(0.11,0.085,0.064),tAsh*0.56);
+        tSand *= 1.0+(tNoise(vWPos.xz*1.7)-0.5)*0.06*tWear;
         diffuseColor.rgb *= tSand;`)
       .replace('#include <normal_fragment_begin>', /* glsl */`#include <normal_fragment_begin>
         float tFw = fwidth(vWPos.x) + fwidth(vWPos.z);
@@ -130,7 +151,7 @@ export function createTerrain(G) {
           float tEx = mix(1.0, 2.4, tSh);
           tW1 = sign(tW1) * pow(abs(tW1), tEx); tW2 = sign(tW2) * pow(abs(tW2), tEx);
           vec2 tOff = uWind * tW1 * (1.0 - tFam) + tD2 * tW2 * tFam * 0.85;
-          normal = normalize(normal - mat3(viewMatrix) * vec3(tOff.x, 0.0, tOff.y) * (0.07 + 0.16 * tPat) * tRk);
+          normal = normalize(normal - mat3(viewMatrix) * vec3(tOff.x, 0.0, tOff.y) * (0.035 + 0.09 * tPat) * tRk * (1.0-smoothstep(0.08,0.65,tWear)));
         }`)
       .replace('#include <emissivemap_fragment>', /* glsl */`#include <emissivemap_fragment>
         { vec3 tV = normalize(vViewPosition), tL = normalize(mat3(viewMatrix) * uSunDirW);
@@ -142,7 +163,7 @@ export function createTerrain(G) {
           gl_FragColor.rgb += vec3(1.0, 0.76, 0.28) * tE * uFirasa * (0.55 + 0.25 * sin(uTime * 6.28)); }
         #include <dithering_fragment>`);
   };
-  mat.customProgramCacheKey = () => 'hs-terrain';
+  mat.customProgramCacheKey = () => 'hs-terrain-v2-wear';
   const near = grid(N, CELL, HALF), far = grid(FN, FCELL, FHALF);
   // the near field is drawn as CHUNKS² frustum-culled pieces that share its vertex buffers (same triangles, so heightAt is
   // unchanged): what lies behind the camera costs nothing. The far skirt stays one always-drawn mesh.
@@ -163,6 +184,7 @@ export function createTerrain(G) {
   G.scene.add(meshF);
 
   function build(d) {
+    U.uWearCount.value = 0;
     def = { flats: [], soft: [], gravel: [], ridges: [], ...d };
     nz = makeNoise(def.seed || 1);
     amp = def.duneAmp === undefined ? 7 : def.duneAmp; sc = def.duneScale || 110;
@@ -203,6 +225,13 @@ export function createTerrain(G) {
   return {
     size: SIZE, half: HALF, exactRadius: HALF, material: mat,
     build, heightAt,
+    /** kind: 0 compressed sand, 1 damp spill, 2 ash. Does not change collision height. */
+    addWear(x,z,r,strength=0.65,kind=0) {
+      const i=U.uWearCount.value; if(i>=24)return false;
+      U.uWear.value[i].set(x,z,Math.max(0.1,r),Math.max(0,Math.min(1,strength)));
+      U.uWearKind.value[i]=kind; U.uWearCount.value++; return true;
+    },
+    get wearCount() { return U.uWearCount.value; },
     normalAt(x, z, out) {
       const dx = heightAt(x + E, z) - heightAt(x - E, z), dz = heightAt(x, z + E) - heightAt(x, z - E), l = Math.hypot(dx, 2 * E, dz);
       out.x = -dx / l; out.y = (2 * E) / l; out.z = -dz / l; return out;

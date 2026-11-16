@@ -1,0 +1,45 @@
+Haybat-Al-Sahra-1899-V2
+
+This is an independent Git repository derived from the user-approved ZIP.
+The original live deployment was not used as a byte-for-byte verified baseline.
+Original source/project was not changed. No paid asset generation was used.
+
+Baseline commit: f7afe6147b43ae6ad6bca7f1676b53d292e81e1b
+Baseline tag: v2-approved-baseline
+Live V2: https://haybat-alsahra-1899-v2.higgsfield.app
+Review: https://haybat-alsahra-1899-v2.higgsfield.app/review/index.html
+
+The downloadable source ZIP includes .git and all tracked files. Unzip it, open
+Haybat-Al-Sahra-1899-V2 and run git log or git status. No original remote is set.
+You can add your own new remote; never push this work to the original project.
+
+Client setup on your development machine:
+  cd game
+  npm ci
+  npm test
+  npm run build
+
+Higgsfield platform build (Bun and app dependencies required):
+  cd app
+  bun install --frozen-lockfile
+  bun run build
+
+Browser QA needs an already installed Playwright with Chromium. Our tests ran
+Chromium 153 with SwiftShader software rendering, not Safari or physical phones.
+Use a development bundle to expose the test API:
+  cd game
+  node tools/build.mjs --dev --harness
+  node tools/v2-review.cjs <absolute-repository-path> <evidence-output> scenes
+  node tools/v2-review.cjs <absolute-repository-path> <evidence-output> walkthrough
+  node tools/v2-review.cjs <absolute-repository-path> <evidence-output> perf
+  node tools/v2-quality-runtime.cjs <absolute-repository-path> <evidence-output>
+
+Rebuild production before deployment:
+  node tools/build.mjs
+Production removes development APIs. Higgsfield deploys the pushed app/public.
+The authorized V2 website ID is 6188f1a7-235b-4f15-81f4-50d921466c47.
+
+See app/public/review/index.html for comparisons, measured results, and limits.
+R05 remains partial: source meshes/painted textures and unarticulated fingers
+remain. PBR is reserved for High; Medium/Low use the cheaper material path.
+Physical iPhone/Android/iPad performance and Safari are not certified.

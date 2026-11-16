@@ -1,0 +1,37 @@
+{
+  "method": "Chromium153 headless SwiftShader software rendering, real requestAnimationFrame wall-clock samples, adaptive quality active, one browser. UA and touch-point simulation only; no real iPhone/Android/iPad or Safari.",
+  "mode": "perf",
+  "root": "/home/user/haybat-v2-baseline",
+  "shots": [],
+  "checks": [
+    {
+      "profile": "tablet-landscape",
+      "width": 1024,
+      "height": 768,
+      "samples": 23,
+      "elapsed": 10325.399999999907,
+      "p50": 366.6999999999989,
+      "p95": 1183.199999999999,
+      "mean": 443.45652173913044,
+      "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+      "draw": {
+        "calls": 32,
+        "triangles": 105146
+      },
+      "resolution": [
+        1024,
+        768
+      ],
+      "antialias": true,
+      "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.0 Safari/605.1.15",
+      "maxTouchPoints": 5,
+      "state": {
+        "mode": "play",
+        "beat": "c1_wake"
+      }
+    }
+  ],
+  "errors": [],
+  "requests": [],
+  "browser": "153.0.8010.12"
+}

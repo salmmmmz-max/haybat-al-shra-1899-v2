@@ -158,6 +158,7 @@ export function createInteract(G) {
       const e = {
         id: o.id, at: o.at, radius: o.radius > 0 ? o.radius : RADIUS_FOOT, label: o.label || null,
         enabled: o.enabled !== false, onUse: o.onUse || null, mountedOk: !!o.mountedOk, once: !!o.once,
+        onHold: o.onHold || null,
         hold: o.hold > 0 ? o.hold : 0, height: typeof o.height === 'number' ? o.height : (literal ? 0 : 1.1),
         p: 0, alive: true, beat: false,
       };
@@ -212,13 +213,19 @@ export function createInteract(G) {
       }
 
       // progress of hold entries: only the current one may fill; every other ring empties
-      if (current && current !== e) current.p = 0;
+      if (current && current !== e) {
+        if (armed === current) armed = null;
+        if (current.onHold) current.onHold({ progress: 0, holding: false, cancelled: true, dt });
+        current.p = 0;
+      }
       current = e;
       if (e) {
         if (e.hold > 0) {
           if (pressed && !consumed) armed = e;
           const seconds = G.state.fastText ? Math.min(e.hold, 0.08) : e.hold;
-          e.p = stepHoldRing(e.p, held && armed === e && !consumed, seconds, dt);
+          const filling = held && armed === e && !consumed;
+          e.p = stepHoldRing(e.p, filling, seconds, dt);
+          if (e.onHold) e.onHold({ progress: e.p, holding: filling, cancelled: false, dt });
           progress = e.p;
           if (e.p >= 1) { e.p = 0; consumed = true; armed = null; fire(e); }
         } else if (pressed && !consumed) { consumed = true; fire(e); }

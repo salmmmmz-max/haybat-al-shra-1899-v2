@@ -15,7 +15,12 @@ export function createTouch(G, root, ctx) {
 
   let moveId = null, lookId = null, ox = 0, oy = 0, lx = 0, ly = 0, run = false, used = false;
   const stOn = flag(stick, 'on'), stRun = flag(stick, 'run'), stHint = flag(stick, 'hint', true);
-  function placeStick(x, y) { stick.style.transform = `translate3d(${x}px,${y}px,0)`; }
+  function placeStick(x, y) {
+    stick.style.transform = `translate3d(${x}px,${y}px,0)`;
+    // One coordinate system for the floating control and its tutorial label.
+    root.style.setProperty('--stick-x', `${x}px`); root.style.setProperty('--stick-y', `${y}px`);
+  }
+  const precision = () => G.sys.stars && G.sys.stars.active ? 0.66 : 1;
   placeStick(Math.max(110, G.stage.w * 0.14), G.stage.h - 110);
   G.events.on('resize', () => { if (moveId === null) placeStick(Math.max(110, G.stage.w * 0.14), G.stage.h - 110); });
 
@@ -38,7 +43,7 @@ export function createTouch(G, root, ctx) {
       G.input.setMove((dx / d) * eff, -(dy / d) * eff, 'ui');
       const r = mag > RUN; stRun(r); if (r !== run) { run = r; G.input.setHeld('run', r, 'ui'); }
     } else {
-      G.input.addLook((p.x - lx) * lookX(), -(p.y - ly) * lookY()); lx = p.x; ly = p.y;
+      G.input.addLook((p.x - lx) * lookX() * precision(), -(p.y - ly) * lookY() * precision()); lx = p.x; ly = p.y;
     }
   });
   const end = e => {
@@ -50,6 +55,9 @@ export function createTouch(G, root, ctx) {
     if (run) { run = false; G.input.setHeld('run', false, 'ui'); }
   }
   pad.addEventListener('pointerup', end); pad.addEventListener('pointercancel', end);
+  pad.addEventListener('lostpointercapture', end);
+  window.addEventListener('blur', () => { if (moveId !== null) endMove(); lookId = null; });
+  document.addEventListener('visibilitychange', () => { if (document.hidden) { if (moveId !== null) endMove(); lookId = null; } });
 
   /** hold button: keeps the action down while pressed; after 12 px of drag also steers the camera at 0.6x */
   function holdBtn(b, down, up) {
@@ -65,7 +73,7 @@ export function createTouch(G, root, ctx) {
       if (e.pointerId !== id || e.pointerType === 'mouse') return;
       const p = G.stage.toLocal(e.clientX, e.clientY, _pt);
       if (!moved) { if (Math.hypot(p.x - sx, p.y - sy) < 12) return; moved = true; px = p.x; py = p.y; }
-      G.input.addLook((p.x - px) * lookX() * 0.6, -(p.y - py) * lookY() * 0.6); px = p.x; py = p.y;
+      G.input.addLook((p.x - px) * lookX() * 0.6 * precision(), -(p.y - py) * lookY() * 0.6 * precision()); px = p.x; py = p.y;
     });
     const rel = e => { if (e.pointerId !== id) return; id = null; b.classList.remove('down'); up(); };
     b.addEventListener('pointerup', rel); b.addEventListener('pointercancel', rel); b.addEventListener('lostpointercapture', rel);

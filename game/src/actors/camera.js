@@ -47,13 +47,14 @@ export function createCam(G) {
   let lock = null, lockK = 0, shoulder = 0.6, nudgeY = 0, nudgeP = 0;
   let fr = null, mDir = null, mCone = 0;
   let hold = null, skipAll = false, bDur = 0, bT = 0;
+  let avoidYaw = 0;
   const focus = new THREE.Vector3(), bP = new THREE.Vector3(), bQ = new THREE.Quaternion();
 
   const setFovNow = f => { cam.fov = fovCur = f; cam.updateProjectionMatrix(); };
   G.events.on('resize', e => { fovBase = e.portrait ? 72 : 55; if (!fovTarget && mode !== 'cine') setFovNow(fovBase); });
 
   const C = {
-    get yaw() { return yaw; }, set yaw(v) { yaw = v; },
+    get yaw() { return yaw + avoidYaw; }, set yaw(v) { yaw = v; avoidYaw = 0; },
     get pitch() { return pitch; }, set pitch(v) { pitch = v; },
     get mode() { return mode; },
     get locked() { return !!lock; },
@@ -172,37 +173,54 @@ export function createCam(G) {
       const cp = Math.cos(pitch), sp = Math.sin(pitch), sy = Math.sin(yaw), cy = Math.cos(yaw);
       const sh = shoulder * lockK;
       if (sky) {
+        avoidYaw = 0;
         _p.set(focus.x - sy * want, focus.y + 0.25, focus.z - cy * want);
         const g = T.heightAt(_p.x, _p.z) + 0.6; if (_p.y < g) _p.y = g;
         arm = want;
       } else {
-        // spring arm: shorten at the first sample under the dunes / inside a prop, grow back slowly
-        const dx = -sy * cp, dy = sp, dz = -cy * cp, rx = -cy, rz = sy;
-        let allowed = want; const cols = G.world.props.colliders;
-        for (let i = 1; i <= 8; i++) {
-          const t = want * i / 8, k = i / 8, px = focus.x + dx * t + rx * sh * k, pz = focus.z + dz * t + rz * sh * k, py = focus.y + dy * t;
-          const g = T.heightAt(px, pz) + 0.6; let bad = py < g;
-          if (!bad && py < g + 3) for (let j = 0; j < cols.length; j++) { const c = cols[j]; if (c.nc) continue; const ex = px - c.x, ez = pz - c.z, r = c.r + 0.35; if (ex * ex + ez * ez < r * r) { bad = true; break; } }
-          if (bad) { allowed = Math.max(0.9, want * (i - 1) / 8); break; }
+        // Test a whole arm, not just its endpoint. If a solid well compresses it into the
+        // hero's back, move to a nearby clear angle instead of dissolving the stonework.
+        const cols = G.world.props.colliders;
+        const clearAt = angle => {
+          const dx=-Math.sin(angle)*cp, dz=-Math.cos(angle)*cp, rx=-Math.cos(angle), rz=Math.sin(angle);
+          let allowed=want;
+          for(let i=1;i<=12;i++) {
+            const t=want*i/12, px=focus.x+dx*t+rx*sh, pz=focus.z+dz*t+rz*sh, py=focus.y+sp*t;
+            const gy=T.heightAt(px,pz)+0.6;
+            let bad=py<gy;
+            if(!bad && py<gy+3) for(const c of cols) {if(c.nc)continue;const ex=px-c.x,ez=pz-c.z,r=c.r+0.35;if(ex*ex+ez*ez<r*r){bad=true;break;}}
+            if(bad){allowed=Math.max(0.9,want*(i-1)/12);break;}
+          }
+          for(const b of BLK){
+            const sx0=focus.x+rx*sh,sz0=focus.z+rz*sh;
+            if((sx0-b.x)**2+(sz0-b.z)**2>(want+b.hx+b.hz+1)**2)continue;
+            let hit=segBox(b,0.3,sx0,focus.y,sz0,dx,sp,dz,want);
+            if(hit===0){hit=segBox(b,0.03,sx0,focus.y,sz0,dx,sp,dz,want);if(hit<0)continue;}
+            if(hit>=0)allowed=Math.min(allowed,Math.max(0.9,hit-0.12));
+          }
+          return allowed;
+        };
+        const straight=clearAt(yaw);
+        let desiredAvoid=0;
+        if(straight<2.3 && BLK.some(b=>b.modelId==='well' && Math.hypot(focus.x-b.x,focus.z-b.z)<5)) {
+          let best=straight;
+          const side=avoidYaw<0?-1:1;
+          for(const offset of [0.35,0.7,1.05,1.4,1.75,2.1]) {
+            for(const sign of [side,-side]) {const angle=offset*sign,free=clearAt(yaw+angle);if(free>best+0.15){best=free;desiredAvoid=angle;}}
+            if(best>=Math.min(3.1,want))break;
+          }
         }
-        // large props (tents, well, sitting camels) are oriented boxes: the arm stops 0.45 m before the cloth; when the hero stands
-        // against it (nothing fits in front) the arm keeps 0.9 m and the box fades (below)
-        for (let i = 0; i < BLK.length; i++) {
-          const b = BLK[i], sx0 = focus.x + rx * sh, sz0 = focus.z + rz * sh;
-          if ((sx0 - b.x) * (sx0 - b.x) + (sz0 - b.z) * (sz0 - b.z) > (want + b.hx + b.hz + 1) * (want + b.hx + b.hz + 1)) continue;
-          let lim = segBox(b, 0.45, sx0, focus.y, sz0, dx, dy, dz, want);
-          if (lim < 0) continue;
-          if (lim === 0) { lim = segBox(b, 0.05, sx0, focus.y, sz0, dx, dy, dz, want); lim = lim < 0 ? want : lim - 0.1; }
-          lim = Math.max(0.9, lim); if (lim < allowed) allowed = lim;
-        }
-        arm = allowed < arm ? damp(arm, allowed, 16, dt) : damp(arm, allowed, 2.5, dt);
-        if (arm > want) arm = want;
-        _p.set(focus.x + dx * arm + rx * sh, focus.y + dy * arm, focus.z + dz * arm + rz * sh);
-        const g = T.heightAt(_p.x, _p.z) + 0.6; if (_p.y < g) _p.y = g;
+        avoidYaw=dampAngle(avoidYaw,desiredAvoid,desiredAvoid?9:3,dt);
+        const actualYaw=yaw+avoidYaw, dx=-Math.sin(actualYaw)*cp, dz=-Math.cos(actualYaw)*cp, rx=-Math.cos(actualYaw), rz=Math.sin(actualYaw);
+        const allowed=clearAt(actualYaw);
+        arm=allowed<arm?damp(arm,allowed,16,dt):damp(arm,allowed,3,dt);
+        arm=Math.min(arm,want);
+        _p.set(focus.x+dx*arm+rx*sh,focus.y+sp*arm,focus.z+dz*arm+rz*sh);
+        _p.y=Math.max(_p.y,T.heightAt(_p.x,_p.z)+0.6);
       }
       cam.position.copy(_p);
       for (let i = 0; i < BLK.length; i++) {
-        const b = BLK[i]; b.want = 0; if (sky) continue;
+        const b = BLK[i]; b.want = 0; if (sky || b.modelId === 'well') continue;
         if ((_p.x - b.x) * (_p.x - b.x) + (_p.z - b.z) * (_p.z - b.z) > (b.hx + b.hz + 2) * (b.hx + b.hz + 2)) continue;
         if (segBox(b, 0.45, _p.x, _p.y, _p.z, 0, 0, 0, 0) >= 0) { b.want = 1; continue; }             // the lens itself is inside / right at the cloth
         for (let k = 0; k < 2; k++) {                                                                    // head and chest of the hero behind the cloth
@@ -227,7 +245,7 @@ export function createCam(G) {
       const tp = target && (target.pos || target.position);
       if (tp) {
         const mounted = !!G.actors.player.mounted;
-        focus.set(tp.x, tp.y + (mounted ? 2.6 : 1.45), tp.z); yaw = G.actors.player.yaw; pitch = 12 * DEG; idle = 0; fr = null;
+        focus.set(tp.x, tp.y + (mounted ? 2.6 : 1.45), tp.z); yaw = G.actors.player.yaw; avoidYaw = 0; pitch = 12 * DEG; idle = 0; fr = null;
         arm = mounted ? 7.5 : (distOverride !== null ? distOverride : dist);
       }
     },
